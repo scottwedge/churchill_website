@@ -179,9 +179,9 @@
         text1.style.display = "block";
         text2.style.display = "none";
         text3.style.display = "none";
-        lemon.style.opacity = "1";
-        mint.style.opacity = "0.5";
-        salt.style.opacity = "0.5";
+        lemon.style.filter = "blur(0)";
+        mint.style.filter = "blur(5px)";
+        salt.style.filter = "blur(5px)";
 
         lemon.addEventListener(
             'mouseover',
@@ -189,9 +189,9 @@
                 text1.style.display = "block";
                 text2.style.display = "none";
                 text3.style.display = "none";
-                lemon.style.opacity = "1";
-                mint.style.opacity = "0.5";
-                salt.style.opacity = "0.5";
+                lemon.style.filter = "blur(0)";
+                mint.style.filter = "blur(5px)";
+                salt.style.filter = "blur(5px)";
             }
         );
 
@@ -201,9 +201,9 @@
                 text1.style.display = "none";
                 text2.style.display = "block";
                 text3.style.display = "none";
-                lemon.style.opacity = "0.5";
-                mint.style.opacity = "1";
-                salt.style.opacity = "0.5";
+                lemon.style.filter = "blur(5px)";
+                mint.style.filter = "blur(0)";
+                salt.style.filter = "blur(5px)";
             }
         );
 
@@ -213,9 +213,9 @@
                 text1.style.display = "none";
                 text2.style.display = "none";
                 text3.style.display = "block";
-                lemon.style.opacity = "0.5";
-                mint.style.opacity = "0.5";
-                salt.style.opacity = "1";
+                lemon.style.filter = "blur(5px)";
+                mint.style.filter = "blur(5px)";
+                salt.style.filter = "blur(0)";
             }
         );
     </script>
