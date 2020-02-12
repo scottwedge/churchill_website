@@ -1,0 +1,950 @@
+/* anchor colors */
+
+a:link    {color:rgb(77, 77, 77); text-decoration: none;}  /* unvisited link  */
+a:visited {color:rgb(77, 77, 77); text-decoration: none;}  /* visited link    */
+a:hover   {color:#000; text-decoration: none;}  /* mouse over link */
+a:active  {color:#000; text-decoration: none;}  /* selected link   */ 
+
+/* global */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    color: #4D4D4D;
+
+    /* 040 - coup de grace - https://webgradients.com/    */
+
+    background-color: #DCD9D4; 
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%); 
+    background-blend-mode: soft-light,screen;
+
+
+
+    /* 018 - cloudy knoxville - https://webgradients.com/
+
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
+    */
+
+    /* 045 - loon crest - https://webgradients.com/
+
+    background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
+    background-blend-mode: multiply,multiply;
+    
+    */
+}
+/*
+html { 
+    background: url(../images/marble.jpeg) no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+*/
+
+html {
+    font-size: 11pt;
+}
+
+h1 {
+    margin: 0 3rem ;
+    font-size: 34pt;
+    font-weight: 700;
+}
+
+h2 {
+    margin: 3rem 0;
+    font-size: 28pt;
+    font-weight: 700;
+}
+
+p {
+    margin-top: 2.2rem;
+    margin-bottom: 0;
+    font-size: 13pt;
+    font-weight: 700;
+    text-align: justify;
+}
+
+/* starting page */
+
+.backVid {
+    padding: 0 !important;
+}
+
+.backVid .fp-tableCell {
+    border-radius: 0;
+    -moz-box-shadow:    none;
+    -webkit-box-shadow: none;
+    box-shadow:         none;
+    background-color: transparent;
+    background: url(../images/AdobeStock_137145870.jpeg) no-repeat top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.logoAnimation {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 70%;
+}
+
+.scrolAnim {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden;
+}
+
+.mouse {
+    max-width: 1.5rem;
+    width: 100%;
+    height: auto;
+}
+
+.scroll {
+	animation-name: scroll;
+	animation-duration: 1.5s;
+	animation-timing-function: cubic-bezier(0.650, -0.550, 0.250, 1.500);
+	animation-iteration-count: infinite;
+	transform-origin: 50% 20.5px;
+	will-change: transform, opacity;
+	opacity: 1;
+}
+
+@keyframes scroll {
+
+	0%, 20% {
+		transform: translateY(0) scaleY(1);
+	}
+
+	100% {
+		transform: translateY(36px) scaleY(2);
+		opacity: 0;
+	}
+
+}
+
+/* header */
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 4;
+    visibility: hidden;
+}
+
+header div {
+    padding: 1.3rem 3rem;
+}
+
+.headLogo div{
+    padding: 0;
+    height: 2rem;
+    width: 5rem;
+    background: url(../images/Churchill_Logo_black_simple.png) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+.headLogo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.headLinks {
+    margin: auto 0;
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.headLinks a {
+    margin: 0 1.2rem;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+/* slides */
+
+div.imag {
+    overflow: hidden;
+    margin: 2rem 0;
+    height: 30rem;
+    width: 23%;
+}
+
+/* product slide */
+
+div.text {
+    margin: 2rem 0;
+}
+
+div.text {
+    width: 40%;
+}
+
+div.lemon {
+    background: url(../images/lemon2.png) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+div.mint {
+    background: url(../images/mint.png) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+div.salt {
+    background: url(../images/salt2.png) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+.ingr div {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.ingr {
+    margin-top: 3rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+/* functionality */
+
+.functionality .fp-tableCell {
+    height: 85vh;
+    padding: 0;
+}
+
+.functionality h1 {
+    margin: 0;
+    text-align: center;
+}
+
+/* story slide */
+
+.story .fp-tableCell {
+    padding: 0;
+    justify-content: flex-end;
+    overflow: hidden;
+    background: url(../images/AdobeStock_100276406_v6.png) no-repeat right center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    align-items: flex-start;
+    color: rgb(233, 233, 233);
+    height: 85vh;
+}
+
+.story div.text {
+    width: 35%;
+    margin-left: 4rem;
+    margin-right: 8rem;
+}
+
+/* sustainability slide */
+
+.sustainability .fp-tableCell {
+    justify-content: space-around;
+    height: 85vh;
+    padding: 0;
+    animation-name: globGol;
+    animation-duration: 42s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    background-color: #DCD9D4;
+}
+
+@keyframes globGol {
+    0%  {
+        background: url(../svg/SVG/backg7.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    4% {
+        background: url(../svg/SVG/backg7.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    13% {
+        background: url(../svg/SVG/backg7.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    16% {
+        background: url(../svg/SVG/backg7.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    17% {
+        background: url(../svg/SVG/backg8.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    21%  {
+        background: url(../svg/SVG/backg8.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    29% {
+        background: url(../svg/SVG/backg8.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    32% {
+        background: url(../svg/SVG/backg8.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    33% {
+        background: url(../svg/SVG/backg9.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    38% {
+        background: url(../svg/SVG/backg9.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    46% {
+        background: url(../svg/SVG/backg9.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    49% {
+        background: url(../svg/SVG/backg9.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    50% {
+        background: url(../svg/SVG/backg10.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    54% {
+        background: url(../svg/SVG/backg10.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    63% {
+        background: url(../svg/SVG/backg10.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    66% {
+        background: url(../svg/SVG/backg10.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    67% {
+        background: url(../svg/SVG/backg11.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    71%  {
+        background: url(../svg/SVG/backg11.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    79% {
+        background: url(../svg/SVG/backg11.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    82% {
+        background: url(../svg/SVG/backg11.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    83% {
+        background: url(../svg/SVG/backg12.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    88% {
+        background: url(../svg/SVG/backg12.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    96% {
+        background: url(../svg/SVG/backg12.svg) no-repeat center center;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        -o-background-size: auto 100%;
+        background-size: auto 100%;
+        background-color: #DCD9D4;
+    }
+    99% {
+        background: url(../svg/SVG/backg12.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+    100% {
+        background: url(../svg/SVG/backg7.svg) no-repeat center center;
+        -webkit-background-size: auto 550%;
+        -moz-background-size: auto 550%;
+        -o-background-size: auto 550%;
+        background-size: auto 550%;
+        background-color: #DCD9D4;
+    }
+}
+
+.sustainability div.imag {
+    height: 33rem;
+    width: 20%;
+    animation-name: globSym;
+    animation-duration: 42s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes globSym {
+    0%  {
+        background: url(../svg/SVG/sym1.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    4% {
+        background: url(../svg/SVG/sym1.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    13% {
+        background: url(../svg/SVG/sym1.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    16% {
+        background: url(../svg/SVG/sym1.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    17% {
+        background: url(../svg/SVG/sym2.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    21%  {
+        background: url(../svg/SVG/sym2.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    29% {
+        background: url(../svg/SVG/sym2.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    32% {
+        background: url(../svg/SVG/sym2.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    33% {
+        background: url(../svg/SVG/sym3.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    38% {
+        background: url(../svg/SVG/sym3.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    46% {
+        background: url(../svg/SVG/sym3.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    49% {
+        background: url(../svg/SVG/sym3.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    50% {
+        background: url(../svg/SVG/sym4.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    54% {
+        background: url(../svg/SVG/sym4.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    63% {
+        background: url(../svg/SVG/sym4.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    66% {
+        background: url(../svg/SVG/sym4.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    67% {
+        background: url(../svg/SVG/sym5.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    71%  {
+        background: url(../svg/SVG/sym5.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    79% {
+        background: url(../svg/SVG/sym5.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    82% {
+        background: url(../svg/SVG/sym5.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    83% {
+        background: url(../svg/SVG/sym6.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    88% {
+        background: url(../svg/SVG/sym6.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    96% {
+        background: url(../svg/SVG/sym6.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    99% {
+        background: url(../svg/SVG/sym6.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+    100% {
+        background: url(../svg/SVG/sym1.svg) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+    }
+}
+
+.sustainability .partners {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.sustainability div.clim_par {
+    width: 35%;
+    height: 2rem;
+    background: url(../images/climate_partner.png) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+.sustainability div.glob_gol {
+    width: 35%;
+    height: 4rem;
+    background: url(../svg/SVG/globgo.svg) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+.sustainability div.text  {
+    width: 40%;
+}
+
+/* about slide */
+
+.about .fp-tableCell {
+    padding: 0;
+    justify-content: left;
+    overflow: hidden;
+    height: 85vh;
+}
+.about div.imag {
+    background: url(../images/about.jpg) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    height: 100%;
+    width: 35%;
+    min-width: 450px;
+}
+.about div.text {
+    margin-left: 5rem;
+}
+
+/* contact slide */
+
+.contact .fp-tableCell {
+    justify-content: stretch;
+    flex-wrap: nowrap;
+    padding: 0;
+    background-color: transparent;
+    -moz-box-shadow:    none;
+    -webkit-box-shadow: none;
+    box-shadow:         none;
+}
+
+.contact .fp-tableCell > div {
+    height: 80vh;
+}
+
+.contact .left {
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-right: 5rem;
+    flex-grow: 0;
+    min-width: fit-content;
+    width: fit-content;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.contact .left div {
+    padding: 0 12rem 6rem 6rem;
+    border-radius: 13px;
+    -moz-box-shadow:    0px 0px 20px 0px rgb(155, 155, 155);
+    -webkit-box-shadow: 0px 0px 20px 0px rgb(155, 155, 155);
+    box-shadow:         0px 0px 20px 0px rgb(155, 155, 155);
+    background-color: #F6F5F4;
+}
+
+.contact p {
+    margin: 1.5rem 0 0 0;
+    font-weight: 600;
+    font-size: 10pt;
+}
+
+.contact a {
+    margin: 0 0 0.7rem 0;
+    font-weight: 600;
+    font-size: 10pt;
+}
+
+.contact svg {
+    width: 10px;
+    height: 10px;
+}
+
+.contact svg * {
+    width: 100%;
+    height: 100%;
+}
+
+.contact .left .legal {
+    margin-top: 3rem;
+    padding: 0 12rem 0 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.contact .right {
+    border-radius: 13px;
+    -moz-box-shadow:    0px 0px 20px 0px rgb(155, 155, 155);
+    -webkit-box-shadow: 0px 0px 20px 0px rgb(155, 155, 155);
+    box-shadow:         0px 0px 20px 0px rgb(155, 155, 155);
+    background-color: #F6F5F4;
+    width: auto;
+    flex-grow: 1;
+    overflow-y: visible;
+    flex-direction: column;
+    align-content: stretch;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    margin-bottom: 3rem;
+}
+
+.right form > * {
+    margin: 4pt 0;
+    box-sizing: border-box;
+    padding: 8pt 20pt;
+    border: none;
+    border-radius: 5pt;
+    -moz-box-shadow:    0px 0px 10px 0px rgb(210, 210, 210);
+    -webkit-box-shadow: 0px 0px 10px 0px rgb(210, 210, 210);
+    box-shadow:         0px 0px 10px 0px rgb(210, 210, 210);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #808080;
+    width: 100%;
+    height: fit-content;
+}
+
+.right form textarea {
+    height: min-content;
+    flex-grow: 1;
+    resize: none;
+}
+
+.right form button {
+    box-sizing: content-box;
+    background: url(../svg/SVG/send.svg) no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin-top: 4rem;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.right form > *::placeholder {
+    color: #808080;
+}
+
+@media (min-width: 1001px) {
+
+    /* product slide */
+
+    .product .fp-tableCell {
+        padding: 0;
+        height: 85vh;
+    }
+
+    .product div.imag {
+        background: url(../images/churchill_bottle_front.png) no-repeat center top;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        align-self: flex-end;
+        margin: 0;
+        height: 85%;
+    }
+
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+    .product div.imag {
+        background: url(../images/churchill_bottle_front_90deg.png) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 13rem;
+        width: 30rem;
+    }
+
+    div.text {
+        width: 60%;
+        min-width: 400px;
+    }
+
+    .headLinks a {
+        margin: 0 0.8rem
+    }
+
+}
+
+@media (max-width: 700px) {
+    header {
+        display: none;
+    }
+
+    .product div.imag {
+        background: url(../images/churchill_bottle_front.png) no-repeat center center;
+        -webkit-background-size: contain;
+        -moz-background-size: contain;
+        -o-background-size: contain;
+        background-size: contain;
+        height: 30rem;
+        width: 17rem;
+    }
+
+    div.text {
+        width: 60%;
+    }
+
+    .ingr div {
+        width: 12vw;
+        height: 12vw;
+        min-height: 50px;
+        min-width: 50px;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 0 0;
+        font-size: 2rem;
+    }
+
+    p {
+        margin-top: 2rem;
+    }
+}
