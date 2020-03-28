@@ -8,13 +8,10 @@
     <!--fonts:-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700&display=swap" rel="stylesheet">
     <!--stylesheets:-->
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../node_modules/fullpage.js/dist/fullpage.css" />
-    <link rel="stylesheet" type="text/css" href="../css/scalingText.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="../../node_modules/fullpage.js/dist/fullpage.css" />
     <!--scripts:-->
     <script type="text/javascript" src="../node_modules/fullpage.js/dist/fullpage.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.visible.min.js"></script>
 </head>
 <body>
 
@@ -37,7 +34,7 @@
     <div id="fullpage">
         <div class="section backVid">
             <video data-keepplaying muted class="logoAnimation" id="backVid">
-                <source src="../versuch8_2.webm" type="video/webm">
+                <source src="../video/versuch8_2.webm" type="video/webm">
             </video>
             <!--scroll animation-->
             <div class="scrolAnim" id="scrolAnim">
@@ -50,7 +47,7 @@
             </div>
         </div>
         <div class="section product" id="product">
-            <div class="text">
+            <div class="text slide">
                 <h1>product</h1>
                 <p id="text1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur1.</p>
                 <p id="text2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur2.</p>
@@ -61,7 +58,7 @@
                     <div class="salt" id="salt"></div>
                 </div>
             </div>
-            <div class="imag">
+            <div class="imag slide">
             </div>
         </div>
 
@@ -129,96 +126,6 @@
     </div>
 
 
-    <script>
-        new fullpage('#fullpage', {
-	    //options here
-        licenseKey: ,
-        paddingTop: '4.6rem',
-        paddingBottom: '5vh',
-        controlArrows: false,
-	    autoScrolling:true,
-	    scrollHorizontally: true,
-	    anchors:['animation1', 'product1', 'functionality1', 'story1', 'sustainability1', 'aboutUs1', 'contact1'],
-        onLeave: (origin, destination, direction) => {
-		    var leavingSection = this;
-            if (origin.index == 0) {
-                $('#heads')[0].style.visibility = 'visible';
-            } else if (origin.index == 1 && direction == 'up') {
-                return false;
-            }
-        },
-        afterRender: () => {
-            fullpage_api.setAllowScrolling(false);
-            fullpage_api.setKeyboardScrolling(false);
-            setTimeout(() => $('#backVid')[0].play(), 1500);
-            $('#backVid')[0].addEventListener(
-                'ended', 
-                () => {
-                    $('#scrolAnim')[0].style.visibility = 'visible';
-                    fullpage_api.setAllowScrolling(true);
-                    fullpage_api.setKeyboardScrolling(true);
-                }, false
-            );
-        }
-        });
-
-        //methods
-
-        //hide header on startPage
-
-        //header.addEventListener()
-
-        //hover effect product page
-        var lemon = document.getElementById('lemon');
-        var mint = document.getElementById('mint');
-        var salt = document.getElementById('salt');
-
-        var text1 = document.getElementById('text1');
-        var text2 = document.getElementById('text2');
-        var text3 = document.getElementById('text3');
-
-        text1.style.display = "block";
-        text2.style.display = "none";
-        text3.style.display = "none";
-        lemon.style.filter = "blur(0)";
-        mint.style.filter = "blur(5px)";
-        salt.style.filter = "blur(5px)";
-
-        lemon.addEventListener(
-            'mouseover',
-            () => {
-                text1.style.display = "block";
-                text2.style.display = "none";
-                text3.style.display = "none";
-                lemon.style.filter = "blur(0)";
-                mint.style.filter = "blur(5px)";
-                salt.style.filter = "blur(5px)";
-            }
-        );
-
-        mint.addEventListener(
-            'mouseover',
-            () => {
-                text1.style.display = "none";
-                text2.style.display = "block";
-                text3.style.display = "none";
-                lemon.style.filter = "blur(5px)";
-                mint.style.filter = "blur(0)";
-                salt.style.filter = "blur(5px)";
-            }
-        );
-
-        salt.addEventListener(
-            'mouseover',
-            () => {
-                text1.style.display = "none";
-                text2.style.display = "none";
-                text3.style.display = "block";
-                lemon.style.filter = "blur(5px)";
-                mint.style.filter = "blur(5px)";
-                salt.style.filter = "blur(0)";
-            }
-        );
-    </script>
+    <script src="./js/index.bundle.js"></script>
 </body>
 </html>
