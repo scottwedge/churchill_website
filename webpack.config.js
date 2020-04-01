@@ -2,10 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: ['./src/index.js', './src/scss/index.scss', './src/html/index.html'],
+    // './src/html/index.html',
+    index: ['./src_old/scss/index.scss', './src_old/js/index.js', './node_modules/fullpage.js/dist/fullpage.css'],
   },
   mode: 'development',
   output: {
@@ -22,6 +24,10 @@ module.exports = {
       // [name] ist the name of the entry.
       filename: 'css/[name].css',
     }),
+    new HtmlWebpackPlugin({
+      template: './src_old/html/index.html',
+      filename: './index.html',
+    }),
     new webpack.LoaderOptionsPlugin({
       options: {
           postcss: [
@@ -37,15 +43,6 @@ module.exports = {
       { // copying index.html to dist and urlrewriting (img tag only)
         test: /index\.html$/,
         use: [
-            {
-              loader: 'file-loader',
-              options: {
-                // specifies output path relative to output.path
-                outputPath: './',
-                name: '[name].[ext]',
-              },
-            },
-            "extract-loader",
             {
               loader: "html-loader",
               options: {

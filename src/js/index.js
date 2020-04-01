@@ -1,4 +1,8 @@
 import $ from 'jquery';
+import fullpage from 'fullpage.js';
+import vars from '../scss/vars/vars.scss';
+
+console.log(vars);
 
 var playPromise = $('#backVid')[0].play();
 
@@ -9,7 +13,6 @@ new fullpage('#fullpage', {
     paddingBottom: '5vh',
     controlArrows: false,
     autoScrolling:true,
-    scrollHorizontally: true,
     anchors:['animation1', 'product1', 'functionality1', 'story1', 'sustainability1', 'aboutUs1', 'contact1'],
     onLeave: (origin, destination, direction) => {
         var leavingSection = this;
