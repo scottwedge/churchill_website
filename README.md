@@ -72,17 +72,13 @@ npm install --save-dev autoprefixer babel-loader @babel/core css-loader file-loa
 ```
 3. Add **browserslist** to package.json and specify what browsers you want to support with your project. Example browserslist from package.json::
 ```json
-...
 "browserslist": [
     "last 4 versions"
 ],
-...
 ```
 4. Add a corresponding script to `package.json`:
 ```json
   "scripts": {
-    ...
     "webpack": "webpack --config ./webpack.config.js"
-    ...
   },
 ```
