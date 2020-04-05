@@ -13,9 +13,9 @@ The following setup will only work on a specific file structure:
 ```
     src
     |_  html
-        |_  index.html
-        |_  ....html
-
+    |   |_  index.html
+    |   |_  ....html
+    |
     |_  img
     |_  svg
     |_  scss
@@ -29,8 +29,8 @@ The following setup will only work on a specific file structure:
     dist
     |_  index.html
     |_  html
-        |_  ....html
-
+    |   |_  ....html
+    |
     |_  img
     |_  svg
     |_  scss
