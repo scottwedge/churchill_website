@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     // './src/html/index.html',
-    index: ['./src_old/scss/index.scss', './src_old/js/index.js', './node_modules/fullpage.js/dist/fullpage.css'],
+    index: ['./src/scss/index.scss', './src/js/index.js', './node_modules/fullpage.js/dist/fullpage.css'],
   },
   mode: 'development',
   output: {
@@ -25,7 +25,7 @@ module.exports = {
       filename: 'css/[name].css',
     }),
     new HtmlWebpackPlugin({
-      template: './src_old/html/index.html',
+      template: './src/html/index.html',
       filename: './index.html',
     }),
     new webpack.LoaderOptionsPlugin({
@@ -54,13 +54,26 @@ module.exports = {
                         type: 'src'
                       },
                       {
+                        tag: 'img',
+                        attribute: 'srcset',
+                        type: 'srcset',
+                      },
+                      {
                         tag: 'source',
                         attribute: 'src',
                         type: 'src',
-                      }
+                      },
+                      {
+                        tag: 'source',
+                        attribute: 'srcset',
+                        type: 'srcset',
+                      },
                     ],
                   },
               }
+            },
+            {
+              loader: 'ref-loader'
             }
         ]
       },
@@ -107,6 +120,30 @@ module.exports = {
               publicPath: path.basename(info.issuer) === 'index.html' ? './img/' : '../img/',
             }
           },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.90],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
+          },
         ]),
       },
       { // video loader for index.html
@@ -143,5 +180,12 @@ module.exports = {
           use: "babel-loader"
       }
     ]
+  },
+  // to fix the relative path issues for mixins! now just reference any file in scss modules with ~img or ~svg etc.
+  resolve: {
+    alias: {
+      img: path.resolve(__dirname, 'src', 'img'),
+      svg: path.resolve(__dirname, 'src', 'svg'),
+  }
   }
 };
