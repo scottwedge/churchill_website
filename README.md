@@ -59,6 +59,10 @@ Example:
 
 If you have more than one html file (e.g. `index.html`, `file2.html` etc.) then you have to create a HtmlWebpackPlugin instance for each file. A comment about how to do this can be found in `webpack.config.js`.
 
+### Cross site anchor tags
+
+References made by cross-site anchor tags can currently not be resolved. Anchor tag relative paths should be relative to the locations the html files are going to have in `dist/`.
+
 ## Usage
 
 0. If you are starting a new project:
