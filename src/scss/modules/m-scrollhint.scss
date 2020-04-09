@@ -1,0 +1,32 @@
+@mixin m-scrollhint {
+    .m-scrollhint {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        visibility: hidden;
+        .mouse {
+            max-width: 1.5rem;
+            width: 100%;
+            height: auto;
+        }
+        .scroll {
+            animation-name: scroll;
+            animation-duration: 1.5s;
+            animation-timing-function: cubic-bezier(0.650, -0.550, 0.250, 1.500);
+            animation-iteration-count: infinite;
+            transform-origin: 50% 20.5px;
+            will-change: transform, opacity;
+            opacity: 1;
+        }
+    }
+    @keyframes scroll {
+        0%, 20% {
+            transform: translateY(0) scaleY(1);
+        }
+        100% {
+            transform: translateY(36px) scaleY(2);
+            opacity: 0;
+        }
+    }
+}

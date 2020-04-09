@@ -72,9 +72,6 @@ module.exports = {
                   },
               }
             },
-            {
-              loader: 'ref-loader'
-            }
         ]
       },
       {

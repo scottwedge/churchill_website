@@ -1,0 +1,37 @@
+@mixin m-header {
+    .m-header {
+        display: flex;
+        justify-content: space-between;
+        visibility: hidden;
+        @media (max-width: 700px) {
+            display: none;
+        }
+        & > div {
+            padding: 1.3rem 3rem;
+        }
+        .logo {
+            & > a {
+                display: block;
+                height: 2rem;
+                width: 5rem;
+                background: url(~img/Churchill_Logo_black_simple.png) no-repeat center center;
+                background-size: contain;
+            }
+        }
+        .links {
+            margin: auto 0;
+            width: 60%;
+            display: flex;
+            justify-content: flex-end;
+            & > a {
+                margin: 0 1.2rem;
+                white-space: nowrap;
+                font-weight: 700;
+                font-size: 12px;
+                @media (min-width: 701px) and (max-width: 1000px) {
+                    margin: 0 0.8rem
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+@use './vars/v-vars.scss';
+
+@use './layout/l-layout01.scss';
+
+@use './modules/m-about.scss';
+@use './modules/m-contact.scss';
+@use './modules/m-functionality.scss';
+@use './modules/m-header.scss';
+@use './modules/m-product.scss';
+@use './modules/m-scrollhint.scss';
+@use './modules/m-startvid.scss';
+@use './modules/m-story.scss';
+@use './modules/m-sustainability.scss';
+
+@use './themes/t-cards01.scss';
+
+@use './base/b-body-res.scss';
+@use './base/b-rem-res.scss';
+
+@use './fonts/f-fonts01.scss';
+
+/* layout rules */
+@include l-layout01.l-layout01;
+
+/* module rules */
+@include m-about.m-about;
+@include m-contact.m-contact;
+@include m-functionality.m-functionality;
+@include m-header.m-header;
+@include m-product.m-product;
+@include m-scrollhint.m-scrollhint;
+@include m-startvid.m-startvid;
+@include m-story.m-story;
+@include m-sustainability.m-sustainability;
+
+/* theme rules */
+@include t-cards01.t-cards01;
+
+/* base rules */
+@include b-body-res.b-body-res;
+@include b-rem-res.b-rem-res;
+
+/* font rules */
+@include f-fonts01.f-fonts01;

@@ -1,46 +1,43 @@
 import $ from 'jquery';
 import fullpage from 'fullpage.js';
-import vars from '../scss/vars/vars.scss';
+import vars from '../scss/vars/v-vars.scss';
 
 console.log(vars);
-
-var playPromise = $('#backVid')[0].play();
 
 new fullpage('#fullpage', {
     //options here
     licenseKey: ,
-    paddingTop: '4.6rem',
-    paddingBottom: '5vh',
     controlArrows: false,
     autoScrolling:true,
     anchors:['animation1', 'product1', 'functionality1', 'story1', 'sustainability1', 'aboutUs1', 'contact1'],
     onLeave: (origin, destination, direction) => {
         var leavingSection = this;
         if (origin.index == 0) {
-            $('#heads')[0].style.visibility = 'visible';
+            $('#m-header')[0].style.visibility = 'visible';
         } else if (origin.index == 1 && direction == 'up') {
             return false;
         }
     },
     afterRender: () => {
+        console.log('render');
         //fullpage_api.setAllowScrolling(false);
         fullpage_api.setKeyboardScrolling(false);
         setTimeout(() => {
-            //$('#backVid')[0].autoplay = true;
-            //if (playPromise !== undefined) {
-            //    playPromise.then(function() {
+            var playPromise = $('#m-startvid')[0].play();
+            if (playPromise !== undefined) {
+                playPromise.then(function() {
                   // Automatic playback started!
-            //    }).catch(function(error) {
+                }).catch(function(error) {
                   // Automatic playback failed.
                   // Show a UI element to let the user manually start playback.
-            //    });
-            //}
+                });
+            }
 
         }, 1500);
-        $('#backVid')[0].addEventListener(
+        $('#m-startvid')[0].addEventListener(
             'ended', 
             () => {
-                $('#scrolAnim')[0].style.visibility = 'visible';
+                $('#m-scrollhint')[0].style.visibility = 'visible';
                 fullpage_api.setAllowScrolling(true);
                 fullpage_api.setKeyboardScrolling(true);
             }, false

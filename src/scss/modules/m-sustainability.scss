@@ -1,0 +1,251 @@
+@use './m-text.scss';
+@use './m-image.scss';
+@use '../mixins/mixin-card.scss';
+
+@mixin m-sustainability {
+    .m-sustainability {
+        @include m-text.m-text;
+        @include m-image.m-image;
+        @include mixin-card.mixin-card;
+        justify-content: space-around;
+        animation-name: global-goals-background;
+        animation-duration: 42s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        background-color: #DCD9D4;
+        .m-image {
+            height: 33rem;
+            width: 20%;
+            animation-name: global-goals-logo;
+            animation-duration: 42s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        .m-text {
+            width: 40%;
+        }
+        .partners {
+            margin-top: 2rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            & > div {
+                width: 35%;
+                background-size: contain;
+            }
+            .climate-partners {
+                height: 2rem;
+                background: url(~img/climate_partner.png) no-repeat center center;
+            }
+            .global-goals {
+                height: 4rem;
+                background: url(~svg/globgo.svg) no-repeat center center;
+            }
+        }
+    }
+    @keyframes global-goals-background {
+        0%  {
+            background: url(~svg/backg7.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        4% {
+            background: url(~svg/backg7.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        13% {
+            background: url(~svg/backg7.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        16% {
+            background: url(~svg/backg7.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        17% {
+            background: url(~svg/backg8.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        21%  {
+            background: url(~svg/backg8.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        29% {
+            background: url(~svg/backg8.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        32% {
+            background: url(~svg/backg8.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        33% {
+            background: url(~svg/backg9.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        38% {
+            background: url(~svg/backg9.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        46% {
+            background: url(~svg/backg9.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        49% {
+            background: url(~svg/backg9.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        50% {
+            background: url(~svg/backg10.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        54% {
+            background: url(~svg/backg10.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        63% {
+            background: url(~svg/backg10.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        66% {
+            background: url(~svg/backg10.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        67% {
+            background: url(~svg/backg11.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        71%  {
+            background: url(~svg/backg11.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        79% {
+            background: url(~svg/backg11.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        82% {
+            background: url(~svg/backg11.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        83% {
+            background: url(~svg/backg12.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        88% {
+            background: url(~svg/backg12.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        96% {
+            background: url(~svg/backg12.svg) no-repeat center center;
+            background-size: auto 100%;
+        }
+        99% {
+            background: url(~svg/backg12.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+        100% {
+            background: url(~svg/backg7.svg) no-repeat center center;
+            background-size: auto 550%;
+        }
+    }
+    @keyframes global-goals-logo {
+        0%  {
+            background: url(~svg/sym1.svg) no-repeat center center;
+            background-size: contain;
+        }
+        4% {
+            background: url(~svg/sym1.svg) no-repeat center center;
+            background-size: contain;
+        }
+        13% {
+            background: url(~svg/sym1.svg) no-repeat center center;
+            background-size: contain;
+        }
+        16% {
+            background: url(~svg/sym1.svg) no-repeat center center;
+            background-size: contain;
+        }
+        17% {
+            background: url(~svg/sym2.svg) no-repeat center center;
+            background-size: contain;
+        }
+        21%  {
+            background: url(~svg/sym2.svg) no-repeat center center;
+            background-size: contain;
+        }
+        29% {
+            background: url(~svg/sym2.svg) no-repeat center center;
+            background-size: contain;
+        }
+        32% {
+            background: url(~svg/sym2.svg) no-repeat center center;
+            background-size: contain;
+        }
+        33% {
+            background: url(~svg/sym3.svg) no-repeat center center;
+            background-size: contain;
+        }
+        38% {
+            background: url(~svg/sym3.svg) no-repeat center center;
+            background-size: contain;
+        }
+        46% {
+            background: url(~svg/sym3.svg) no-repeat center center;
+            background-size: contain;
+        }
+        49% {
+            background: url(~svg/sym3.svg) no-repeat center center;
+            background-size: contain;
+        }
+        50% {
+            background: url(~svg/sym4.svg) no-repeat center center;
+            background-size: contain;
+        }
+        54% {
+            background: url(~svg/sym4.svg) no-repeat center center;
+            background-size: contain;
+        }
+        63% {
+            background: url(~svg/sym4.svg) no-repeat center center;
+            background-size: contain;
+        }
+        66% {
+            background: url(~svg/sym4.svg) no-repeat center center;
+            background-size: contain;
+        }
+        67% {
+            background: url(~svg/sym5.svg) no-repeat center center;
+            background-size: contain;
+        }
+        71%  {
+            background: url(~svg/sym5.svg) no-repeat center center;
+            background-size: contain;
+        }
+        79% {
+            background: url(~svg/sym5.svg) no-repeat center center;
+            background-size: contain;
+        }
+        82% {
+            background: url(~svg/sym5.svg) no-repeat center center;
+            background-size: contain;
+        }
+        83% {
+            background: url(~svg/sym6.svg) no-repeat center center;
+            background-size: contain;
+        }
+        88% {
+            background: url(~svg/sym6.svg) no-repeat center center;
+            background-size: contain;
+        }
+        96% {
+            background: url(~svg/sym6.svg) no-repeat center center;
+            background-size: contain;
+        }
+        99% {
+            background: url(~svg/sym6.svg) no-repeat center center;
+            background-size: contain;
+        }
+        100% {
+            background: url(~svg/sym1.svg) no-repeat center center;
+            background-size: contain;
+        }
+    }
+}
