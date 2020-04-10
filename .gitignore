@@ -1,3 +1,4 @@
 node_modules
 src/json/passwords.json
 dist
+src_old
