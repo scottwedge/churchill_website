@@ -29,6 +29,7 @@ rfs.$rfs-factor: 2;
             margin-bottom: 0;
             @include rfs.font-size(22px);
             font-weight: 700;
+            line-height: 1.5em;
             text-align: justify;
             text-align-last: center;
             flex: auto 0 1;

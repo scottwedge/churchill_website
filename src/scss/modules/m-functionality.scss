@@ -7,6 +7,28 @@
         @include m-text.m-text;
         @include m-image.m-image;
         @include mixin-card.mixin-card;
+        .m-image {
+            & > {
+                img, source {
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: top center;
+                }
+            }
+            align-self: flex-end;
+            height: 85%;
+            flex: 23% 0 1;
+        }
+        .m-text {
+            p {
+                text-align: justify;
+                text-align-last: center;
+                & > span {
+                    display: block;
+                    text-align-last: justify;
+                }
+            }
+        }
         h1 {
             margin: 0;
             text-align: center;

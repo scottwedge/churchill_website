@@ -1,12 +1,17 @@
 import $ from 'jquery';
-import fullpage from 'fullpage.js';
+import scrollHorizontally from './fullpage.scrollHorizontally.min.js';
+import fullpage from '../../node_modules/fullpage.js/dist/fullpage.extensions.min.js';
 import vars from '../scss/vars/v-vars.scss';
+import passwords from '../json/passwords.json';
 
 console.log(vars);
 
 new fullpage('#fullpage', {
+    // scrollHorizontally
+    scrollHorizontallyKey: passwords.fullpage_scrollHorizontal_key,
+    scrollHorizontally: true,
     //options here
-    licenseKey: ,
+    licenseKey: passwords.fullpage_key,
     controlArrows: false,
     autoScrolling:true,
     anchors:['animation1', 'product1', 'functionality1', 'story1', 'sustainability1', 'aboutUs1', 'contact1'],
@@ -46,59 +51,3 @@ new fullpage('#fullpage', {
     });
 
     //methods
-
-    //hide header on startPage
-
-    //header.addEventListener()
-
-    //hover effect product page
-    var lemon = document.getElementById('lemon');
-    var mint = document.getElementById('mint');
-    var salt = document.getElementById('salt');
-
-    var text1 = document.getElementById('text1');
-    var text2 = document.getElementById('text2');
-    var text3 = document.getElementById('text3');
-
-    text1.style.display = "block";
-    text2.style.display = "none";
-    text3.style.display = "none";
-    lemon.style.filter = "blur(0)";
-    mint.style.filter = "blur(5px)";
-    salt.style.filter = "blur(5px)";
-
-    lemon.addEventListener(
-        'mouseover',
-        () => {
-            text1.style.display = "block";
-            text2.style.display = "none";
-            text3.style.display = "none";
-            lemon.style.filter = "blur(0)";
-            mint.style.filter = "blur(5px)";
-            salt.style.filter = "blur(5px)";
-        }
-    );
-
-    mint.addEventListener(
-        'mouseover',
-        () => {
-            text1.style.display = "none";
-            text2.style.display = "block";
-            text3.style.display = "none";
-            lemon.style.filter = "blur(5px)";
-            mint.style.filter = "blur(0)";
-            salt.style.filter = "blur(5px)";
-        }
-    );
-
-    salt.addEventListener(
-        'mouseover',
-        () => {
-            text1.style.display = "none";
-            text2.style.display = "none";
-            text3.style.display = "block";
-            lemon.style.filter = "blur(5px)";
-            mint.style.filter = "blur(5px)";
-            salt.style.filter = "blur(0)";
-        }
-    );
