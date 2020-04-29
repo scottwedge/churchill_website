@@ -63,26 +63,34 @@ If you have more than one html file (e.g. `index.html`, `file2.html` etc.) then 
 
 References made by cross-site anchor tags can currently not be resolved. Anchor tag relative paths should be relative to the locations the html files are going to have in `dist/`.
 
-## Usage
+## Installation
 
 0. If you are starting a new project:
 ```bash
-npm init
+git clone https://github.com/benjaminpreiss/webpack_conf.git
 ```
-1. Copy `webpack.config.js` and `postcss.config.js` to your project directory and place it next to `package.json`.
-2. Install **development dependencies**:
+1. Install all npm dependencies according to `package.json`:
 ```bash
-npm install --save-dev autoprefixer babel-loader @babel/core css-loader file-loader html-loader html-webpack-plugin image-webpack-loader mini-css-extract-plugin postcss-loader sass sass-loader webpack
+npm install
 ```
-3. Add **browserslist** to package.json and specify what browsers you want to support with your project. Example browserslist from package.json::
+2. Configure **browserslist** in package.json and specify what browsers you want to support with your project. Example browserslist from package.json:
 ```json
 "browserslist": [
     "last 4 versions"
 ],
 ```
-4. Add a corresponding script to `package.json`:
-```json
-  "scripts": {
-    "webpack": "webpack --config ./webpack.config.js"
-  },
+
+## Usage
+
+1. Start webpack build:
+```bash
+npx webpack
 ```
+2. Check js linting:
+```bash
+npx jslint
+```
+
+## Recommendations for VS Code
+
+1. Use eslint extension by Dirk Baeumer
