@@ -1,7 +1,8 @@
 {
   "scripts": {
     "webpack": "webpack --config ./webpack.config.js",
-    "jslint": "npm run standardx"
+    "jslint": "npm run standardx",
+    "scsslint": "npm run stylelint '**/*.scss'"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -18,6 +19,9 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "standardx": "^5.0.0",
+    "stylelint": "^13.3.3",
+    "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-config-standard": "^20.0.0",
     "webpack": "^4.43.0"
   }
 }
