@@ -2,7 +2,8 @@
   "scripts": {
     "webpack": "webpack --config ./webpack.config.js",
     "jslint": "npm run standardx",
-    "scsslint": "npm run stylelint '**/*.scss'"
+    "scsslint": "npm run stylelint '**/*.scss'",
+    "htmlhint": "npm run htmlhint"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
