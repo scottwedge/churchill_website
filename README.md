@@ -78,6 +78,7 @@ npm install
 defaults
 last 4 versions
 ```
+3. Configure **htmlhint** in .htmlhintrc to fit your needs.
 
 ## Usage
 
