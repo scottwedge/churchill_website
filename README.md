@@ -73,12 +73,12 @@ git clone https://github.com/benjaminpreiss/webpack_conf.git
 ```bash
 npm install
 ```
-2. Configure **browserslist** in package.json and specify what browsers you want to support with your project. Example browserslist from package.json:
-```json
-"browserslist": [
-    "last 4 versions"
-],
+2. Configure **browserslist** in .browserslistrc and specify what browsers you want to support with your project. Example browserslist:
 ```
+defaults
+last 4 versions
+```
+3. Configure **htmlhint** in .htmlhintrc to fit your needs.
 
 ## Usage
 
