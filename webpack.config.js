@@ -6,28 +6,36 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    // './src/html/index.html',
-    index: ['./src/scss/index.scss', './src/js/index.js', './node_modules/fullpage.js/dist/fullpage.css'],
+    // link all scss, css and js files (you want linked in your index.html) here.
+    // js files are linked in <body> and css files in <head>.
+    index: ['./src/scss/index.scss', './src/js/index.js'],
   },
   mode: 'development',
   output: {
-    // path for all outputs.
+    // path for ALL outputs.
     path: path.resolve(__dirname, 'dist'),
-    // filename for js files
+    // subdirectory and filename for js-files.
     filename: 'js/[name].bundle.js'
   },
   plugins: [
-    // extracting css files to files from css-loader
+    // extracting css files to files from css-loader.
     new MiniCssExtractPlugin({
-      // this defines the folder where the file should be saved.
-      // that means: output.path + filename. in this case 'dist/css/[name].css'
-      // [name] ist the name of the entry.
+      // subdirectory and filename for css-files (also scss-files).
       filename: 'css/[name].css',
     }),
+    // build html from template html file
     new HtmlWebpackPlugin({
       template: './src/html/index.html',
       filename: './index.html',
     }),
+    /* any other html file:
+    new HtmlWebpackPlugin({
+      template: './src/html/file2.html',
+      filename: './html/file2.html',
+    }),
+    */
+
+    // add postcss with autoprefixer.
     new webpack.LoaderOptionsPlugin({
       options: {
           postcss: [
@@ -40,8 +48,8 @@ module.exports = {
   devtool: 'source-map',
   module: {
     rules: [ 
-      { // copying index.html to dist and urlrewriting (img tag only)
-        test: /index\.html$/,
+      { // copying index.html to dist and urlrewriting (img and source tag only)
+        test: /\.html$/,
         use: [
             {
               loader: "html-loader",
@@ -71,10 +79,10 @@ module.exports = {
                     ],
                   },
               }
-            },
+            }
         ]
       },
-      {
+      { // process sass, scss and css files. filename specified above.
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
@@ -117,7 +125,7 @@ module.exports = {
               publicPath: path.basename(info.issuer) === 'index.html' ? './img/' : '../img/',
             }
           },
-          {
+          { // image compression
             loader: 'image-webpack-loader',
             options: {
               mozjpeg: {
@@ -150,14 +158,14 @@ module.exports = {
             loader: 'file-loader',
             options: {
               // specifies output path relative to output.path
-              outputPath: 'video',
+              outputPath: 'vid',
               // specifies path to prefix url rewriting by css-loader. if the url was url(image.jpg) it is now url(publicPath/image.jpg).
               publicPath: path.basename(info.issuer) === 'index.html' ? './video/' : '../video/',
             }
           },
         ]),
       },
-      {
+      { // svg loader
         test: /\.svg$/i,
         use: (info) => ([
           {
@@ -171,14 +179,16 @@ module.exports = {
           },
         ]),
       },
-      {
+      { // js loader.
           test: /\.js$/,
           exclude: /node_modules/,
           use: "babel-loader"
       }
     ]
   },
-  // to fix the relative path issues for mixins! now just reference any file in scss modules with ~img or ~svg etc.
+  // to fix the relative path issues for scss mixins!
+  // now just reference any image-file in scss modules with ~img or ~svg.
+  // extend this aliases for any local file you want to reference in scss.
   resolve: {
     alias: {
       img: path.resolve(__dirname, 'src', 'img'),
