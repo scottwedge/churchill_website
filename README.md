@@ -93,4 +93,6 @@ npx jslint
 
 ## Recommendations for VS Code
 
-1. Use eslint extension by Dirk Baeumer
+1. Use eslint extension by Dirk Baeumer (dbaeumer.vscode-eslint)
+2. Use stylelint extension by stylelint (stylelint.vscode-stylelint)
+3. Use htmlhint extension by Mike Kaufmann (mkaufman.htmlhint)
