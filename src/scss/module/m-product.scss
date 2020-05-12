@@ -1,0 +1,11 @@
+.m-product {
+    .m-image {
+        height: 400px;
+        width: 100%;
+    }
+
+    .m-image > canvas {
+        height: 100%;
+        width: 100%;
+    }
+}

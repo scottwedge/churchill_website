@@ -1,0 +1,38 @@
+{
+    "rfsTwoDimensional": "true",
+    "rfsFactor": "3",
+    "rfsRemValue": "12",
+    "rfsBaseValue": "16",
+    
+    "rootFontSize": "12px",
+    
+    "churchillGrey": "#3f3f3f",
+
+    "h1FontSizeMobileRfs": "70px",
+    "h1LineHeightMobile": "1em",
+    "h1MarginBottomMobile": "0.9em",
+    "h1MarginLeftMobile": "2.2rem",
+    "h1MarginRightMobile": "2.2rem",
+    "h1MarginTopMobile": "0.7em",
+
+    "h5FontSizeMobileRfs": "14px",
+    "h5MarginBottomMobile": "0.7em",
+    "h5MarginLeftMobile": "3rem",
+    "h5MarginRightMobile": "3rem",
+    "h5MarginTopMobile": "0.7em",
+    
+    "pFontSizeMobileRfs": "20px",
+    "pLineHeightMobile": "1.4em",
+    "pMarginBottomMobile": "1.4em",
+    "pMarginLeftMobile": "2.2rem",
+    "pMarginRightMobile": "2.2rem",
+    "pMarginTopMobile": "1.4em",
+
+    "offsetPoints": "6",
+    "offsetInnerRadius": "80",
+    "offsetOuterRadius": "100",
+    "offsetAngularVariance": "0.005",
+    "minFramesPerCycle": "180",
+    "maxFramesPerCycle": "200",
+    "widthScale": "0.2"
+}

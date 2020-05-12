@@ -3,11 +3,13 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const jsonImporter = require('node-sass-json-importer');
 
 module.exports = {
   entry: {
     // link all scss, css and js files (you want linked in your index.html) here.
     // js files are linked in <body> and css files in <head>.
+
     index: ['./src/scss/index.scss', './src/js/index.js'],
   },
   mode: 'development',
@@ -108,7 +110,12 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              implementation: require("sass")
+              implementation: require("sass"),
+              sassOptions: {
+                importer: jsonImporter({
+                  convertCase: true
+                }),
+              }
             }
           }
         ],
@@ -167,6 +174,7 @@ module.exports = {
       },
       { // svg loader
         test: /\.svg$/i,
+        exclude: /font\/\S*\.svg((\?)?#\S*)?$/i,
         use: (info) => ([
           {
             loader: 'file-loader',
@@ -178,6 +186,16 @@ module.exports = {
             }
           },
         ]),
+      },
+      {
+        test: /font\/\S*\.(woff(2)?|ttf|eot|svg)((\?)?#\S*)?$/i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'font',
+            publicPath: '../font/',
+          }
+        }
       },
       { // js loader.
           test: /\.js$/,
@@ -193,6 +211,7 @@ module.exports = {
     alias: {
       img: path.resolve(__dirname, 'src', 'img'),
       svg: path.resolve(__dirname, 'src', 'svg'),
+      font: path.resolve(__dirname, 'src', 'font')
   }
   }
 };

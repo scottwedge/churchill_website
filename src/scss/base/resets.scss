@@ -1,0 +1,9 @@
+@use '../../data/vars.json' as vars;
+
+html {
+    font-size: vars.$root-font-size;
+}
+
+body {
+    margin: 0;
+}
