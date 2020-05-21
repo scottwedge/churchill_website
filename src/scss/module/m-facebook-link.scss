@@ -1,0 +1,9 @@
+@use '../../data/vars.json' as vars;
+
+.m-facebook-link {
+    background: url('~svg/facebook_glyph.svg') no-repeat center center;
+    background-size: auto;
+    height: vars.$social-media-to-h5-relative-size-mobile-rfs;
+    margin-left: vars.$social-media-margin-left-right-mobile;
+    width: vars.$social-media-to-h5-relative-size-mobile-rfs;
+}

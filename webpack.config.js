@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const jsonImporter = require('node-sass-json-importer');
 
 module.exports = {
+  target: 'web',
   entry: {
     // link all scss, css and js files (you want linked in your index.html) here.
     // js files are linked in <body> and css files in <head>.
@@ -135,17 +136,19 @@ module.exports = {
           { // image compression
             loader: 'image-webpack-loader',
             options: {
+              disable: false,
               mozjpeg: {
                 progressive: true,
                 quality: 65
               },
               // optipng.enabled: false will disable optipng
               optipng: {
-                enabled: false,
+                enabled: true,
               },
               pngquant: {
                 quality: [0.65, 0.90],
-                speed: 4
+                speed: 4,
+                enabled: true
               },
               gifsicle: {
                 interlaced: false,

@@ -1,0 +1,13 @@
+@use '../../data/vars.json' as vars;
+
+.m-navigation-toggle {
+    align-items: stretch;
+    background: none;
+    border-style: none;
+    display: flex;
+    flex-direction: column;
+    height: vars.$navigation-toggle-to-h4-relative-height-mobile-rfs;
+    justify-content: space-between;
+    padding: 0;
+    width: vars.$navigation-toggle-to-h4-relative-width-mobile-rfs;
+}

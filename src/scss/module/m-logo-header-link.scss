@@ -1,0 +1,15 @@
+@use '../../data/vars.json' as vars;
+
+.m-logo-header-link {
+    background: none;
+    border-style: none;
+    font-size: inherit;
+    margin-right: auto;
+    padding: 0;
+
+    > img {
+        overflow: hidden;
+        vertical-align: middle;
+        width: vars.$logo-header-to-h4-relative-width-mobile-rfs;
+    }
+}

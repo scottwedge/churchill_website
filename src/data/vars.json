@@ -6,19 +6,31 @@
     
     "rootFontSize": "12px",
     
+    "backgroundWhite": "#ffffff",
     "churchillGrey": "#3f3f3f",
+    "churchillGold": "#dfd1a7",
+    "lemonYellow": "#fcc43e",
+    "mintGreen": "#86a985",
+    "saltGrey": "#4e5b63",
+    "gG12": "#bf8b2e",
 
     "h1FontSizeMobileRfs": "70px",
     "h1LineHeightMobile": "1em",
-    "h1MarginBottomMobile": "0.9em",
+    "h1MarginBottomMobile": "0",
     "h1MarginLeftMobile": "2.2rem",
     "h1MarginRightMobile": "2.2rem",
-    "h1MarginTopMobile": "0.7em",
+    "h1MarginTopMobile": "0",
+    "h1PaddingBottomMobile": "0.4em",
+    "h1PaddingTopMobile": "0.4em",
+
+    "h4FontSizeMobileRfs": "20px",
+    "h4MarginBottomMobile": "0.9em",
+    "h4MarginLeftMobile": "2.2rem",
+    "h4MarginRightMobile": "2.2rem",
+    "h4MarginTopMobile": "0.7em",
 
     "h5FontSizeMobileRfs": "14px",
     "h5MarginBottomMobile": "0.7em",
-    "h5MarginLeftMobile": "3rem",
-    "h5MarginRightMobile": "3rem",
     "h5MarginTopMobile": "0.7em",
     
     "pFontSizeMobileRfs": "20px",
@@ -28,11 +40,35 @@
     "pMarginRightMobile": "2.2rem",
     "pMarginTopMobile": "1.4em",
 
-    "offsetPoints": "6",
-    "offsetInnerRadius": "80",
+    "socialMediaToH5RelativeSizeMobileRfs": "2.7em",
+    "socialMediaMarginLeftRightMobile": "1em",
+    "footerPaddingLeftRightMobile": "2.8em",
+    "footerPaddingBottomTopMobile": "1.5em",
+
+    "logoHeaderToH4RelativeWidthMobileRfs" : "3em",
+    "navigationToggleToH4RelativeHeightMobileRfs": "1.5em",
+    "navigationToggleToH4RelativeWidthMobileRfs": "2.15em",
+    "headerPaddingLeftRightMobile": "1.2em",
+    "headerPaddingBottomTopMobile": "0.8em",
+
+    "mediaCanvasHeightFractionMobile": "0.5",
+    "mediaCanvasHeightFallbackMobile": "400px",
+    "mediaCanvasStickyFractionMobile": "0.15",
+
+    "offsetPoints": "80",
+    "offsetInnerRadius": "99",
     "offsetOuterRadius": "100",
     "offsetAngularVariance": "0.005",
-    "minFramesPerCycle": "180",
+    "minFramesPerCycle": "50",
     "maxFramesPerCycle": "200",
-    "widthScale": "0.2"
+    "widthScale": "5",
+    "handleScale": "0.6",
+    "modulesWithCanvas": {
+        "product": "'.m-product'",
+        "about": "'.m-about'"
+    },
+
+    "zIndexHeader": "1",
+    "zIndexFooter": "1",
+    "zIndexImageContainer": "1"
 }

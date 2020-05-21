@@ -1,0 +1,7 @@
+@use '../../data/vars.json' as vars;
+
+.m-toggle-bar {
+    background: vars.$churchill-grey;
+    border-radius: 10%/100%;
+    flex: 0 0 10%;
+}

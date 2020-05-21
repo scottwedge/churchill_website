@@ -13,101 +13,35 @@ var offsetVectors = {};
 var standardHandles = {};
 var standardHandleDistance = {};
 var handles = {}
-var scopes = {
-    "product": new paper.PaperScope(),
-};
-var canvasses = {
-    "product": $( "#product-canvas" )[ 0 ],
-};
-var bezierCenter;
-var bezier;
+var scope;
+var canvasses = {};
+var views = {};
+var bezierCenter = {};
+var bezier = {};
+var square = {};
+var result = {};
 
+
+// call on window load!
 export const init = () => {
+    setupCanvasses();
+    setupScope();
+    setupViews();
 
-    $( window ).on( "load", function() {
-
-        scopes[ "product" ].setup( canvasses[ "product" ] );
-
-        generateRandomOffsetFunctions();
-        updateOffsetVectors( scopes[ "product" ] );
-        updateStandardHandles();
-        updateStandardHandleDistance();
-        updateHandles();
-
-        scopes[ "product" ].activate();
-
-        bezierCenter = new scopes[ "product" ].Point( scopes[ "product" ].view.center.x, scopes[ "product" ].view.viewSize.height - parseFloat( vars.widthScale ) * scopes[ "product" ].view.viewSize.width );
-        bezier = new scopes[ "product" ].Path();
-        bezier.moveTo( offsetVectors[ 0 ].vector.add( bezierCenter ) );
-        bezier.cubicCurveTo(
-            handles[ 0 ].nextHandle.add( bezierCenter ),
-            handles[ 1 ].previousHandle.add( bezierCenter ),
-            offsetVectors[ 1 ].vector.add( bezierCenter)
-        );
-        for (let index = 1; index < vars.offsetPoints; index++) {
-            bezier.cubicCurveTo(
-                handles[ index ].nextHandle.add( bezierCenter ),
-                handles[ (index + 1) % vars.offsetPoints ].previousHandle.add( bezierCenter ),
-                offsetVectors[ (index + 1) % vars.offsetPoints ].vector.add( bezierCenter)
-            );
-        }
-        bezier.fillColor = 'black';
-        bezier.scale( parseFloat( vars.widthScale ) * scopes[ "product" ].view.viewSize.width / parseFloat( vars.offsetOuterRadius ), bezierCenter );
+    generateRandomOffsetFunctions();
     
-        scopes[ "product" ].view.onResize = function( event ) {
-            updateOffsetVectors( scopes[ "product" ] );
-            updateStandardHandles();
-            updateStandardHandleDistance();
-            updateHandles();
+    createPaths();
+    
+    updateGeometry(  );
 
-            scopes[ "product" ].activate();
-            bezier.removeSegments();
-            bezierCenter = new scopes[ "product" ].Point( scopes[ "product" ].view.center.x, scopes[ "product" ].view.viewSize.height - parseFloat( vars.widthScale ) * scopes[ "product" ].view.viewSize.width );
-            bezier.moveTo( offsetVectors[ 0 ].vector.add( bezierCenter ) );
-            bezier.cubicCurveTo(
-                handles[ 0 ].nextHandle.add( bezierCenter ),
-                handles[ 1 ].previousHandle.add( bezierCenter ),
-                offsetVectors[ 1 ].vector.add( bezierCenter)
-            );
-            for (let index = 1; index < vars.offsetPoints; index++) {
-                bezier.cubicCurveTo(
-                    handles[ index ].nextHandle.add( bezierCenter ),
-                    handles[ (index + 1) % vars.offsetPoints ].previousHandle.add( bezierCenter ),
-                    offsetVectors[ (index + 1) % vars.offsetPoints ].vector.add( bezierCenter)
-                );
-            }
-            bezier.scale( parseFloat( vars.widthScale ) * scopes[ "product" ].view.viewSize.width / parseFloat( vars.offsetOuterRadius ), bezierCenter );
+    scope.view.onFrame = function( event ) {
+        for ( const key in vars.modulesWithCanvas ) {
+            activateView( key );
+            updateGeometry( );
+            drawWavyLine( key );
+            //updateView( key );
         }
-
-        scopes[ "product" ].view.onFrame = function( event ) {
-            updateRandomOffsetFunctions();
-            updateOffsetVectors( scopes[ "product" ] );
-            updateStandardHandles();
-            updateStandardHandleDistance();
-            updateHandles();
-            
-            scopes[ "product" ].activate();
-            bezier.removeSegments();
-            bezierCenter = new scopes[ "product" ].Point( scopes[ "product" ].view.center.x, scopes[ "product" ].view.viewSize.height - parseFloat( vars.widthScale ) * scopes[ "product" ].view.viewSize.width );
-            bezier.moveTo( offsetVectors[ 0 ].vector.add( bezierCenter ) );
-            bezier.cubicCurveTo(
-                handles[ 0 ].nextHandle.add( bezierCenter ),
-                handles[ 1 ].previousHandle.add( bezierCenter ),
-                offsetVectors[ 1 ].vector.add( bezierCenter)
-            );
-            for (let index = 1; index < vars.offsetPoints; index++) {
-                bezier.cubicCurveTo(
-                    handles[ index ].nextHandle.add( bezierCenter ),
-                    handles[ (index + 1) % vars.offsetPoints ].previousHandle.add( bezierCenter ),
-                    offsetVectors[ (index + 1) % vars.offsetPoints ].vector.add( bezierCenter)
-                );
-            }
-            bezier.scale( parseFloat( vars.widthScale ) * scopes[ "product" ].view.viewSize.width / parseFloat( vars.offsetOuterRadius ), bezierCenter );
-            bezier.selected = true;
-            var circle = new scopes[ "product" ].Path.Circle( bezierCenter, 2);
-            circle.fillColor = 'white';
-        }
-    } );
+    }
 }
 
 // do this only once on init! afterwards walk steps on function in every frame!
@@ -147,10 +81,10 @@ const updateRandomOffsetFunctions = () => {
     }
 }
 
-// do this in every frame and on init!
-const updateOffsetVectors = ( paperScope ) => {
+// do this in every frame!
+const updateOffsetVectors = (  ) => {
     for ( let i = 0; i < parseFloat( vars.offsetPoints ); i++ ) {
-        var vector = new paperScope.Point( randomOffsetFunctions.radial[ i ].getCurrentFunctionValue(), 0 );
+        var vector = new paper.Point( randomOffsetFunctions.radial[ i ].getCurrentFunctionValue(), 0 );
         vector.angle += randomOffsetFunctions.angular[ i ].getCurrentFunctionValue( 360 );
         offsetVectors[ i ] = {
             vector: vector,
@@ -158,7 +92,7 @@ const updateOffsetVectors = ( paperScope ) => {
     }
 }
 
-// do this in every frame and on init!
+// do this in every frame!
 const updateStandardHandles = () => {
     var previousOffsetVector = offsetVectors[ parseFloat( vars.offsetPoints - 1 ) ].vector
     var thisOffsetVector = offsetVectors[ 0 ].vector;
@@ -187,7 +121,7 @@ const updateStandardHandles = () => {
     }
 }
 
-// do this in every frame and on init!
+// do this in every frame!
 const updateStandardHandleDistance = () => {
     for ( let i = 0; i < parseFloat( vars.offsetPoints ); i++ ) {
         var vectorToPrevious = standardHandles[ ( i + parseFloat( vars.offsetPoints ) - 1 ) % parseFloat( vars.offsetPoints ) ].nextHandle.subtract(standardHandles[ i ].previousHandle);
@@ -246,11 +180,90 @@ const updateHandles = () => {
     }
 }
 
-const drawWavyLine = ( paperScope ) => {
-    paperScope.activate();
+const scaleHandles = () => {
+    var relativeHandles = {};
+    for ( const key in handles ) {
+        relativeHandles[ key ] = {
+            previous: handles[ key ].previousHandle.subtract( offsetVectors[ key ].vector ),
+            next: handles[ key ].nextHandle.subtract( offsetVectors[ key ].vector )
+        }
+        relativeHandles[ key ].previous.length *= parseFloat ( vars.handleScale );
+        relativeHandles[ key ].next.length *= parseFloat ( vars.handleScale );
+        handles[ key ].previousHandle = offsetVectors[ key ].vector.add( relativeHandles[ key ].previous );
+        handles[ key ].nextHandle = offsetVectors[ key ].vector.add( relativeHandles[ key ].next );
+    }
 }
 
-// to dos for onFrame:
-// 1. calculateoffsetpoints
-// 2. update offset vectors
-// 3. walk steps for every random function!
+const drawWavyLine = ( key ) => {
+    bezierCenter[ key ] = new paper.Point( views[ key ].center.x, views[ key ].viewSize.height - parseFloat( vars.widthScale ) * views[ key ].viewSize.width );
+    bezier[ key ].removeSegments();
+    bezier[ key ].moveTo( offsetVectors[ 0 ].vector.add( bezierCenter[ key ] ) );
+    for (let index = 0; index < vars.offsetPoints; index++) {
+        bezier[ key ].cubicCurveTo(
+            handles[ index ].nextHandle.add( bezierCenter[ key ] ),
+            handles[ (index + 1) % vars.offsetPoints ].previousHandle.add( bezierCenter[ key ] ),
+            offsetVectors[ (index + 1) % vars.offsetPoints ].vector.add( bezierCenter[ key ])
+        );
+    }
+    bezier[ key ].scale( parseFloat( vars.widthScale ) * views[ key ].viewSize.width / parseFloat( vars.offsetOuterRadius ), bezierCenter[ key ] );
+    square[ key ].removeSegments();
+    square[ key ].moveTo( new paper.Point( 0, 0 ) );
+    square[ key ].lineTo( new paper.Point( views[ key ].viewSize.width, 0 ) );
+    square[ key ].lineTo( new paper.Point( views[ key ].viewSize.width, views[ key ].viewSize.height ) );
+    square[ key ].lineTo( new paper.Point( 0, views[ key ].viewSize.height ) );
+    square[ key ].lineTo( new paper.Point( 0, 0 ) );
+    result[ key ].removeSegments();
+    result[ key ].copyContent(square[ key ].subtract( bezier[ key ] ));
+}
+
+const updateGeometry = (  ) => {
+    updateRandomOffsetFunctions();
+    updateOffsetVectors(  );
+    updateStandardHandles();
+    updateStandardHandleDistance();
+    updateHandles();
+    scaleHandles();
+}
+
+const setupCanvasses = () => {
+    for ( const key in vars.modulesWithCanvas ) {
+        console.log(vars.modulesWithCanvas[ key ].slice(1, -1));
+        canvasses[ key ] = $( vars.modulesWithCanvas[ key ].slice( 1, -1 ) ).find( ".m-canvas" )[ 0 ];
+    }
+}
+
+const setupScope = () => {
+    scope = new paper.PaperScope();
+    for ( const key in vars.modulesWithCanvas ) {
+        scope.setup( canvasses[ key ] );
+    }
+}
+
+const setupViews = () => {
+    var i = 0;
+    for ( const key in vars.modulesWithCanvas ) {
+        views[ key ] = scope.View._views[i];
+        i++;
+    }
+    console.log(views);
+}
+
+const createPaths = () => {
+    for ( const key in vars.modulesWithCanvas ) {
+        views[ key ]._project.activate();
+        bezier[ key ] = new paper.Path();
+        square[ key ] = new paper.Path();
+        result[ key ] = new paper.Path();
+        result[ key ].fillColor = vars.backgroundWhite;
+        bezier[ key ].visible = false;
+        square[ key ].visible = false;
+    }
+}
+
+const activateView = ( key ) => {
+    views[ key ]._project.activate();
+}
+
+const updateView = ( key ) => {
+    views[ key ].play();
+}
