@@ -12,8 +12,8 @@ var randomOffsetFunctions = {
 var offsetVectors = {};
 var standardHandles = {};
 var standardHandleDistance = {};
-var handles = {}
-var scope;
+var handles = {};
+var scopes = {};
 var canvasses = {};
 var views = {};
 var bezierCenter = {};
@@ -25,22 +25,108 @@ var result = {};
 // call on window load!
 export const init = () => {
     setupCanvasses();
-    setupScope();
+    setupScopes();
     setupViews();
 
     generateRandomOffsetFunctions();
     
-    createPaths();
+    createPath();
     
-    updateGeometry(  );
+    updateGeometry( );
 
-    scope.view.onFrame = function( event ) {
-        for ( const key in vars.modulesWithCanvas ) {
-            activateView( key );
-            updateGeometry( );
-            drawWavyLine( key );
-            //updateView( key );
-        }
+    scopes[ "product" ].view.onFrame = function( event ) {
+        var key = "product";
+        scopes[ "empty" ].view.viewSize = scopes[ "product" ].view.viewSize;
+        updateGeometry( );
+        // activateView( key );
+        drawWavyLine( vars.emptyCanvasKey );
+        // first clear this scopes active layer:
+        scopes[ key ].project.activeLayer.removeChildren();
+        // now copy empty canvas product to this scopes active layer.
+        result[ key ] = result [ vars.emptyCanvasKey ].copyTo( scopes[ key ].project );
+        result[ key ].pivot = result[ key ].bounds.bottomLeft;
+        result[ key ].position = scopes[ key ].view.bounds.bottomLeft;
+        result[ key ].parent = scopes[ key ].project.activeLayer;
+    }
+
+    scopes[ "about" ].view.onFrame = function( event ) {
+        var key = "about";
+        scopes[ "empty" ].view.viewSize = scopes[ "about" ].view.viewSize;
+        updateGeometry( );
+        // activateView( key );
+        drawWavyLine( vars.emptyCanvasKey );
+        // first clear this scopes active layer:
+        // first clear this scopes active layer:
+        scopes[ key ].project.activeLayer.removeChildren();
+        // now copy empty canvas product to this scopes active layer.
+        result[ key ] = result [ vars.emptyCanvasKey ].copyTo( scopes[ key ].project );
+        result[ key ].pivot = result[ key ].bounds.bottomLeft;
+        result[ key ].position = scopes[ key ].view.bounds.bottomLeft;
+        result[ key ].parent = scopes[ key ].project.activeLayer;
+    }
+
+    scopes[ "lemon" ].view.onFrame = function( event ) {
+        var key = "lemon";
+        scopes[ "empty" ].view.viewSize = scopes[ "lemon" ].view.viewSize;
+        updateGeometry( );
+        // activateView( key );
+        drawWavyLine( vars.emptyCanvasKey );
+        // first clear this scopes active layer:
+        // first clear this scopes active layer:
+        scopes[ key ].project.activeLayer.removeChildren();
+        // now copy empty canvas product to this scopes active layer.
+        result[ key ] = result [ vars.emptyCanvasKey ].copyTo( scopes[ key ].project );
+        result[ key ].pivot = result[ key ].bounds.bottomLeft;
+        result[ key ].position = scopes[ key ].view.bounds.bottomLeft;
+        result[ key ].parent = scopes[ key ].project.activeLayer;
+    }
+    
+    scopes[ "mint" ].view.onFrame = function( event ) {
+        var key = "mint";
+        scopes[ "empty" ].view.viewSize = scopes[ "mint" ].view.viewSize;
+        updateGeometry( );
+        // activateView( key );
+        drawWavyLine( vars.emptyCanvasKey );
+        // first clear this scopes active layer:
+        // first clear this scopes active layer:
+        scopes[ key ].project.activeLayer.removeChildren();
+        // now copy empty canvas product to this scopes active layer.
+        result[ key ] = result [ vars.emptyCanvasKey ].copyTo( scopes[ key ].project );
+        result[ key ].pivot = result[ key ].bounds.bottomLeft;
+        result[ key ].position = scopes[ key ].view.bounds.bottomLeft;
+        result[ key ].parent = scopes[ key ].project.activeLayer;
+    }
+    
+    scopes[ "salt" ].view.onFrame = function( event ) {
+        var key = "salt";
+        scopes[ "empty" ].view.viewSize = scopes[ "salt" ].view.viewSize;
+        updateGeometry( );
+        // activateView( key );
+        drawWavyLine( vars.emptyCanvasKey );
+        // first clear this scopes active layer:
+        // first clear this scopes active layer:
+        scopes[ key ].project.activeLayer.removeChildren();
+        // now copy empty canvas product to this scopes active layer.
+        result[ key ] = result [ vars.emptyCanvasKey ].copyTo( scopes[ key ].project );
+        result[ key ].pivot = result[ key ].bounds.bottomLeft;
+        result[ key ].position = scopes[ key ].view.bounds.bottomLeft;
+        result[ key ].parent = scopes[ key ].project.activeLayer;
+    }
+    
+    scopes[ "sustainability" ].view.onFrame = function( event ) {
+        var key = "sustainability";
+        scopes[ "empty" ].view.viewSize = scopes[ "sustainability" ].view.viewSize;
+        updateGeometry( );
+        // activateView( key );
+        drawWavyLine( vars.emptyCanvasKey );
+        // first clear this scopes active layer:
+        // first clear this scopes active layer:
+        scopes[ key ].project.activeLayer.removeChildren();
+        // now copy empty canvas product to this scopes active layer.
+        result[ key ] = result [ vars.emptyCanvasKey ].copyTo( scopes[ key ].project );
+        result[ key ].pivot = result[ key ].bounds.bottomLeft;
+        result[ key ].position = scopes[ key ].view.bounds.bottomLeft;
+        result[ key ].parent = scopes[ key ].project.activeLayer;
     }
 }
 
@@ -232,35 +318,38 @@ const setupCanvasses = () => {
     }
 }
 
-const setupScope = () => {
-    scope = new paper.PaperScope();
+const setupScopes = () => {
+    scopes[ vars.emptyCanvasKey ] = new paper.PaperScope();
+    scopes[ vars.emptyCanvasKey ].setup( [ vars.emptyCanvasWidth, vars.emptyCanvasHeight ] );
     for ( const key in vars.modulesWithCanvas ) {
-        scope.setup( canvasses[ key ] );
+        scopes[ key ] = new paper.PaperScope();
+        scopes[ key ].setup( canvasses[ key ] );
     }
 }
 
 const setupViews = () => {
-    var i = 0;
+    views[ vars.emptyCanvasKey ] = scopes[ vars.emptyCanvasKey ].view;
     for ( const key in vars.modulesWithCanvas ) {
-        views[ key ] = scope.View._views[i];
-        i++;
+        views[ key ] = scopes[ key ].view;
     }
-    console.log(views);
 }
 
-const createPaths = () => {
-    for ( const key in vars.modulesWithCanvas ) {
-        views[ key ]._project.activate();
-        bezier[ key ] = new paper.Path();
-        square[ key ] = new paper.Path();
-        result[ key ] = new paper.Path();
-        result[ key ].fillColor = vars.backgroundWhite;
-        bezier[ key ].visible = false;
-        square[ key ].visible = false;
-    }
+
+const createPath = () => {
+    var key = vars.emptyCanvasKey;
+    bezier[ key ] = new paper.Path();
+    square[ key ] = new paper.Path();
+    result[ key ] = new paper.Path();
+    result[ key ].fillColor = vars.backgroundWhite;
+    bezier[ key ].visible = false;
+    square[ key ].visible = false;
+    bezier[ key ].parent = scopes[ key ].project.activeLayer;
+    square[ key ].parent = scopes[ key ].project.activeLayer;
+    result[ key ].parent = scopes[ key ].project.activeLayer;
 }
 
 const activateView = ( key ) => {
+    console.log( key );
     views[ key ]._project.activate();
 }
 

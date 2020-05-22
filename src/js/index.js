@@ -8,8 +8,10 @@ import $ from 'jquery';
 
 $( window ).on( "load", () => {
     // resizing elements with vh units
-    resizeToViewportHeightFraction( $( ".m-spacer" ), vars.mediaCanvasHeightFractionMobile );
-    resizeToViewportHeightFraction( $( ".m-media-canvas" ), vars.mediaCanvasHeightFractionMobile );
+    resizeToViewportHeightFraction( $( ".m-spacer" ), "height", vars.mediaCanvasHeightFractionMobile );
+    resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", vars.mediaCanvasHeightFractionMobile );
+    // resizeToViewportHeightFraction( $( "h1" ), "padding-top", vars.h1PaddingTopFractionMobile );
+    
 
     // start animation
     init();
@@ -18,8 +20,9 @@ $( window ).on( "load", () => {
 });
 $( window ).on( "resize", () => {
     // resizing elements with vh units
-    resizeToViewportHeightFraction( $( ".m-spacer" ), vars.mediaCanvasHeightFractionMobile );
-    resizeToViewportHeightFraction( $( ".m-media-canvas" ), vars.mediaCanvasHeightFractionMobile );
+    resizeToViewportHeightFraction( $( ".m-spacer" ), "height", vars.mediaCanvasHeightFractionMobile );
+    resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", vars.mediaCanvasHeightFractionMobile );
+    // resizeToViewportHeightFraction( $( "h1" ), "padding-top", vars.h1PaddingTopFractionMobile );
 
     // adjust text width to fit into container
     adjustTextBreaks();

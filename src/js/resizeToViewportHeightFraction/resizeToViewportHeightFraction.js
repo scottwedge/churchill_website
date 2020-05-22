@@ -5,8 +5,8 @@ import $ from 'jquery';
  * @param {*} elements pass a nodelist of elements, or a jquery selection.
  * @param {*} fraction element height as a viewport height fraction
  */
-export const resizeToViewportHeightFraction = ( elements, fraction = 1 ) => {
+export const resizeToViewportHeightFraction = ( elements, cssProperty, fraction = 1 ) => {
     $( elements ).each(function (index, element) {
-        $(element).height(window.innerHeight * fraction);
+        $(element).css(cssProperty, window.innerHeight * fraction);
     })
 }

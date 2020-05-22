@@ -22,6 +22,7 @@
     "h1MarginTopMobile": "0",
     "h1PaddingBottomMobile": "0.4em",
     "h1PaddingTopMobile": "0.4em",
+    "h1PaddingTopFractionMobile": "0.15",
 
     "h4FontSizeMobileRfs": "20px",
     "h4MarginBottomMobile": "0.9em",
@@ -65,8 +66,15 @@
     "handleScale": "0.6",
     "modulesWithCanvas": {
         "product": "'.m-product'",
-        "about": "'.m-about'"
+        "about": "'.m-about'",
+        "lemon": "'.m-lemon'",
+        "mint": "'.m-mint'",
+        "salt": "'.m-salt'",
+        "sustainability": "'.m-sustainability'"
     },
+    "emptyCanvasWidth": "500",
+    "emptyCanvasHeight": "500",
+    "emptyCanvasKey": "empty",
 
     "zIndexHeader": "1",
     "zIndexFooter": "1",
