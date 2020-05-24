@@ -1,0 +1,12 @@
+@use '../../data/vars.json' as vars;
+
+.m-text-overflow {
+    display: block;
+    opacity: inherit;
+    text-align: left;
+    white-space: nowrap;
+    &.#{vars.$overflown-text-class} {
+        display: inline;
+        white-space: normal;
+    }
+}

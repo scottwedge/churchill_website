@@ -1,22 +1,17 @@
 import $ from "jquery";
+import * as vars from "../../data/vars.json";
 
 // call on window load and resize!
 export const adjustTextBreaks = () => {
     $( ".m-text-container" ).each( function() {
         // reset text to be in the desired format
-        $( this ).find( "p > span" ).each( function() {
-            $( this ).css({
-                "white-space": "nowrap",
-                "display": "block",
-            });
+        $( this ).find( vars.textOverflowSpanSelector.slice(1, -1) ).each( function() {
+            $( this ).removeClass( vars.overflownTextClass );
         } );
         // make text break if there is not enough width available
         if ( isOverflownHorizontally( this.clientWidth, this.scrollWidth ) ) {
-            $( this ).find( "p > span" ).each( function() {
-                $( this ).css({
-                    "white-space": "normal",
-                    "display": "inline",
-                });
+            $( this ).find( vars.textOverflowSpanSelector.slice(1, -1) ).each( function() {
+                $( this ).addClass( vars.overflownTextClass );
             } );
         }
     })

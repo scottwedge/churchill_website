@@ -2,19 +2,21 @@
  * Creates an intersectionObserver
  * @param {*} targetElem The intersecting element
  * @param {*} numSteps The granularity of observation. E.g. 100 for watching every change in percent steps.
+ * @param {*} rootMargin Margin added to the observed area of the viewport. Pxls or percent. Either one or four values.
  * @param {*} handleIntersect The callback executed on every intersection change. Defaults to console log.
  * @param {*} rootElem The "viewport" relative to which intersection will be measured. Defaults to document viewport.
  */
-export function createObserver( targetElem, numSteps, handleIntersect = defaultHandleIntersect, rootElem = null ) {
-    let observer;
-  
+export function createObserver( numSteps, rootMargin = "0px", handleIntersect = defaultHandleIntersect, rootElem = null ) {
     let options = {
         root: rootElem,
-        rootMargin: "0px",
+        rootMargin: rootMargin,
         threshold: buildThresholdList( numSteps )
     };
   
-    observer = new IntersectionObserver( handleIntersect, options );
+    return new IntersectionObserver( handleIntersect, options );
+}
+
+export function observe( observer, targetElem ) {
     observer.observe( targetElem );
 }
 
