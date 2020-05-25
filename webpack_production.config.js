@@ -15,7 +15,7 @@ module.exports = {
     index: ['./src/scss/index.scss', './src/js/index.js'],
     lemon: ['./src/scss/index.scss', './src/js/index.js'],
   },
-  mode: 'development',
+  mode: 'production',
   output: {
     // path for ALL outputs.
     path: path.resolve(__dirname, 'dist'),
@@ -56,7 +56,6 @@ module.exports = {
       }
     }),
   ],
-  devtool: 'source-map',
   module: {
     rules: [ 
       { // copying index.html to dist and urlrewriting (img and source tag only)
@@ -144,7 +143,7 @@ module.exports = {
           { // image compression
             loader: 'image-webpack-loader',
             options: {
-              disable: true,
+              disable: false,
               mozjpeg: {
                 progressive: true,
                 quality: 65

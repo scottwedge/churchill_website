@@ -24,7 +24,7 @@ module.exports = {
   },
   plugins: [
     // clean dist folder before building
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     // extracting css files to files from css-loader.
     new MiniCssExtractPlugin({
       // subdirectory and filename for css-files (also scss-files).
@@ -32,10 +32,12 @@ module.exports = {
     }),
     // build html from template html file
     new HtmlWebpackPlugin({
+      chunks: ['index'],
       template: './src/html/index.html',
       filename: './index.html',
     }),
     new HtmlWebpackPlugin({
+        chunks: ['lemon'],
       template: './src/html/lemon.html',
       filename: './html/lemon.html',
     }),
@@ -57,6 +59,9 @@ module.exports = {
     }),
   ],
   devtool: 'source-map',
+  devServer: {
+    contentBase: path.resolve('./dist'),
+  },
   module: {
     rules: [ 
       { // copying index.html to dist and urlrewriting (img and source tag only)

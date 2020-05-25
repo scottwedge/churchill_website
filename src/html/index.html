@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHURCHILL</title>
 </head>
-<body>
+<body data-barba="wrapper">
     <div class="m-navigation"></div>
     <div class="m-imprint"></div>
     <div class="m-privacy"></div>
 
-    <div class="m-section-half-screen">
-        <div class="m-product">
+    
+        <main data-barba="container" data-barba-namespace="product" class="m-product">
             <div class="m-media-canvas">
                 <div class="m-image-container">
                     <img class="m-image" src="../img/churchill_bottle_front.png" alt="Churchill bottle">
@@ -31,6 +31,7 @@
                             more efficiently.
     
                         </p>
+                        <a href="./html/lemon.html">link to next page</a>
                         <p>
                             <span>Apart from nutritious fruits and herbs,</span>
                             <span>CHURCHILL contains salt. Contrary to popular belief,</span>
@@ -58,10 +59,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="m-section-half-screen">
-        <div class="m-lemon">
+        </main>
+    <!--
+        <main data-barba="container" data-barba-namespace="lemon" class="m-lemon">
             <div class="m-media-canvas">
                 <div class="m-image-container">
                     <div class="m-image"></div>
@@ -87,10 +87,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="m-section-half-screen">
-        <div class="m-mint">
+        </main>
+    
+        <main data-barba="container" data-barba-namespace="mint" class="m-mint">
             <div class="m-media-canvas">
                 <div class="m-image-container">
                     <div class="m-image"></div>
@@ -120,10 +119,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="m-section-half-screen">
-        <div class="m-salt">
+        </main>
+    
+        <main data-barba="container" data-barba-namespace="salt" class="m-salt">
             <div class="m-media-canvas">
                 <div class="m-image-container">
                     <div class="m-image"></div>
@@ -160,10 +158,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="m-section-full-screen">
-        <div class="m-story">
+        </main>
+        <main data-barba="container" data-barba-namespace="story" class="m-story">
             <div class="m-spacer">
             </div>
             <div class="m-text-container">
@@ -202,10 +198,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="m-section-half-screen">
-        <div class="m-sustainability">
+        </main>
+    
+        <main data-barba="container" data-barba-namespace="sustainability" class="m-sustainability">
             <div class="m-media-canvas">
                 <div class="m-image-container">
                     <div class="m-image"></div>
@@ -247,10 +242,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="m-section-half-screen">
-        <div class="m-about">
+        </main>
+    
+        <main data-barba="container" data-barba-namespace="about" class="m-about">
             <div class="m-media-canvas">
                 <div class="m-image-container">
                     <img class="m-image" src="../img/about.jpeg" alt="Churchill bottle">
@@ -279,13 +273,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="m-section-half-screen">
-        <div class="m-spacer">
-        </div>
-        <div class="m-contact"></div>
-    </div>
+        </main>
+        <main data-barba="container" data-barba-namespace="contact" class="m-contact"></main>
+
+        -->
+
     <header class="m-header">
         <button class="m-logo-header-link">
             <img src="../svg/churchill_logo.svg" alt="Churchill logo simple grey" >
