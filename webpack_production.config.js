@@ -13,9 +13,15 @@ module.exports = {
     // js files are linked in <body> and css files in <head>.
 
     index: ['./src/scss/index.scss', './src/js/index.js'],
-    lemon: ['./src/scss/index.scss', './src/js/index.js'],
+    lemon: ['./src/scss/index.scss', './src/js/lemon.js'],
+    mint: ['./src/scss/index.scss', './src/js/mint.js'],
+    salt: ['./src/scss/index.scss', './src/js/salt.js'],
+    story: ['./src/scss/index.scss', './src/js/story.js'],
+    sustainability: ['./src/scss/index.scss', './src/js/sustainability.js'],
+    about: ['./src/scss/index.scss', './src/js/about.js'],
+    contact: ['./src/scss/index.scss', './src/js/contact.js'],
   },
-  mode: 'development',
+  mode: 'production',
   output: {
     // path for ALL outputs.
     path: path.resolve(__dirname, 'dist'),
@@ -32,12 +38,44 @@ module.exports = {
     }),
     // build html from template html file
     new HtmlWebpackPlugin({
+      chunks: ['index'],
       template: './src/html/index.html',
       filename: './index.html',
     }),
     new HtmlWebpackPlugin({
+        chunks: ['lemon'],
       template: './src/html/lemon.html',
       filename: './html/lemon.html',
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ['mint'],
+      template: './src/html/mint.html',
+      filename: './html/mint.html',
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ['salt'],
+      template: './src/html/salt.html',
+      filename: './html/salt.html',
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ['story'],
+      template: './src/html/story.html',
+      filename: './html/story.html',
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ['sustainability'],
+      template: './src/html/sustainability.html',
+      filename: './html/sustainability.html',
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ['about'],
+      template: './src/html/about.html',
+      filename: './html/about.html',
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ['contact'],
+      template: './src/html/contact.html',
+      filename: './html/contact.html',
     }),
     /* any other html file:
     new HtmlWebpackPlugin({
@@ -56,7 +94,6 @@ module.exports = {
       }
     }),
   ],
-  devtool: 'source-map',
   module: {
     rules: [ 
       { // copying index.html to dist and urlrewriting (img and source tag only)
@@ -138,13 +175,20 @@ module.exports = {
               // specifies output path relative to output.path
               outputPath: 'img',
               // specifies path to prefix url rewriting by css-loader. if the url was url(image.jpg) it is now url(publicPath/image.jpg).
-              publicPath: path.basename(info.issuer) === 'index.html' ? './img/' : '../img/',
+              publicPath: () => {
+                console.log(path.basename(info.issuer));
+                  if (path.basename(info.issuer) === 'index.html') {
+                      return './img/';
+                  } else {
+                      return '../img/';
+                  }
+              }
             }
           },
           { // image compression
             loader: 'image-webpack-loader',
             options: {
-              disable: true,
+              disable: false,
               mozjpeg: {
                 progressive: true,
                 quality: 65
@@ -193,7 +237,14 @@ module.exports = {
               // specifies output path relative to output.path
               outputPath: 'svg',
               // specifies path to prefix url rewriting by css-loader. if the url was url(image.svg) it is now url(publicPath/image.svg).
-              publicPath: path.basename(info.issuer) === 'index.html' ? './svg/' : '../svg/',
+              publicPath: () => {
+                console.log(path.basename(info.issuer));
+                  if (path.basename(info.issuer) === 'index.html') {
+                      return './svg/';
+                  } else {
+                      return '../svg/';
+                  }
+              }
             }
           },
         ]),
