@@ -175,14 +175,15 @@ module.exports = {
               // specifies output path relative to output.path
               outputPath: 'img',
               // specifies path to prefix url rewriting by css-loader. if the url was url(image.jpg) it is now url(publicPath/image.jpg).
-              publicPath: () => {
+              publicPath: (url, resourcePath, context) => {
                 console.log(path.basename(info.issuer));
                   if (path.basename(info.issuer) === 'index.html') {
-                      return './img/';
+                      return './img/' + url;
                   } else {
-                      return '../img/';
+                      return '../img/' + url;
                   }
-              }
+              },
+              name: '[contenthash].[ext]'
             }
           },
           { // image compression
@@ -237,12 +238,13 @@ module.exports = {
               // specifies output path relative to output.path
               outputPath: 'svg',
               // specifies path to prefix url rewriting by css-loader. if the url was url(image.svg) it is now url(publicPath/image.svg).
-              publicPath: () => {
+              //publicPath: path.basename(info.issuer) === 'index.html' ? './svg/' : '../svg/',
+              publicPath: (url, resourcePath, context) => {
                 console.log(path.basename(info.issuer));
                   if (path.basename(info.issuer) === 'index.html') {
-                      return './svg/';
+                      return './svg/' + url;
                   } else {
-                      return '../svg/';
+                      return '../svg/' + url;
                   }
               }
             }
