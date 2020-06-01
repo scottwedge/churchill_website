@@ -41,6 +41,8 @@
     "pMarginRightMobile": "2.2rem",
     "pMarginTopMobile": "1.4em",
 
+    "textContainerMarginBottom": "200px",
+
     "socialMediaToH5RelativeSizeMobileRfs": "2.7em",
     "socialMediaMarginLeftRightMobile": "1em",
     "footerPaddingLeftRightMobile": "2.8em",
@@ -72,11 +74,23 @@
         "salt": "'.m-salt'",
         "sustainability": "'.m-sustainability'"
     },
+    "pageOrder": {
+        "0": "'index.html'",
+        "1": "'lemon.html'",
+        "2": "'mint.html'",
+        "3": "'salt.html'",
+        "4": "'story.html'",
+        "5": "'sustainability.html'",
+        "6": "'about.html'",
+        "7": "'contact.html'"
+    },
     "emptyCanvasWidth": "500",
     "emptyCanvasHeight": "500",
     "emptyCanvasKey": "empty",
 
     "zIndexHeader": "1",
     "zIndexFooter": "1",
-    "zIndexImageContainer": "1"
+    "zIndexImageContainer": "1",
+
+    "intersectionObserverSteps": "1"
 }

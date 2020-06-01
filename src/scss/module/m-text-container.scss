@@ -1,0 +1,5 @@
+@use '../../data/vars.json' as vars;
+
+.m-text-container {
+    margin-bottom: vars.$text-container-margin-bottom;
+}
