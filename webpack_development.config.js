@@ -16,7 +16,7 @@ module.exports = {
     lemon: ['./src/scss/index.scss', './src/js/lemon.js'],
     mint: ['./src/scss/index.scss', './src/js/mint.js'],
     salt: ['./src/scss/index.scss', './src/js/salt.js'],
-    story: ['./src/scss/index.scss', './src/js/story.js'],
+    story: ['./src/scss/index.scss', './src/js/story.js', './node_modules/video.js/dist/video-js.css'],
     sustainability: ['./src/scss/index.scss', './src/js/sustainability.js'],
     about: ['./src/scss/index.scss', './src/js/about.js'],
     contact: ['./src/scss/index.scss', './src/js/contact.js'],
@@ -218,7 +218,7 @@ module.exports = {
         ]),
       },
       { // video loader for index.html
-        test: /\.webm$/i,
+        test: /\.(webm|mp4)$/i,
         use: (info) => ([
           {
             loader: 'file-loader',
@@ -226,14 +226,7 @@ module.exports = {
               // specifies output path relative to output.path
               outputPath: 'vid',
               // specifies path to prefix url rewriting by css-loader. if the url was url(image.jpg) it is now url(publicPath/image.jpg).
-              publicPath: (url, resourcePath, context) => {
-                console.log(path.basename(info.issuer));
-                  if (path.basename(info.issuer) === 'index.html') {
-                      return './svg/' + url;
-                  } else {
-                      return '../svg/' + url;
-                  }
-              }
+              publicPath: path.basename(info.issuer) === 'index.html' ? './vid/' : '../vid/',
             }
           },
         ]),
@@ -248,7 +241,14 @@ module.exports = {
               // specifies output path relative to output.path
               outputPath: 'svg',
               // specifies path to prefix url rewriting by css-loader. if the url was url(image.svg) it is now url(publicPath/image.svg).
-              publicPath: path.basename(info.issuer) === 'index.html' ? './svg/' : '../svg/',
+              publicPath: (url, resourcePath, context) => {
+                console.log(path.basename(info.issuer));
+                  if (path.basename(info.issuer) === 'index.html') {
+                      return './svg/' + url;
+                  } else {
+                      return '../svg/' + url;
+                  }
+              }
             }
           },
         ]),

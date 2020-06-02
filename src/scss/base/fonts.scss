@@ -35,8 +35,6 @@ h1 {
     margin-top: vars.$h1-margin-top-mobile;
     padding-bottom: vars.$h1-padding-bottom-mobile;
     padding-top: vars.$h1-padding-top-mobile;
-    position: sticky;
-    top: ( vars.$media-canvas-sticky-fraction-mobile ) * 100%;
 }
 
 h4 {
@@ -57,12 +55,6 @@ h5 {
     font-family: 'Plaax', 'Verdana', sans-serif;
     margin-bottom: vars.$h5-margin-bottom-mobile;
     margin-top: vars.$h5-margin-top-mobile;
-}
-
-.m-text-table {
-    display: table;
-    margin: auto;
-    table-layout: auto;
 }
 
 .m-paragraphs {

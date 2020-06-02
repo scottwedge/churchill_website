@@ -1,0 +1,13 @@
+@use '~rfs/scss' as rfs;
+@use '../../data/vars.json' as vars;
+
+rfs.$rfs-two-dimensional: vars.$rfs-two-dimensional;
+rfs.$rfs-factor: vars.$rfs-factor;
+rfs.$rfs-rem-value: vars.$rfs-rem-value;
+rfs.$rfs-base-value: vars.$rfs-base-value;
+
+.m-heading-middle {
+    background: vars.$background-white;
+    position: sticky;
+    top: ( vars.$media-canvas-sticky-fraction-mobile ) * 100%;
+}

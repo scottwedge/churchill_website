@@ -313,7 +313,6 @@ const updateGeometry = (  ) => {
 
 const setupCanvasses = () => {
     for ( const key in vars.modulesWithCanvas ) {
-        console.log(vars.modulesWithCanvas[ key ].slice(1, -1));
         canvasses[ key ] = $( vars.modulesWithCanvas[ key ].slice( 1, -1 ) ).find( ".m-canvas" )[ 0 ];
     }
 }
@@ -349,7 +348,6 @@ const createPath = () => {
 }
 
 const activateView = ( key ) => {
-    console.log( key );
     views[ key ]._project.activate();
 }
 

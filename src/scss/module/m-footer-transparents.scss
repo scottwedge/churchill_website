@@ -1,0 +1,22 @@
+@use '~rfs/scss' as rfs;
+@use '../../data/vars.json' as vars;
+
+rfs.$rfs-two-dimensional: vars.$rfs-two-dimensional;
+rfs.$rfs-factor: vars.$rfs-factor;
+rfs.$rfs-rem-value: vars.$rfs-rem-value;
+rfs.$rfs-base-value: vars.$rfs-base-value;
+
+.m-footer-transparent {
+    @include rfs.font-size(vars.$h5-font-size-mobile-rfs);
+
+    align-items: center;
+    background: none;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    padding: vars.$footer-padding-bottom-top-mobile vars.$footer-padding-left-right-mobile;
+    position: fixed;
+    right: 0;
+    z-index: vars.$z-index-footer;
+}

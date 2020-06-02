@@ -8,13 +8,24 @@
 <body data-barba="wrapper" class="story.html">
     
     <main data-barba="container" data-barba-namespace="story" class="m-story">
-        <div class="m-spacer">
-        </div>
-        <div class="m-text-container">
-            <div class="m-video-container">
-            </div>
-            <div class="m-text-table">
-                <h1>Story</h1>
+        <video class="m-video-container"
+            id="story-video"
+            data-setup='{}'
+            autoplay
+            loop
+            muted>
+            <source src="../vid/story.mp4" type="video/mp4"></source>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a
+                web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">
+                supports HTML5 video
+                </a>
+            </p>
+        </video>
+        <div class="m-text-container-fixed">
+            <div class="m-text-table-fixed">
+                <h1 class="m-heading-top">Story</h1>
                 <div class="m-paragraphs">
                     <p>
                         Just. Keep. Going.
@@ -45,31 +56,30 @@
                     </p>
                 </div>
             </div>
+            <header class="m-header">
+                <button class="m-logo-header-link">
+                    <img src="../svg/churchill_logo.svg" alt="Churchill logo simple grey" >
+                </button>
+                <div class="m-questionaire-link"></div>
+                <button class="m-navigation-toggle">
+                    <div class="m-toggle-bar"></div>
+                    <div class="m-toggle-bar"></div>
+                    <div class="m-toggle-bar"></div>
+                </button>
+            </header>
+            <footer class="m-footer-transparent">
+                <div class="m-privacy-toggle">
+                    <h5>Privacy</h5>
+                </div>
+                <div class="m-social-media-link">
+                    <div class="m-insta-link"></div>
+                    <div class="m-facebook-link"></div>
+                </div>
+                <div class="m-imprint-toggle">
+                    <h5>Imprint</h5>
+                </div>
+            </footer>
         </div>
     </main>
-    
-    <header class="m-header">
-        <button class="m-logo-header-link">
-            <img src="../svg/churchill_logo.svg" alt="Churchill logo simple grey" >
-        </button>
-        <div class="m-questionaire-link"></div>
-        <button class="m-navigation-toggle">
-            <div class="m-toggle-bar"></div>
-            <div class="m-toggle-bar"></div>
-            <div class="m-toggle-bar"></div>
-        </button>
-    </header>
-    <footer class="m-footer">
-        <div class="m-privacy-toggle">
-            <h5>Privacy</h5>
-        </div>
-        <div class="m-social-media-link">
-            <div class="m-insta-link"></div>
-            <div class="m-facebook-link"></div>
-        </div>
-        <div class="m-imprint-toggle">
-            <h5>Imprint</h5>
-        </div>
-    </footer>
 </body>
 </html>

@@ -1,0 +1,7 @@
+@use '../../data/vars.json' as vars;
+
+.m-text-table-fixed {
+    display: table;
+    margin: 0 auto vars.$text-table-fixed-margin-bottom auto;
+    table-layout: auto;
+}

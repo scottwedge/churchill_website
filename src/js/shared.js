@@ -1,15 +1,16 @@
 import { adjustTextBreaks } from './textOverflowManager/textOverflowManager.js';
 import { init } from './waveAnimation/waveAnimation.js';
 import { createObserver } from './intersectionObserver/intersectionObserver.js';
-import { resizeToViewportHeightFraction } from './resizeToViewportHeightFraction/resizeToViewportHeightFraction.js';
+import * as resizeElement from './resizeElement/resizeElement.js';
 import * as vars from '../data/vars.json';
+import videojs from 'video.js';
 import $ from 'jquery';
 import barba from '@barba/core';
 import gsap from 'gsap';
 import * as pageTransitionHelper from './pageTransitionHelper/pageTransitionHelper.js';
 import * as detectScrollHelper from './detectScrollHelper/detectScrollHelper.js';
 
-export default function sharedFunctions() {
+export default function sharedFunctions( ) {
     barba.init({
         transitions: [{
           name: 'opacity-transition',
@@ -23,18 +24,22 @@ export default function sharedFunctions() {
               opacity: 0
             });
           }
+        }],
+        views: [{
+            namespace: 'story',
+            beforeEnter(data) {
+                videojs( $('.m-video-container')[0] );
+            }
+
         }]
       });
     
-    barba.hooks.afterLeave(() => {
+    barba.hooks.enter(() => {
         document.body.scrollTop = 0;
     });
     barba.hooks.after(() => {
         // resizing elements with vh units
-        resizeToViewportHeightFraction( $( ".m-spacer" ), "height", vars.mediaCanvasHeightFractionMobile );
-        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", vars.mediaCanvasHeightFractionMobile );
-        // resizeToViewportHeightFraction( $( "h1" ), "padding-top", vars.h1PaddingTopFractionMobile );
-        
+        resizeElement.resizeElements();
     
         // start animation
         init();
@@ -45,9 +50,7 @@ export default function sharedFunctions() {
     });
     $( window ).on( "load", () => {
         // resizing elements with vh units
-        resizeToViewportHeightFraction( $( ".m-spacer" ), "height", vars.mediaCanvasHeightFractionMobile );
-        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", vars.mediaCanvasHeightFractionMobile );
-        // resizeToViewportHeightFraction( $( "h1" ), "padding-top", vars.h1PaddingTopFractionMobile );
+        resizeElement.resizeElements();
         
     
         // start animation
@@ -59,11 +62,11 @@ export default function sharedFunctions() {
     });
     $( window ).on( "resize", () => {
         // resizing elements with vh units
-        resizeToViewportHeightFraction( $( ".m-spacer" ), "height", vars.mediaCanvasHeightFractionMobile );
-        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", vars.mediaCanvasHeightFractionMobile );
-        // resizeToViewportHeightFraction( $( "h1" ), "padding-top", vars.h1PaddingTopFractionMobile );
+        resizeElement.resizeElements();
     
         // adjust text width to fit into container
         adjustTextBreaks();
+        detectScrollHelper.registerPageScrollRecord();
+        pageTransitionHelper.resetPageTransitions();
     });
 }

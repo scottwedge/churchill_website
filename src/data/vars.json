@@ -41,7 +41,8 @@
     "pMarginRightMobile": "2.2rem",
     "pMarginTopMobile": "1.4em",
 
-    "textContainerMarginBottom": "200px",
+    "textTableMarginBottom": "300px",
+    "textTableFixedMarginBottom": "200px",
 
     "socialMediaToH5RelativeSizeMobileRfs": "2.7em",
     "socialMediaMarginLeftRightMobile": "1em",

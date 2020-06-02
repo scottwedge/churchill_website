@@ -4,9 +4,13 @@
 @use './module/m-header.scss';
 @use './module/m-logo-header-link.scss';
 @use './module/m-toggle-bar.scss';
-@use './module/m-text-container.scss';
+@use './module/m-text-table.scss';
+@use './module/m-text-table-fixed.scss';
+@use './module/m-text-container-fixed.scss';
+@use './module/m-video-container.scss';
 @use './module/m-navigation-toggle.scss';
 @use './module/m-footer.scss';
+@use './module/m-footer-transparents.scss';
 @use './module/m-insta-link.scss';
 @use './module/m-facebook-link.scss';
 @use './module/m-text-overflow.scss';
@@ -15,6 +19,8 @@
 @use './module/m-lemon.scss';
 @use './module/m-mint.scss';
 @use './module/m-salt.scss';
+@use './module/m-heading-top.scss';
+@use './module/m-heading-middle.scss';
 @use './module/m-social-media-link.scss';
 @use './module/m-media-canvas.scss';
 @use './module/m-section-half-screen.scss';
