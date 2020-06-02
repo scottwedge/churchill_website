@@ -2,7 +2,7 @@ import $ from "jquery";
 
 // call on window load and resize!
 export const adjustTextBreaks = () => {
-    $( ".m-text-container" ).each( function() {
+    $( ".m-text-container, .m-text-container-fixed" ).each( function() {
         // reset text to be in the desired format
         $( this ).find( "p > span" ).each( function() {
             $( this ).css({

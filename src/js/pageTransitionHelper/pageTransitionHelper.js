@@ -27,10 +27,8 @@ function goToPrevPage( entries, observer ) {
             if( curIndex > 0 && detectScrollHelper.getIsScrolled() ) {
                 let prevPageFile = pageArray[ ( curIndex - 1 )  ];
                 if( curIndex === 1 ) {
-                    console.log('/' + prevPageFile);
                     barba.go( '/' + prevPageFile );
                 } else {
-                    console.log('/html/' + prevPageFile);
                     barba.go( '/html/' + prevPageFile );
                 }
             }
@@ -51,7 +49,6 @@ function goToNextPage( entries, observer ) {
             let nextPageFile
             if( curIndex < pageArray.length - 1  && detectScrollHelper.getIsScrolled() ) {
                 nextPageFile = pageArray[ ( curIndex + 1 ) ];
-                console.log( '/html/' + nextPageFile );
                 barba.go( '/html/' + nextPageFile );
             }
         }
@@ -66,7 +63,23 @@ function initiatePageTransitionsBottom() {
     bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage );
 }
 
+function resetPageTransitionsTop() {
+    topObserver.disconnect();
+    topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage );
+
+}
+
+function resetPageTransitionsBottom() {
+    bottomObserver.disconnect();
+    bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage );
+}
+
 export function initiatePageTransitions() {
     initiatePageTransitionsBottom();
     initiatePageTransitionsTop();
+}
+
+export function resetPageTransitions() {
+    resetPageTransitionsTop();
+    resetPageTransitionsBottom();
 }

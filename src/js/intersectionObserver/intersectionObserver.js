@@ -10,18 +10,21 @@ import $ from 'jquery';
  */
 
 export default function createObserver( targetElems, numSteps, handleIntersect = defaultHandleIntersect, rootMargin = "0px", rootElem = null) {
-    let observer;
+    let observer = null;
   
-    let options = {
-        root: rootElem,
-        rootMargin: rootMargin,
-        threshold: buildThresholdList( numSteps )
-    };
-  
-    observer = new IntersectionObserver( handleIntersect, options );
-    $( targetElems ).each( function( index, element ) {
-        observer.observe( element );
-    } );
+    if ( $( targetElems ).length > 0 ) {
+        let options = {
+            root: rootElem,
+            rootMargin: rootMargin,
+            threshold: buildThresholdList( numSteps )
+        };
+    
+        observer = new IntersectionObserver( handleIntersect, options );
+        $( targetElems ).each( function( index, element ) {
+            observer.observe( element );
+        } );
+    } else {
+    }
 
     return observer;
 }

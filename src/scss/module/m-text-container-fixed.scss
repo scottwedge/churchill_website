@@ -1,0 +1,8 @@
+@use '../../data/vars.json' as vars;
+
+.m-text-container-fixed {
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+}

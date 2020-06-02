@@ -215,7 +215,7 @@ module.exports = {
         ]),
       },
       { // video loader for index.html
-        test: /\.webm$/i,
+        test: /\.(webm|mp4)$/i,
         use: (info) => ([
           {
             loader: 'file-loader',
@@ -223,7 +223,7 @@ module.exports = {
               // specifies output path relative to output.path
               outputPath: 'vid',
               // specifies path to prefix url rewriting by css-loader. if the url was url(image.jpg) it is now url(publicPath/image.jpg).
-              publicPath: path.basename(info.issuer) === 'index.html' ? './video/' : '../video/',
+              publicPath: path.basename(info.issuer) === 'index.html' ? './vid/' : '../vid/',
             }
           },
         ]),
