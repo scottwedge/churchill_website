@@ -49,6 +49,21 @@ export const init = () => {
         result[ key ].parent = scopes[ key ].project.activeLayer;
     }
 
+    scopes[ "contact" ].view.onFrame = function( event ) {
+        var key = "contact";
+        scopes[ "empty" ].view.viewSize = scopes[ "contact" ].view.viewSize;
+        updateGeometry( );
+        // activateView( key );
+        drawWavyLine( vars.emptyCanvasKey );
+        // first clear this scopes active layer:
+        scopes[ key ].project.activeLayer.removeChildren();
+        // now copy empty canvas product to this scopes active layer.
+        result[ key ] = result [ vars.emptyCanvasKey ].copyTo( scopes[ key ].project );
+        result[ key ].pivot = result[ key ].bounds.bottomLeft;
+        result[ key ].position = scopes[ key ].view.bounds.bottomLeft;
+        result[ key ].parent = scopes[ key ].project.activeLayer;
+    }
+
     scopes[ "about" ].view.onFrame = function( event ) {
         var key = "about";
         scopes[ "empty" ].view.viewSize = scopes[ "about" ].view.viewSize;

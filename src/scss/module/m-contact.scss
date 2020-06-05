@@ -1,0 +1,9 @@
+@use '../../data/vars.json' as vars;
+
+.m-contact {
+    .m-image-container > .m-image {
+        background: vars.$churchill-grey;
+        object-fit: contain;
+        object-position: center;
+    }
+}
