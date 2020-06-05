@@ -73,7 +73,8 @@
         "lemon": "'.m-lemon'",
         "mint": "'.m-mint'",
         "salt": "'.m-salt'",
-        "sustainability": "'.m-sustainability'"
+        "sustainability": "'.m-sustainability'",
+        "contact": "'.m-contact'"
     },
     "pageOrder": {
         "0": "'index.html'",
