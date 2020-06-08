@@ -4,7 +4,6 @@ import $ from 'jquery';
  * Creates an intersectionObserver
  * @param {*} targetElems The intersecting elements
  * @param {*} numSteps The granularity of observation. E.g. 100 for watching every change in percent steps.
- * @param {*} rootMargin Margin added to the observed area of the viewport. Pxls or percent. Either one or four values.
  * @param {*} handleIntersect The callback executed on every intersection change. Defaults to console log.
  * @param {*} rootMargin The Margin added to the applied rootElem intersection Area. Format: '0px 0px 0px 0px'.
  * @param {*} rootElem The "viewport" relative to which intersection will be measured. Defaults to document viewport.

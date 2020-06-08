@@ -1,6 +1,6 @@
 @use '../../data/vars.json' as vars;
 
-.m-text-overflow {
+.#{vars.$overflown-text-class} {
     display: block;
     opacity: inherit;
     text-align: left;

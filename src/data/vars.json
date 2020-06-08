@@ -94,5 +94,7 @@
     "zIndexFooter": "1",
     "zIndexImageContainer": "1",
 
-    "intersectionObserverSteps": "1"
+    "intersectionObserverSteps": "1",
+    "textOverflowSpanSelector": "'p > span'",
+    "overflownTextClass": "text-width-overflown"
 }

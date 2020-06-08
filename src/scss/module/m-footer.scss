@@ -10,6 +10,7 @@ rfs.$rfs-base-value: vars.$rfs-base-value;
     @include rfs.font-size(vars.$h5-font-size-mobile-rfs);
 
     align-items: center;
+    background: #fff;
     bottom: 0;
     display: flex;
     justify-content: space-between;

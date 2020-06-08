@@ -70,6 +70,12 @@ h5 {
         margin-top: vars.$p-margin-top-mobile;
         text-align-last: left;
     }
+
+    > p > span {
+        display: block;
+        text-align: left;
+        white-space: nowrap;
+    }
 }
 
 .f-italic {
