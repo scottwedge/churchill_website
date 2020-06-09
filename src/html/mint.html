@@ -9,10 +9,11 @@
     
     <main data-barba="container" data-barba-namespace="mint" class="m-mint">
         <div class="m-media-canvas">
+            <div class="m-text-mask"></div>
             <div class="m-image-container">
                 <div class="m-image"></div>
+                <canvas class="m-canvas" resize="true"></canvas>
             </div>
-            <canvas class="m-canvas" resize="true"></canvas>
         </div>
         <div class="m-text-container">
             <div class="m-text-table">
@@ -36,15 +37,25 @@
                 </div>
             </div>
         </div>
+        <div class="m-navigation-container">
+            <div class="m-navigation">
+                <h4><a href="/index.html">Product</a></h4>
+                <h4><a href="/html/story.html">Story</a></h4>
+                <h4><a href="/html/sustainability.html">Sustainability</a></h4>
+                <h4><a href="/html/about.html">About Us</a></h4>
+                <h4><a href="/html/contact.html">Contact</a></h4>
+                <h4><a href="">Questionaire</a></h4>
+            </div>
+        </div>
         <header class="m-header">
             <button class="m-logo-header-link">
                 <img src="../svg/churchill_logo.svg" alt="Churchill logo simple grey" >
             </button>
             <div class="m-questionaire-link"></div>
             <button class="m-navigation-toggle">
-                <div class="m-toggle-bar"></div>
-                <div class="m-toggle-bar"></div>
-                <div class="m-toggle-bar"></div>
+                <div class="m-toggle-bar rotate-ccw"></div>
+                <div class="m-toggle-bar scale"></div>
+                <div class="m-toggle-bar rotate-cw"></div>
             </button>
         </header>
         <footer class="m-footer">

@@ -1,5 +1,6 @@
 import { adjustTextBreaks } from './textOverflowManager/textOverflowManager.js';
 import { init } from './waveAnimation/waveAnimation.js';
+import * as stateHelper from './stateHelper/stateHelper.js';
 import { createObserver } from './intersectionObserver/intersectionObserver.js';
 import * as resizeElement from './resizeElement/resizeElement.js';
 import * as vars from '../data/vars.json';
@@ -47,6 +48,7 @@ export default function sharedFunctions( ) {
         adjustTextBreaks();
         detectScrollHelper.registerPageScrollRecord();
         pageTransitionHelper.initiatePageTransitions();
+        stateHelper.registerNavigationToggle();
     });
     $( window ).on( "load", () => {
         // resizing elements with vh units
@@ -59,6 +61,7 @@ export default function sharedFunctions( ) {
         adjustTextBreaks();
         detectScrollHelper.registerPageScrollRecord();
         pageTransitionHelper.initiatePageTransitions();
+        stateHelper.registerNavigationToggle();
     });
     $( window ).on( "resize", () => {
         // resizing elements with vh units

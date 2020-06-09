@@ -18,5 +18,13 @@ rfs.$rfs-base-value: vars.$rfs-base-value;
     padding: vars.$footer-padding-bottom-top-mobile vars.$footer-padding-left-right-mobile;
     position: fixed;
     right: 0;
+    transition: #{vars.$nav-close-footer-visibility-transition};
     z-index: vars.$z-index-footer;
+}
+
+.#{vars.$navigation-open-class} {
+    .m-footer {
+        transition: #{vars.$nav-open-footer-visibility-transition};
+        visibility: hidden;
+    }
 }

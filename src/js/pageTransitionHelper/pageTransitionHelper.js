@@ -1,5 +1,6 @@
 import * as vars from '../../data/vars.json';
-import * as detectScrollHelper from '../detectScrollHelper/detectScrollHelper.js'
+import * as detectScrollHelper from '../detectScrollHelper/detectScrollHelper.js';
+import * as stateHelper from '../stateHelper/stateHelper.js';
 import barba from '@barba/core';
 
 let bottomObserver;
@@ -16,7 +17,7 @@ function createPageArray() {
 function goToPrevPage( entries, observer ) {
     let pageArray = createPageArray();
     entries.forEach( element => {
-        if( element.intersectionRatio === 1 ) {
+        if( element.intersectionRatio === 1 && stateHelper.contentOpen() ) {
             let curPagePath = window.location.pathname;
             if ( curPagePath === '/' ) {
                 curPagePath = './index.html';
@@ -39,7 +40,7 @@ function goToPrevPage( entries, observer ) {
 function goToNextPage( entries, observer ) {
     let pageArray = createPageArray();
     entries.forEach( element => {
-        if( !element.isIntersecting ) {
+        if( !element.isIntersecting && stateHelper.contentOpen() ) {
             let curPagePath = window.location.pathname;
             if ( curPagePath === '/' ) {
                 curPagePath = './index.html';

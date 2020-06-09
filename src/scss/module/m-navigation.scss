@@ -1,0 +1,7 @@
+@use '../../data/vars.json' as vars;
+
+.m-navigation {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}

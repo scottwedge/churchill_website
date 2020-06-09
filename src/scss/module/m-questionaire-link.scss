@@ -1,25 +1,14 @@
 @use '../../data/vars.json' as vars;
 
-.m-logo-header-link {
-    background: none;
-    border-style: none;
-    font-size: inherit;
-    margin-right: auto;
+.m-questionaire-link {
     opacity: 1;
-    padding: 0;
     transition:
         #{vars.$nav-close-header-opacity-transition},
         #{vars.$nav-close-header-visibility-transition};
-
-    > img {
-        overflow: hidden;
-        vertical-align: middle;
-        width: vars.$logo-header-to-h4-relative-width-mobile-rfs;
-    }
 }
 
 .#{vars.$navigation-open-class} {
-    .m-logo-header-link {
+    .m-questionaire-link {
         opacity: 0;
         transition:
             #{vars.$nav-open-header-opacity-transition},

@@ -1,7 +1,40 @@
 @use '../../data/vars.json' as vars;
+@use 'sass:math';
+@use 'sass:string';
 
 .m-toggle-bar {
     background: vars.$churchill-grey;
-    border-radius: 10%/100%;
-    flex: 0 0 10%;
+    border-radius: #{vars.$navigation-toggle-bar-height}/100%;
+    flex: 0 0 vars.$navigation-toggle-bar-height;
+    transform-origin: 100% 50%;
+
+    &.scale {
+        transition: #{vars.$nav-close-toggle-bar-scale-transform-transition};
+    }
+
+    &.rotate-ccw,
+    &.rotatecw {
+        transition: #{vars.$nav-close-toggle-bar-rotate-transform-transition};
+    }
+}
+
+.#{vars.$navigation-open-class} {
+    .m-toggle-bar.scale {
+        transform: scale(0, 1);
+        transition: #{vars.$nav-open-toggle-bar-scale-transform-transition};
+    }
+
+    .m-toggle-bar.rotate-ccw {
+        transform:
+            rotate(-45deg)
+            scale(math.hypot(vars.$navigation-toggle-to-h4-unitless-relative-height-mobile-rfs * (1 - vars.$navigation-toggle-bar-height-fraction), vars.$navigation-toggle-to-h4-unitless-relative-height-mobile-rfs * (1 - vars.$navigation-toggle-bar-height-fraction)) / vars.$navigation-toggle-to-h4-unitless-relative-width-mobile-rfs, 1);
+        transition: #{vars.$nav-open-toggle-bar-rotate-transform-transition};
+    }
+
+    .m-toggle-bar.rotate-cw {
+        transform:
+            rotate(45deg)
+            scale(math.hypot(vars.$navigation-toggle-to-h4-unitless-relative-height-mobile-rfs * (1 - vars.$navigation-toggle-bar-height-fraction), vars.$navigation-toggle-to-h4-unitless-relative-height-mobile-rfs * (1 - vars.$navigation-toggle-bar-height-fraction)) / vars.$navigation-toggle-to-h4-unitless-relative-width-mobile-rfs, 1);
+        transition: #{vars.$nav-open-toggle-bar-rotate-transform-transition};
+    }
 }

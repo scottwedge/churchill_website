@@ -1,14 +1,12 @@
 @use '../../data/vars.json' as vars;
 
-.m-social-media-link {
-    display: flex;
-    justify-content: center;
+.m-privacy-toggle {
     opacity: 1;
     transition: #{vars.$nav-close-footer-opacity-transition};
 }
 
 .#{vars.$navigation-open-class} {
-    .m-social-media-link {
+    .m-privacy-toggle {
         opacity: 0;
         transition: #{vars.$nav-open-footer-opacity-transition};
     }

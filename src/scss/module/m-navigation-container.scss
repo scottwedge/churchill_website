@@ -1,0 +1,29 @@
+@use '../../data/vars.json' as vars;
+
+.m-navigation-container {
+    align-items: center;
+    background: vars.$background-white;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translate(100%, 0);
+    transition:
+        #{vars.$nav-close-transform-transition},
+        #{vars.$nav-close-opacity-transition};
+    z-index: vars.$z-index-navigation;
+}
+
+.#{vars.$navigation-open-class} {
+    .m-navigation-container {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition:
+            #{vars.$nav-open-transform-transition},
+            #{vars.$nav-open-opacity-transition};
+    }
+}

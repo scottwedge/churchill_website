@@ -1,0 +1,13 @@
+@use '../../data/vars.json' as vars;
+
+.m-text-container {
+    opacity: 1;
+    transition: #{vars.$nav-close-text-container-opacity-transition};
+}
+
+.#{vars.$navigation-open-class} {
+    .m-text-container {
+        opacity: 0;
+        transition: #{vars.$nav-open-text-container-opacity-transition};
+    }
+}
