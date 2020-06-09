@@ -4,4 +4,12 @@
     display: table;
     margin: 0 auto vars.$text-table-fixed-margin-bottom auto;
     table-layout: auto;
+    transition: #{vars.$nav-close-text-table-fixed-opacity-transition};
+}
+
+.#{vars.$navigation-open-class} {
+    .m-text-table-fixed {
+        opacity: 0;
+        transition: #{vars.$nav-open-text-table-fixed-opacity-transition};
+    }
 }
