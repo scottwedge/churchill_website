@@ -20,8 +20,8 @@ const resizeElementsToHeightOf = ( elements, cssProperty, referenceElement, with
 
 export function resizeElements() {
     resizeElementsToHeightOf( $( ".m-heading-top" ), "margin-top", $( ".m-header" ), true );
-    resizeElementsToHeightOf( $( ".m-text-container-fixed" ), "top", $( ".m-header" ), true );
-    resizeElementsToHeightOf( $( ".m-text-container-fixed" ), "margin-top", $( ".m-heading-top" ), false );
-    resizeElementsToHeightOf( $( ".m-text-container-fixed" ), "bottom", $( ".m-footer-transparent" ), true );
+    resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "top", $( ".m-header" ), true );
+    resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "margin-top", $( ".m-heading-top" ), false );
+    resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "bottom", $( ".m-footer-transparent" ), true );
     resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", vars.mediaCanvasHeightFractionMobile );
 }

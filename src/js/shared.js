@@ -14,17 +14,28 @@ import * as detectScrollHelper from './detectScrollHelper/detectScrollHelper.js'
 export default function sharedFunctions( ) {
     barba.init({
         transitions: [{
-          name: 'opacity-transition',
-          leave(data) {
-            return gsap.to(data.current.container, {
-              opacity: 0
-            });
-          },
-          enter(data) {
-            return gsap.from(data.next.container, {
-              opacity: 0
-            });
-          }
+            name: 'opacity-transition',
+            once() {
+                runOnce();
+            },
+            after() {
+            },
+            leave(data) {
+                return gsap.to(data.current.container, {
+                    opacity: 0
+                });
+            },
+            beforeEnter(data) {
+                document.body.scrollTop = 0;
+                runAfterTransition(data.next.container);
+            },
+            enter(data) {
+                return gsap.from(data.next.container, {
+                    opacity: 0
+                });
+            },
+            afterEnter(data) {
+            }
         }],
         views: [{
             namespace: 'story',
@@ -33,43 +44,39 @@ export default function sharedFunctions( ) {
             }
 
         }]
-      });
-    
-    barba.hooks.enter(() => {
-        document.body.scrollTop = 0;
-    });
-    barba.hooks.after(() => {
-        // resizing elements with vh units
-        resizeElement.resizeElements();
-    
-        // start animation
-        init();
-        // adjust text width to fit into container
-        adjustTextBreaks();
-        detectScrollHelper.registerPageScrollRecord();
-        pageTransitionHelper.initiatePageTransitions();
-        stateHelper.registerNavigationToggle();
-    });
-    $( window ).on( "load", () => {
-        // resizing elements with vh units
-        resizeElement.resizeElements();
-        
-    
-        // start animation
-        init();
-        // adjust text width to fit into container
-        adjustTextBreaks();
-        detectScrollHelper.registerPageScrollRecord();
-        pageTransitionHelper.initiatePageTransitions();
-        stateHelper.registerNavigationToggle();
     });
     $( window ).on( "resize", () => {
-        // resizing elements with vh units
-        resizeElement.resizeElements();
-    
-        // adjust text width to fit into container
-        adjustTextBreaks();
-        detectScrollHelper.registerPageScrollRecord();
-        pageTransitionHelper.resetPageTransitions();
+        runOnResize();
     });
+}
+
+function runOnResize( nextBarbaContainer ) {
+    // resizing elements with vh units
+    resizeElement.resizeElements();
+
+    // adjust text width to fit into container
+    adjustTextBreaks();
+    detectScrollHelper.registerPageScrollRecord();
+    pageTransitionHelper.resetPageTransitions( nextBarbaContainer );
+}
+
+function runOnLoad() {
+    // resizing elements with vh units
+    resizeElement.resizeElements();
+
+    // adjust text width to fit into container
+    adjustTextBreaks();
+    detectScrollHelper.registerPageScrollRecord();
+    pageTransitionHelper.initiatePageTransitions();
+}
+
+function runAfterTransition( nextBarbaContainer ) {
+    init();
+    runOnResize( nextBarbaContainer );
+}
+
+function runOnce() {
+    init();
+    runOnLoad();
+    stateHelper.registerNavigationToggle();
 }

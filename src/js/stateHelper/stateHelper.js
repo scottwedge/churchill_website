@@ -10,6 +10,7 @@ export function contentOpen() {
 }
 
 export function registerNavigationToggle() {
+    //$( '.m-navigation-toggle' ).off( 'click' );
     $( '.m-navigation-toggle' ).on( 'click', () => {
         $( 'body' ).toggleClass( vars.navigationOpenClass );
     } );

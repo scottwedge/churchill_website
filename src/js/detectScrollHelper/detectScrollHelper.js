@@ -17,12 +17,12 @@ function bottomObserverMargin() {
     return '-' + Math.ceil( topMargin ) + 'px 0px 0px 0px';
 }
 
-function scrolledToTopReference() {
-    return $( '.m-media-canvas' ).add( '.m-text-table-fixed p' ).first();
+function scrolledToTopReference( nextBarbaContainer ) {
+    return $( nextBarbaContainer ).find( '.scrolled-to-top-reference' );
 }
 
-function scrolledToBottomReference() {
-    return $( '.m-text-container, .m-text-table-fixed' );
+function scrolledToBottomReference( nextBarbaContainer ) {
+    return $( nextBarbaContainer ).find( '.scrolled-to-bottom-reference' );
 }
 
 function topObserverMargin() {
@@ -43,9 +43,9 @@ function scrolledToBottomRoot() {
     return null;
 }
 
-export function scrolledToTopObserver( handleIntersect ) {
+export function scrolledToTopObserver( handleIntersect, nextBarbaContainer ) {
     return createObserver(
-        scrolledToTopReference(),
+        scrolledToTopReference( nextBarbaContainer ),
         parseFloat( vars.intersectionObserverSteps ),
         handleIntersect,
         topObserverMargin(),
@@ -53,9 +53,9 @@ export function scrolledToTopObserver( handleIntersect ) {
     );
 }
 
-export function scrolledToBottomObserver( handleIntersect ) {
+export function scrolledToBottomObserver( handleIntersect, nextBarbaContainer ) {
     return createObserver(
-        scrolledToBottomReference(),
+        scrolledToBottomReference( nextBarbaContainer ),
         parseFloat( vars.intersectionObserverSteps ),
         handleIntersect,
         bottomObserverMargin(),
@@ -67,7 +67,7 @@ export function scrolledToBottomObserver( handleIntersect ) {
 export function registerPageScrollRecord() {
     isScrolled = false;
     let scrollCounter = 0;
-    $( window ).add( '.m-text-container-fixed' ).on( 'scroll', function( event ) {
+    $( window ).add( '.m-text-container-absolute' ).on( 'scroll', function( event ) {
         if (scrollCounter === 0) {
             scrollCounter++
         } else {

@@ -7,7 +7,7 @@
 @use './module/m-text-table.scss';
 @use './module/m-text-table-fixed.scss';
 @use './module/m-text-container.scss';
-@use './module/m-text-container-fixed.scss';
+@use './module/m-text-container-absolute.scss';
 @use './module/m-video-container.scss';
 @use './module/m-navigation-toggle.scss';
 @use './module/m-footer.scss';
@@ -25,6 +25,7 @@
 @use './module/m-contact.scss';
 @use './module/m-mint.scss';
 @use './module/m-salt.scss';
+@use './module/m-story.scss';
 @use './module/m-heading-top.scss';
 @use './module/m-heading-middle.scss';
 @use './module/m-social-media-link.scss';

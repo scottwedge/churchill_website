@@ -1,6 +1,7 @@
 import * as vars from '../../data/vars.json';
 import * as detectScrollHelper from '../detectScrollHelper/detectScrollHelper.js';
 import * as stateHelper from '../stateHelper/stateHelper.js';
+import $ from 'jquery';
 import barba from '@barba/core';
 
 let bottomObserver;
@@ -57,22 +58,22 @@ function goToNextPage( entries, observer ) {
 }
 
 function initiatePageTransitionsTop() {
-   topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage );
+    topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage, $( 'main' ) );
 }
 
 function initiatePageTransitionsBottom() {
-    bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage );
+    bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage, $( 'main' ) );
 }
 
-function resetPageTransitionsTop() {
+function resetPageTransitionsTop( nextBarbaContainer ) {
     topObserver.disconnect();
-    topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage );
+    topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage, nextBarbaContainer );
 
 }
 
-function resetPageTransitionsBottom() {
+function resetPageTransitionsBottom( nextBarbaContainer ) {
     bottomObserver.disconnect();
-    bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage );
+    bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage, nextBarbaContainer );
 }
 
 export function initiatePageTransitions() {
@@ -80,7 +81,7 @@ export function initiatePageTransitions() {
     initiatePageTransitionsTop();
 }
 
-export function resetPageTransitions() {
-    resetPageTransitionsTop();
-    resetPageTransitionsBottom();
+export function resetPageTransitions( nextBarbaContainer ) {
+    resetPageTransitionsTop( nextBarbaContainer );
+    resetPageTransitionsBottom( nextBarbaContainer );
 }

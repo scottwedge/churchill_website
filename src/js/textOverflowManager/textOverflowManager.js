@@ -3,7 +3,7 @@ import * as vars from "../../data/vars.json";
 
 // call on window load and resize!
 export const adjustTextBreaks = () => {
-    $( ".m-text-container, .m-text-container-fixed" ).each( function() {
+    $( ".m-text-container, .m-text-container-absolute" ).each( function() {
         // reset text to be in the desired format
         $( this ).find( vars.textOverflowSpanSelector.slice(1, -1) ).each( function() {
             $( this ).removeClass( vars.overflownTextClass );
