@@ -65,13 +65,13 @@ function initiatePageTransitionsBottom() {
     bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage, $( 'main' ) );
 }
 
-function resetPageTransitionsTop( nextBarbaContainer ) {
+function resetPageTransitionsTop( nextBarbaContainer = $( 'main' ) ) {
     topObserver.disconnect();
     topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage, nextBarbaContainer );
 
 }
 
-function resetPageTransitionsBottom( nextBarbaContainer ) {
+function resetPageTransitionsBottom( nextBarbaContainer = $( 'main' ) ) {
     bottomObserver.disconnect();
     bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage, nextBarbaContainer );
 }

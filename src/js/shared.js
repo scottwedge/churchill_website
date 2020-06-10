@@ -26,7 +26,6 @@ export default function sharedFunctions( ) {
                 });
             },
             beforeEnter(data) {
-                document.body.scrollTop = 0;
                 runAfterTransition(data.next.container);
             },
             enter(data) {
