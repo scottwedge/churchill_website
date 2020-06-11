@@ -19,6 +19,7 @@ export default function sharedFunctions( ) {
                 runOnce( data );
             },
             after() {
+                document.body.scrollTop = 0;
             },
             leave(data) {
                 return gsap.to(data.current.container, {
@@ -30,6 +31,7 @@ export default function sharedFunctions( ) {
                 runAfterTransition( data );
             },
             enter(data) {
+                window.scrollTo(0, 0)
                 return gsap.from(data.next.container, {
                     autoAlpha: 0
                 });
