@@ -22,7 +22,8 @@ export default function sharedFunctions( ) {
             },
             leave(data) {
                 return gsap.to(data.current.container, {
-                    opacity: 0
+                    autoAlpha: 0,
+                    display: 'none'
                 });
             },
             beforeEnter(data) {
