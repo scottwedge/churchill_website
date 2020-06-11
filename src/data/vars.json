@@ -105,7 +105,7 @@
     "textOverflowSpanSelector": "'p > span'",
     "overflownTextClass": "text-width-overflown",
 
-    "observerMarginTolerance": "1",
+    "observerMarginTolerance": "4",
 
     "navigationOpenClass": "nav-is-open",
     "navOpenTransformTransition": "'transform ease-in-out 0s 0.2s'",

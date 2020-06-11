@@ -5,9 +5,9 @@ import barba from '@barba/core';
 
 let isScrolled;
 
-function bottomObserverMargin() {
+function bottomObserverMargin( nextBarbaContainer ) {
     let topMargin;
-    if ( $( '.m-text-container' ).length > 0 ) {
+    if ( $( nextBarbaContainer ).find( '.m-text-container' ).length > 0 ) {
         let textTableBottomMargin = $( '.m-text-table' ).css("marginBottom");
         topMargin = $( window ).height() - parseFloat(textTableBottomMargin.slice(0, -2)) + parseFloat(vars.observerMarginTolerance);
     } else {
@@ -25,12 +25,12 @@ function scrolledToBottomReference( nextBarbaContainer ) {
     return $( nextBarbaContainer ).find( '.scrolled-to-bottom-reference' );
 }
 
-function topObserverMargin() {
+function topObserverMargin( nextBarbaContainer ) {
     let topMargin;
     if ( $( '.m-text-container' ).length > 0 ) {
         topMargin = 0;
     } else {
-        topMargin = $( '.m-heading-top').outerHeight( true ) + parseFloat( scrolledToTopReference().css('marginTop').slice( 0, -2 ) );
+        topMargin = $( '.m-heading-top').outerHeight( true ) + parseFloat( scrolledToTopReference( nextBarbaContainer ).css('marginTop').slice( 0, -2 ) );
     }
     return '-' + Math.floor( topMargin ) + 'px 0px 0px 0px';
 }
@@ -48,7 +48,7 @@ export function scrolledToTopObserver( handleIntersect, nextBarbaContainer ) {
         scrolledToTopReference( nextBarbaContainer ),
         parseFloat( vars.intersectionObserverSteps ),
         handleIntersect,
-        topObserverMargin(),
+        topObserverMargin( nextBarbaContainer ),
         scrolledToTopRoot()
     );
 }
@@ -58,7 +58,7 @@ export function scrolledToBottomObserver( handleIntersect, nextBarbaContainer ) 
         scrolledToBottomReference( nextBarbaContainer ),
         parseFloat( vars.intersectionObserverSteps ),
         handleIntersect,
-        bottomObserverMargin(),
+        bottomObserverMargin( nextBarbaContainer ),
         scrolledToBottomRoot()
     );
 }

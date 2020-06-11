@@ -15,3 +15,9 @@ export function registerNavigationToggle() {
         $( 'body' ).toggleClass( vars.navigationOpenClass );
     } );
 }
+
+export function toggleFooterTransparency( data ) {
+    if ( data.current.namespace === 'story' || data.next.namespace === 'story' ) {
+        $( '.m-footer, .m-footer-transparent' ).toggleClass( 'm-footer m-footer-transparent' );
+    }
+}

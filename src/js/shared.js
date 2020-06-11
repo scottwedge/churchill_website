@@ -15,8 +15,8 @@ export default function sharedFunctions( ) {
     barba.init({
         transitions: [{
             name: 'opacity-transition',
-            once() {
-                runOnce();
+            once(data) {
+                runOnce( data );
             },
             after() {
             },
@@ -26,12 +26,12 @@ export default function sharedFunctions( ) {
                     display: 'none'
                 });
             },
-            beforeEnter(data) {
-                runAfterTransition(data.next.container);
+            beforeEnter( data ) {
+                runAfterTransition( data );
             },
             enter(data) {
                 return gsap.from(data.next.container, {
-                    opacity: 0
+                    autoAlpha: 0
                 });
             },
             afterEnter(data) {
@@ -50,17 +50,17 @@ export default function sharedFunctions( ) {
     });
 }
 
-function runOnResize( nextBarbaContainer ) {
+function runOnResize( data = { next: { container: $( 'main' ) } } ) {
     // resizing elements with vh units
     resizeElement.resizeElements();
 
     // adjust text width to fit into container
     adjustTextBreaks();
     detectScrollHelper.registerPageScrollRecord();
-    pageTransitionHelper.resetPageTransitions( nextBarbaContainer );
+    pageTransitionHelper.resetPageTransitions( data.next.container );
 }
 
-function runOnLoad() {
+function runOnLoad( ) {
     // resizing elements with vh units
     resizeElement.resizeElements();
 
@@ -68,15 +68,17 @@ function runOnLoad() {
     adjustTextBreaks();
     detectScrollHelper.registerPageScrollRecord();
     pageTransitionHelper.initiatePageTransitions();
-}
-
-function runAfterTransition( nextBarbaContainer ) {
-    init();
-    runOnResize( nextBarbaContainer );
-}
-
-function runOnce() {
-    init();
-    runOnLoad();
     stateHelper.registerNavigationToggle();
+}
+
+function runAfterTransition( data ) {
+    init();
+    stateHelper.toggleFooterTransparency( data );
+    runOnResize( data );
+}
+
+function runOnce( data ) {
+    init();
+    stateHelper.toggleFooterTransparency( data );
+    runOnLoad( );
 }
