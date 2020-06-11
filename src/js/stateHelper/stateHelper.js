@@ -1,6 +1,8 @@
 import * as vars from '../../data/vars.json';
 import $ from 'jquery';
 
+let innerHeight
+
 export function navIsOpen() {
     return $( 'body' ).hasClass( vars.navigationOpenClass )
 }
@@ -14,6 +16,10 @@ export function registerNavigationToggle() {
     $( '.m-navigation-toggle' ).on( 'click', () => {
         $( 'body' ).toggleClass( vars.navigationOpenClass );
     } );
+}
+
+export function removeNavigationToggle() {
+    $( 'body' ).removeClass( vars.navigationOpenClass );
 }
 
 export function toggleFooterTransparency( data ) {

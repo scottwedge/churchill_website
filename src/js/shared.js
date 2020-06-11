@@ -74,6 +74,7 @@ function runOnLoad( ) {
 }
 
 function runAfterTransition( data ) {
+    stateHelper.removeNavigationToggle();
     init();
     stateHelper.toggleFooterTransparency( data );
     runOnResize( data );
