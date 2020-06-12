@@ -8,7 +8,8 @@ import * as vars from '../../data/vars.json';
  */
 const resizeToViewportHeightFraction = ( elements, cssProperty, fraction = 1 ) => {
     $( elements ).each(function (index, element) {
-        $(element).css(cssProperty, $(window).height() * fraction);
+        $(element).css(cssProperty, window.innerHeight * fraction);
+        //alert(window.innerHeight + ', ' + fraction + ', ' + $(element).css(cssProperty) + ', ' + $(window).height() + ', ' + window.innerHeight);
     })
 }
 

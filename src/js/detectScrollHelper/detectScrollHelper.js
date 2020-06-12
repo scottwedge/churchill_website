@@ -9,10 +9,10 @@ function bottomObserverMargin( nextBarbaContainer ) {
     let topMargin;
     if ( $( nextBarbaContainer ).find( '.m-text-container' ).length > 0 ) {
         let textTableBottomMargin = $( '.m-text-table' ).css("marginBottom");
-        topMargin = $( window ).height() - parseFloat(textTableBottomMargin.slice(0, -2)) + parseFloat(vars.observerMarginTolerance);
+        topMargin = window.innerHeight - parseFloat(textTableBottomMargin.slice(0, -2)) + parseFloat(vars.observerMarginTolerance);
     } else {
         let textTableFixedBottomMargin = $( '.m-text-table-fixed' ).css("marginBottom");
-        topMargin = $( window ).height() - $( '.m-footer-transparent' ).outerHeight( true ) - parseFloat(textTableFixedBottomMargin.slice(0, -2)) + parseFloat(vars.observerMarginTolerance);
+        topMargin = window.innerHeight - $( '.m-footer-transparent' ).outerHeight( true ) - parseFloat(textTableFixedBottomMargin.slice(0, -2)) + parseFloat(vars.observerMarginTolerance);
     }
     return '-' + Math.ceil( topMargin ) + 'px 0px 0px 0px';
 }

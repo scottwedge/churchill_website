@@ -1,7 +1,9 @@
 import * as vars from '../../data/vars.json';
 import $ from 'jquery';
 
-let innerHeight
+let prevWindowHeight = 0;
+let prevWindowWidth = 0;
+let resizeCounter;
 
 export function navIsOpen() {
     return $( 'body' ).hasClass( vars.navigationOpenClass )
@@ -25,5 +27,21 @@ export function removeNavigationToggle() {
 export function toggleFooterTransparency( data ) {
     if ( data.current.namespace === 'story' || data.next.namespace === 'story' ) {
         $( '.m-footer, .m-footer-transparent' ).toggleClass( 'm-footer m-footer-transparent' );
+    }
+}
+
+// return true the first time when the window size doesn't change.
+export function afterWindowSizeChange( nextWindowHeight = window.innerHeight, nextWindowWidth = $( window ).width() ) {
+    if ( nextWindowWidth !== prevWindowWidth || nextWindowHeight !== prevWindowHeight ) {
+        resizeCounter = 0;
+        prevWindowWidth = nextWindowWidth;
+        prevWindowHeight = nextWindowHeight;
+        return false;
+    } else if ( resizeCounter === 1 ) {
+        resizeCounter++;
+        return true;
+    } else {
+        resizeCounter++;
+        return false;
     }
 }
