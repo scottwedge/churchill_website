@@ -17,9 +17,9 @@ export default function sharedFunctions( ) {
             name: 'opacity-transition',
             once(data) {
                 runOnce( data );
+                scrollToBeginning( data );
             },
             after() {
-                document.body.scrollTop = 0;
             },
             leave(data) {
                 return gsap.to(data.current.container, {
@@ -31,7 +31,7 @@ export default function sharedFunctions( ) {
                 runAfterTransition( data );
             },
             enter(data) {
-                window.scrollTo(0, 0)
+                scrollToBeginning( data );
                 return gsap.from(data.next.container, {
                     autoAlpha: 0
                 });
@@ -50,6 +50,14 @@ export default function sharedFunctions( ) {
     $( window ).on( "resize", () => {
         runOnResize( false );
     });
+}
+
+function scrollToBeginning( data ) {
+    if( data.next.namespace === 'story') {
+        $( data.next.container ).find('.m-text-container-absolute')[0].scrollTo(0, 40);
+    } else {
+        window.scrollTo(0, 1);
+    }
 }
 
 function runOnResize( pageLoad, data = { next: { container: $( 'main' ) } } ) {
