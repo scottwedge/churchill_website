@@ -45,3 +45,7 @@ export function afterWindowSizeChange( nextWindowHeight = Math.min( window.outer
         return false;
     }
 }
+
+export function addressBarVisible( ) {
+    return document.documentElement.clientHeight === Math.min( window.outerHeight, window.innerHeight );
+}

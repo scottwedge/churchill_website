@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import * as vars from '../../data/vars.json';
+import * as stateHelper from '../stateHelper/stateHelper.js';
 
 /**
  * replaces viewport height with javascript. call this on load and on resize
@@ -9,8 +10,6 @@ import * as vars from '../../data/vars.json';
 const resizeToViewportHeightFraction = ( elements, cssProperty, fraction = 1 ) => {
     $( elements ).each(function (index, element) {
         $(element).css(cssProperty, Math.min( window.outerHeight, window.innerHeight ) * fraction);
-        console.log(window.innerHeight + ', ' + Math.min( window.outerHeight, window.innerHeight ));
-        //alert(window.innerHeight + ', ' + fraction + ', ' + $(element).css(cssProperty) + ', ' + $(window).height() + ', ' + window.innerHeight);
     })
 }
 
@@ -20,10 +19,17 @@ const resizeElementsToHeightOf = ( elements, cssProperty, referenceElement, with
     })
 }
 
-export function resizeElements() {
+export function resizeElements( pageLoad ) {
     resizeElementsToHeightOf( $( ".m-heading-top" ), "margin-top", $( ".m-header" ), true );
     resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "top", $( ".m-header" ), true );
     resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "margin-top", $( ".m-heading-top" ), false );
     resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "bottom", $( ".m-footer-transparent" ), true );
-    resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", vars.mediaCanvasHeightFractionMobile );
+
+    // If address bar is visible
+    if ( stateHelper.addressBarVisible() || pageLoad ) {
+        //alert('now');
+        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", vars.mediaCanvasHeightFractionMobile );
+        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "top", vars.mediaCanvasStickyFractionMobile - vars.mediaCanvasHeightFractionMobile );
+        resizeToViewportHeightFraction( $( ".m-heading-middle" ), "top", vars.mediaCanvasStickyFractionMobile );
+    }
 }

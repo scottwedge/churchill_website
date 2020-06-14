@@ -48,26 +48,26 @@ export default function sharedFunctions( ) {
         }]
     });
     $( window ).on( "resize", () => {
-        runOnResize();
+        runOnResize( false );
     });
 }
 
-function runOnResize( data = { next: { container: $( 'main' ) } } ) {
+function runOnResize( pageLoad, data = { next: { container: $( 'main' ) } } ) {
     // resizing elements with vh units
-    resizeElement.resizeElements();
+    resizeElement.resizeElements( pageLoad );
 
     // adjust text width to fit into container
-    adjustTextBreaks();
+    adjustTextBreaks( pageLoad );
     detectScrollHelper.registerPageScrollRecord();
     pageTransitionHelper.resetPageTransitions( data.next.container );
 }
 
-function runOnLoad( ) {
+function runOnLoad( pageLoad = true ) {
     // resizing elements with vh units
-    resizeElement.resizeElements();
+    resizeElement.resizeElements( pageLoad );
 
     // adjust text width to fit into container
-    adjustTextBreaks();
+    adjustTextBreaks( pageLoad );
     detectScrollHelper.registerPageScrollRecord();
     pageTransitionHelper.initiatePageTransitions();
     stateHelper.registerNavigationToggle();
@@ -76,7 +76,7 @@ function runOnLoad( ) {
 function runAfterTransition( data ) {
     stateHelper.removeNavigationToggle();
     stateHelper.toggleFooterTransparency( data );
-    runOnResize( data );
+    runOnResize( true, data );
     init();
 }
 
