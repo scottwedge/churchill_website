@@ -1,6 +1,7 @@
 @use '../../data/vars.json' as vars;
 
 .m-media-canvas {
+    height: 50vh;
     position: sticky;
     top: ( vars.$media-canvas-sticky-fraction-mobile - vars.$media-canvas-height-fraction-mobile ) * 100%;
     width: 100%;
