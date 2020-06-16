@@ -20,6 +20,8 @@ module.exports = {
     sustainability: ['./src/scss/index.scss', './src/js/sustainability.js'],
     about: ['./src/scss/index.scss', './src/js/about.js'],
     contact: ['./src/scss/index.scss', './src/js/contact.js'],
+    imprint: ['./src/scss/index.scss', './src/js/imprint.js'],
+    privacy: ['./src/scss/index.scss', './src/js/privacy.js']
   },
   mode: 'production',
   output: {
@@ -76,6 +78,16 @@ module.exports = {
         chunks: ['contact'],
       template: './src/html/contact.html',
       filename: './html/contact.html',
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ['imprint'],
+      template: './src/html/imprint.html',
+      filename: './html/imprint.html',
+    }),
+    new HtmlWebpackPlugin({
+        chunks: ['privacy'],
+      template: './src/html/privacy.html',
+      filename: './html/privacy.html',
     }),
     /* any other html file:
     new HtmlWebpackPlugin({

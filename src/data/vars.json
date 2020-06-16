@@ -135,8 +135,8 @@
 
     "scrollToBeginningMeasurements": {
         "story": "40",
-        "imprint": "40",
-        "privacy": "40",
+        "imprint": "0",
+        "privacy": "0",
         "about": "1",
         "contact": "1",
         "product": "1",
