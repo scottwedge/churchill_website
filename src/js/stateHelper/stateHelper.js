@@ -31,7 +31,7 @@ export function toggleFooterTransparency( data ) {
 }
 
 // return true the first time when the window size doesn't change.
-export function afterWindowSizeChange( nextWindowHeight = Math.min( window.outerHeight, window.innerHeight ), nextWindowWidth = $( window ).width() ) {
+export function afterWindowSizeChange( nextWindowHeight = window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ), nextWindowWidth = $( window ).width() ) {
     if ( nextWindowWidth !== prevWindowWidth || nextWindowHeight !== prevWindowHeight ) {
         resizeCounter = 0;
         prevWindowWidth = nextWindowWidth;
@@ -47,5 +47,5 @@ export function afterWindowSizeChange( nextWindowHeight = Math.min( window.outer
 }
 
 export function addressBarVisible( ) {
-    return document.documentElement.clientHeight === Math.min( window.outerHeight, window.innerHeight );
+    return document.documentElement.clientHeight === (window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ));
 }

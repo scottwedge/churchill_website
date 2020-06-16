@@ -9,7 +9,7 @@ import * as stateHelper from '../stateHelper/stateHelper.js';
  */
 const resizeToViewportHeightFraction = ( elements, cssProperty, fraction = 1 ) => {
     $( elements ).each(function (index, element) {
-        $(element).css(cssProperty, Math.min( window.outerHeight, window.innerHeight ) * fraction);
+        $(element).css(cssProperty, window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ) * fraction);
     })
 }
 
