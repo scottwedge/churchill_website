@@ -131,5 +131,42 @@
     "navOpenToggleBarScaleTransformTransition": "'transform ease-in-out 0.1s'",
     "navOpenToggleBarRotateTransformTransition": "'transform ease-in-out 0.2s'",
     "navCloseToggleBarScaleTransformTransition": "'transform ease-in-out 0.1s 0.1s'",
-    "navCloseToggleBarRotateTransformTransition": "'transform ease-in-out 0.2s'"
+    "navCloseToggleBarRotateTransformTransition": "'transform ease-in-out 0.2s'",
+
+    "scrollToBeginningMeasurements": {
+        "story": "40",
+        "imprint": "40",
+        "privacy": "40",
+        "about": "1",
+        "contact": "1",
+        "product": "1",
+        "lemon": "1",
+        "mint": "1",
+        "salt": "1",
+        "sustainability": "1"
+    },
+    "scrollingContainer": {
+        "story": "'.m-text-container-absolute'",
+        "imprint": "'.m-text-container-absolute'",
+        "privacy": "'.m-text-container-absolute'",
+        "about": "'window'",
+        "contact": "'window'",
+        "product": "'window'",
+        "lemon": "'window'",
+        "mint": "'window'",
+        "salt": "'window'",
+        "sustainability": "'window'"
+    },
+    "pagesWithScrollTransition": {
+        "story": "true",
+        "imprint": "false",
+        "privacy": "false",
+        "about": "true",
+        "contact": "true",
+        "product": "true",
+        "lemon": "true",
+        "mint": "true",
+        "salt": "true",
+        "sustainability": "true"
+    }
 }

@@ -13,9 +13,11 @@ import * as detectScrollHelper from './detectScrollHelper/detectScrollHelper.js'
 
 export default function sharedFunctions( ) {
     barba.init({
+        debug: true,
         transitions: [{
             name: 'opacity-transition',
             once(data) {
+                console.log('ran once');
                 runOnce( data );
                 scrollToBeginning( data );
             },
@@ -53,31 +55,37 @@ export default function sharedFunctions( ) {
 }
 
 function scrollToBeginning( data ) {
-    if( data.next.namespace === 'story') {
-        $( data.next.container ).find('.m-text-container-absolute')[0].scrollTo(0, 40);
+    console.log(vars.scrollingContainer[data.next.namespace].slice( 1, -1 ))
+    console.log(parseFloat( vars.scrollToBeginningMeasurements[data.next.namespace] ) );
+    if( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) === 'window') {
+        window.scrollTo( 0, parseFloat( vars.scrollToBeginningMeasurements[data.next.namespace] ) );
     } else {
-        window.scrollTo(0, 1);
+        $( data.next.container ).find( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) )[0].scrollTo( 0, parseFloat( vars.scrollToBeginningMeasurements[data.next.namespace] ) );
     }
 }
 
-function runOnResize( pageLoad, data = { next: { container: $( 'main' ) } } ) {
+function runOnResize( pageLoad, data = { next: { container: $( 'main' ), namespace: $( 'main' ).css( 'data-barba-namespace' ) } } ) {
     // resizing elements with vh units
-    resizeElement.resizeElements( pageLoad );
+    resizeElement.resizeElements( pageLoad, data );
 
     // adjust text width to fit into container
     adjustTextBreaks( pageLoad );
-    detectScrollHelper.registerPageScrollRecord();
-    pageTransitionHelper.resetPageTransitions( data.next.container );
+    if ( vars.pagesWithScrollTransition[data.next.namespace] === 'true' ) {
+        detectScrollHelper.registerPageScrollRecord();
+        pageTransitionHelper.resetPageTransitions( data.next.container );
+    }
 }
 
-function runOnLoad( pageLoad = true ) {
+function runOnLoad( data, pageLoad = true ) {
     // resizing elements with vh units
-    resizeElement.resizeElements( pageLoad );
+    resizeElement.resizeElements( pageLoad, data );
 
     // adjust text width to fit into container
     adjustTextBreaks( pageLoad );
-    detectScrollHelper.registerPageScrollRecord();
-    pageTransitionHelper.initiatePageTransitions();
+    if ( vars.pagesWithScrollTransition[data.next.namespace] === 'true' ) {
+        detectScrollHelper.registerPageScrollRecord();
+        pageTransitionHelper.initiatePageTransitions();
+    }
     stateHelper.registerNavigationToggle();
 }
 
@@ -90,6 +98,6 @@ function runAfterTransition( data ) {
 
 function runOnce( data ) {
     stateHelper.toggleFooterTransparency( data );
-    runOnLoad( );
+    runOnLoad( data );
     init();
 }

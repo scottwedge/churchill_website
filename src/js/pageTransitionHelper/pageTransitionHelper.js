@@ -66,13 +66,17 @@ function initiatePageTransitionsBottom() {
 }
 
 function resetPageTransitionsTop( nextBarbaContainer ) {
-    topObserver.disconnect();
+    if ( topObserver ) {
+        topObserver.disconnect();
+    }
     topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage, nextBarbaContainer );
 
 }
 
 function resetPageTransitionsBottom( nextBarbaContainer ) {
-    bottomObserver.disconnect();
+    if ( bottomObserver ) {
+        bottomObserver.disconnect();
+    }
     bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage, nextBarbaContainer );
 }
 

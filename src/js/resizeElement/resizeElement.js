@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $, { css } from 'jquery';
 import * as vars from '../../data/vars.json';
 import * as stateHelper from '../stateHelper/stateHelper.js';
 
@@ -19,11 +19,11 @@ const resizeElementsToHeightOf = ( elements, cssProperty, referenceElement, with
     })
 }
 
-export function resizeElements( pageLoad ) {
+export function resizeElements( pageLoad, data ) {
     resizeElementsToHeightOf( $( ".m-heading-top" ), "margin-top", $( ".m-header" ), true );
     resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "top", $( ".m-header" ), true );
-    resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "margin-top", $( ".m-heading-top" ), false );
-    resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "bottom", $( ".m-footer-transparent" ), true );
+    resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "margin-top", $(data.next.container).find( ".m-heading-top" ), false );
+    resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "bottom", $( ".m-footer-transparent, .m-footer" ), true );
 
     // If address bar is visible
     if ( stateHelper.addressBarVisible() || pageLoad ) {
