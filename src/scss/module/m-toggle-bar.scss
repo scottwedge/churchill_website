@@ -6,6 +6,7 @@
     background: vars.$churchill-grey;
     border-radius: #{vars.$navigation-toggle-bar-height}/100%;
     flex: 0 0 vars.$navigation-toggle-bar-height;
+    height: vars.$navigation-toggle-bar-height-fallback;
     transform-origin: 100% 50%;
 
     &.scale {

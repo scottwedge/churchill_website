@@ -55,6 +55,7 @@
     "navigationToggleToH4UnitlessRelativeHeightMobileRfs": "1.5",
     "navigationToggleToH4UnitlessRelativeWidthMobileRfs": "2.15",
     "navigationToggleBarHeight": "10%",
+    "navigationToggleBarHeightFallback": "0.15em",
     "navigationToggleBarHeightFraction": "0.1",
     "headerPaddingLeftRightMobile": "1.2em",
     "headerPaddingBottomTopMobile": "0.8em",
