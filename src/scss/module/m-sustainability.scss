@@ -1,7 +1,65 @@
 @use '../../data/vars.json' as vars;
 
-.m-sustainability {
-    .m-image-container > .m-image {
+.m-sustainability .m-image-container > .m-image {
+    height: 0;
+    opacity: 0;
+    transition:
+        #{vars.$sustainability-slide-opacity-transition},
+        #{vars.$sustainability-slide-height-transition};
+
+    &.is-visible {
+        height: 100%;
+        opacity: 1;
+        transition:
+            #{vars.$sustainability-slide-open-opacity-transition},
+            #{vars.$sustainability-slide-open-height-transition};
+    }
+
+    &.global-goals-1 {
+        background: url('~svg/gG1.svg') no-repeat center center/contain, vars.$g-g1;
+    }
+
+    &.global-goals-2 {
+        background: url('~svg/gG2.svg') no-repeat center center/contain, vars.$g-g2;
+    }
+
+    &.global-goals-3 {
+        background: url('~svg/gG3.svg') no-repeat center center/contain, vars.$g-g3;
+    }
+
+    &.global-goals-4 {
+        background: url('~svg/gG4.svg') no-repeat center center/contain, vars.$g-g4;
+    }
+
+    &.global-goals-6 {
+        background: url('~svg/gG6.svg') no-repeat center center/contain, vars.$g-g6;
+    }
+
+    &.global-goals-8 {
+        background: url('~svg/gG8.svg') no-repeat center center/contain, vars.$g-g8;
+    }
+
+    &.global-goals-10 {
+        background: url('~svg/gG10.svg') no-repeat center center/contain, vars.$g-g10;
+    }
+
+    &.global-goals-11 {
+        background: url('~svg/gG11.svg') no-repeat center center/contain, vars.$g-g11;
+    }
+
+    &.global-goals-12 {
         background: url('~svg/gG12.svg') no-repeat center center/contain, vars.$g-g12;
+    }
+
+    &.global-goals-13 {
+        background: url('~svg/gG13.svg') no-repeat center center/contain, vars.$g-g13;
+    }
+
+    &.global-goals-14 {
+        background: url('~svg/gG14.svg') no-repeat center center/contain, vars.$g-g14;
+    }
+
+    &.global-goals-17 {
+        background: url('~svg/gG17.svg') no-repeat center center/contain, vars.$g-g17;
     }
 }

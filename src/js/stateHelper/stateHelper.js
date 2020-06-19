@@ -4,6 +4,9 @@ import $ from 'jquery';
 let prevWindowHeight = 0;
 let prevWindowWidth = 0;
 let resizeCounter;
+let slideshowTimer;
+let activeSlideIndex;
+let sustainabilitySlides = [1, 2, 3, 4, 6, 8, 10, 11, 12, 13, 14, 17];
 
 export function navIsOpen() {
     return $( 'body' ).hasClass( vars.navigationOpenClass )
@@ -11,6 +14,20 @@ export function navIsOpen() {
 
 export function contentOpen() {
     return !navIsOpen();
+}
+
+function addSlideshowVisibility( slideIndex ) {
+    $( '.m-sustainability .global-goals-' + sustainabilitySlides[ slideIndex ] ).addClass( 'is-visible' );
+}
+
+function removeSlideshowVisibility( slideIndex ) {
+    $( '.m-sustainability .global-goals-' + sustainabilitySlides[ slideIndex ] ).removeClass( 'is-visible' );
+}
+
+function advanceSustainabilitySlideshow() {
+    removeSlideshowVisibility( activeSlideIndex );
+    activeSlideIndex = ( activeSlideIndex + 1 ) % sustainabilitySlides.length ;
+    addSlideshowVisibility( activeSlideIndex );
 }
 
 export function registerNavigationToggle() {
@@ -48,4 +65,12 @@ export function afterWindowSizeChange( nextWindowHeight = window.outerHeight ===
 
 export function addressBarVisible( ) {
     return document.documentElement.clientHeight === (window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ));
+}
+
+export function registerSustainabilitySlideManager( data ) {
+    if( data.next.namespace === 'sustainability' ) {
+        activeSlideIndex = 0;
+        clearInterval( slideshowTimer );
+        slideshowTimer = setInterval( advanceSustainabilitySlideshow, vars.sustainabilitySlideInterval );
+    }
 }

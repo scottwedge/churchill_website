@@ -30,7 +30,7 @@ export default function sharedFunctions( ) {
                 });
             },
             beforeEnter( data ) {
-                runAfterTransition( data );
+                beforeEnterTransition( data );
             },
             enter(data) {
                 scrollToBeginning( data );
@@ -39,6 +39,7 @@ export default function sharedFunctions( ) {
                 });
             },
             afterEnter(data) {
+                afterEnterTransition( data );
             }
         }],
         views: [{
@@ -46,7 +47,9 @@ export default function sharedFunctions( ) {
             beforeEnter(data) {
                 videojs( $('.m-video-container')[0] );
             }
-
+        },
+        {
+            namespace: 'sustainability',
         }]
     });
     $( window ).on( "resize", () => {
@@ -89,7 +92,11 @@ function runOnLoad( data, pageLoad = true ) {
     stateHelper.registerNavigationToggle();
 }
 
-function runAfterTransition( data ) {
+function afterEnterTransition( data ) {
+    stateHelper.registerSustainabilitySlideManager( data );
+}
+
+function beforeEnterTransition( data ) {
     stateHelper.removeNavigationToggle();
     stateHelper.toggleFooterTransparency( data );
     runOnResize( true, data );
@@ -98,6 +105,7 @@ function runAfterTransition( data ) {
 
 function runOnce( data ) {
     stateHelper.toggleFooterTransparency( data );
+    stateHelper.registerSustainabilitySlideManager( data );
     runOnLoad( data );
     init();
 }

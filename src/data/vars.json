@@ -12,7 +12,18 @@
     "lemonYellow": "#fcc43e",
     "mintGreen": "#86a985",
     "saltGrey": "#4e5b63",
+    "gG1": "#e5243b",
+    "gG2": "#dda63a",
+    "gG3": "#4c9f38",
+    "gG4": "#c5192d",
+    "gG6": "#26bde2",
+    "gG8": "#a21942",
+    "gG10": "#dd1367",
+    "gG11": "#fd9d24",
     "gG12": "#bf8b2e",
+    "gG13": "#3f7e44",
+    "gG14": "#0a97d9",
+    "gG17": "#19486a",
 
     "h1FontSizeMobileRfs": "70px",
     "h1LineHeightMobile": "1em",
@@ -101,12 +112,13 @@
     "zIndexNavigation": "1",
     "zIndexNavigationToggle": "1",
     "zIndexTextMask": "-1",
+    "zIndexPartnerLogos": "-1",
 
     "intersectionObserverSteps": "1",
     "textOverflowSpanSelector": "'p > span'",
     "overflownTextClass": "text-width-overflown",
 
-    "observerMarginTolerance": "10",
+    "observerMarginTolerance": "1",
 
     "navigationOpenClass": "nav-is-open",
     "navOpenTransformTransition": "'transform ease-in-out 0s 0.2s'",
@@ -133,6 +145,13 @@
     "navOpenToggleBarRotateTransformTransition": "'transform ease-in-out 0.2s'",
     "navCloseToggleBarScaleTransformTransition": "'transform ease-in-out 0.1s 0.1s'",
     "navCloseToggleBarRotateTransformTransition": "'transform ease-in-out 0.2s'",
+
+    "sustainabilitySlideOpacityTransition": "'opacity ease-in-out 0.2s'",
+    "sustainabilitySlideHeightTransition": "'height ease-in-out 0s 0.2s'",
+    "sustainabilitySlideOpenOpacityTransition": "'opacity ease-in-out 0.2s 0.2s'",
+    "sustainabilitySlideOpenHeightTransition": "'height ease-in-out 0s 0.2s'",
+
+    "sustainabilitySlideInterval": "1500",
 
     "scrollToBeginningMeasurements": {
         "story": "40",
