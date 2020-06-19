@@ -3,6 +3,7 @@
 .m-image-container {
     height: 100%;
     overflow: hidden;
+    position: relative;
     transition: #{vars.$nav-close-image-container-opacity-transition};
     width: 100%;
 }

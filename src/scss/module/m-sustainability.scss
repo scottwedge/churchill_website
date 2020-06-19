@@ -1,18 +1,12 @@
 @use '../../data/vars.json' as vars;
 
 .m-sustainability .m-image-container > .m-image {
-    height: 0;
     opacity: 0;
-    transition:
-        #{vars.$sustainability-slide-opacity-transition},
-        #{vars.$sustainability-slide-height-transition};
+    transition: #{vars.$sustainability-slide-opacity-transition};
 
     &.is-visible {
-        height: 100%;
         opacity: 1;
-        transition:
-            #{vars.$sustainability-slide-open-opacity-transition},
-            #{vars.$sustainability-slide-open-height-transition};
+        transition: #{vars.$sustainability-slide-open-opacity-transition};
     }
 
     &.global-goals-1 {
