@@ -12,9 +12,16 @@ rfs.$rfs-base-value: vars.$rfs-base-value;
     align-items: center;
     display: flex;
     left: 0;
+    opacity: 1;
     padding: vars.$header-padding-bottom-top-mobile vars.$header-padding-left-right-mobile;
     position: fixed;
     right: 0;
     top: 0;
+    transition: #{vars.$header-visible-opacity-transition};
     z-index: vars.$z-index-header;
+
+    &.is-not-visible {
+        opacity: 0;
+        transition: #{vars.$header-not-visible-opacity-transition};
+    }
 }

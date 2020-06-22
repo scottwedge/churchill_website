@@ -21,18 +21,14 @@ function goToPrevPage( entries, observer ) {
         if( element.intersectionRatio === 1 && stateHelper.contentOpen() ) {
             let curPagePath = window.location.pathname;
             if ( curPagePath === '/' ) {
-                curPagePath = './index.html';
+                curPagePath = '/index.html';
             }
             let curPageFile = curPagePath.substring( curPagePath.lastIndexOf('/') + 1 );
             let curIndex = pageArray.indexOf( curPageFile );
             let prevPageFile
             if( curIndex > 0 && detectScrollHelper.getIsScrolled() ) {
                 let prevPageFile = pageArray[ ( curIndex - 1 )  ];
-                if( curIndex === 1 ) {
-                    barba.go( '/' + prevPageFile );
-                } else {
-                    barba.go( '/html/' + prevPageFile );
-                }
+                barba.go( '/html/' + prevPageFile );
             }
         }
     } )
@@ -44,7 +40,7 @@ function goToNextPage( entries, observer ) {
         if( !element.isIntersecting && stateHelper.contentOpen() ) {
             let curPagePath = window.location.pathname;
             if ( curPagePath === '/' ) {
-                curPagePath = './index.html';
+                curPagePath = '/index.html';
             }
             let curPageFile = curPagePath.substring( curPagePath.lastIndexOf('/') + 1 );
             let curIndex = pageArray.indexOf( curPageFile );

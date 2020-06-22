@@ -93,7 +93,7 @@
         "contact": "'.m-contact'"
     },
     "pageOrder": {
-        "0": "'index.html'",
+        "0": "'product.html'",
         "1": "'lemon.html'",
         "2": "'mint.html'",
         "3": "'salt.html'",
@@ -147,13 +147,21 @@
     "navCloseToggleBarRotateTransformTransition": "'transform ease-in-out 0.2s'",
 
     "sustainabilitySlideOpacityTransition": "'opacity ease-in-out 0.2s'",
-    "sustainabilitySlideHeightTransition": "'height ease-in-out 0s 0.2s'",
     "sustainabilitySlideOpenOpacityTransition": "'opacity ease-in-out 0.2s 0.2s'",
-    "sustainabilitySlideOpenHeightTransition": "'height ease-in-out 0s 0.2s'",
 
-    "sustainabilitySlideInterval": "1500",
+    "indexAnimationVideoOpacityTransition": "'opacity ease-in-out 0.5s'",
+    "indexAnimationBackgroundOpacityTransition": "'opacity ease-in-out 0.5s'",
+    "indexAnimationSloganOpacityTransition": "'opacity ease-in-out 0.3s'",
+    "indexAnimationSloganVisibleOpacityTransition": "'opacity ease-in-out 0.3s 0.3s'",
+    "indexAnimationSloganInterval": "1500",
+
+    "headerVisibleOpacityTransition": "'opacity ease-in-out 0.5s'",
+    "headerNotVisibleOpacityTransition": "'opacity ease-in-out 0s'",
+
+    "sustainabilitySlideInterval": "3000",
 
     "scrollToBeginningMeasurements": {
+        "animation": "0",
         "story": "40",
         "imprint": "0",
         "privacy": "0",
@@ -166,6 +174,7 @@
         "sustainability": "1"
     },
     "scrollingContainer": {
+        "animation": "'window'",
         "story": "'.m-text-container-absolute'",
         "imprint": "'.m-text-container-absolute'",
         "privacy": "'.m-text-container-absolute'",
@@ -178,6 +187,7 @@
         "sustainability": "'window'"
     },
     "pagesWithScrollTransition": {
+        "animation": "false",
         "story": "true",
         "imprint": "false",
         "privacy": "false",

@@ -20,6 +20,10 @@ rfs.$rfs-base-value: vars.$rfs-base-value;
     right: 0;
     transition: #{vars.$nav-close-footer-visibility-transition};
     z-index: vars.$z-index-footer;
+
+    &.is-not-visible {
+        opacity: 0;
+    }
 }
 
 .#{vars.$navigation-open-class} {

@@ -1,15 +1,14 @@
 import { adjustTextBreaks } from './textOverflowManager/textOverflowManager.js';
 import { init } from './waveAnimation/waveAnimation.js';
 import * as stateHelper from './stateHelper/stateHelper.js';
-import { createObserver } from './intersectionObserver/intersectionObserver.js';
 import * as resizeElement from './resizeElement/resizeElement.js';
 import * as vars from '../data/vars.json';
-import videojs from 'video.js';
 import $ from 'jquery';
 import barba from '@barba/core';
 import gsap from 'gsap';
 import * as pageTransitionHelper from './pageTransitionHelper/pageTransitionHelper.js';
 import * as detectScrollHelper from './detectScrollHelper/detectScrollHelper.js';
+import * as videoJsHelper from './videoJsHelper/videoJsHelper.js';
 
 export default function sharedFunctions( ) {
     barba.init({
@@ -41,15 +40,6 @@ export default function sharedFunctions( ) {
             afterEnter(data) {
                 afterEnterTransition( data );
             }
-        }],
-        views: [{
-            namespace: 'story',
-            beforeEnter(data) {
-                videojs( $('.m-video-container')[0] );
-            }
-        },
-        {
-            namespace: 'sustainability',
         }]
     });
     $( window ).on( "resize", () => {
@@ -90,15 +80,20 @@ function runOnLoad( data, pageLoad = true ) {
         pageTransitionHelper.initiatePageTransitions();
     }
     stateHelper.registerNavigationToggle();
+    stateHelper.handleFooterVisibility( data );
+    stateHelper.handleHeaderVisibility( data );
 }
 
 function afterEnterTransition( data ) {
     stateHelper.registerSustainabilitySlideManager( data );
+    stateHelper.handleFooterVisibility( data );
+    stateHelper.handleHeaderVisibility( data );
 }
 
 function beforeEnterTransition( data ) {
     stateHelper.removeNavigationToggle();
     stateHelper.toggleFooterTransparency( data );
+    videoJsHelper.instantiateVideoJs( data );
     runOnResize( true, data );
     init();
 }
@@ -106,6 +101,7 @@ function beforeEnterTransition( data ) {
 function runOnce( data ) {
     stateHelper.toggleFooterTransparency( data );
     stateHelper.registerSustainabilitySlideManager( data );
+    videoJsHelper.instantiateVideoJs( data );
     runOnLoad( data );
     init();
 }

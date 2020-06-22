@@ -6,67 +6,35 @@
     <title>CHURCHILL</title>
 </head>
 <body data-barba="wrapper">
-    <main data-barba="container" data-barba-namespace="product" class="m-product">
-        <div class="m-media-canvas scrolled-to-top-reference">
-            <div class="m-text-mask"></div>
-            <div class="m-image-container">
-                <img class="m-image" src="../img/churchill_bottle_front.png" alt="Churchill bottle">
-                <canvas class="m-canvas" resize="true"></canvas>
-            </div>
+    <main data-barba="container" data-barba-namespace="animation" class="m-animation">
+        <div class="m-animation-background"></div>
+        <video
+            id="m-animation-video"
+            class="m-animation-video"
+            autoplay
+            muted
+        >
+            <source src="../vid/animation.webm" type="video/webm" />
+            <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank"
+                >supports HTML5 video</a
+            >
+            </p>
+        </video>
+        <div class="m-slogan">
+            <h1>Hydrate.</h1>
         </div>
-        <div class="m-text-container scrolled-to-bottom-reference">
-            <div class="m-text-table">
-                <h1 class="m-heading-middle">Churchill</h1>
-                <div class="m-paragraphs">
-                    <p>
-                        <span>Water is essential for our health, yet</span>
-                        <span>most of us still struggle to stay hydrated.</span>
-                        <span>We chose distilled sparkling water as the foundation</span>
-                        <span>of our Recovery Soda and enriched it with all-natural</span>
-                        <span>ingredients that will allow you to hydrate</span>
-                        more efficiently.
-
-                    </p>
-                    <p>
-                        <span>Apart from nutritious fruits and herbs,</span>
-                        <span>CHURCHILL contains salt. Contrary to popular belief,</span>
-                        <span>salt is actually a hydration agent. It is an essential</span>
-                        <span>mineral that helps you hydrate more efficiently.</span>
-                        Our Recovery Soda relies on this secret ingredient.
-                    </p>
-                    <p>
-                        <span>To increase health benefits, we use</span>
-                        <span>rose crystal salt which is mined at the foothills of</span>
-                        <span>the Himalayan Mountains. It offers 80 more minerals</span>
-                        <span>than regular salt, promotes increased absorption</span>
-                        of nutrients, and helps to balance electrolytes.
-                    </p>
-                    <p class="f-italic">
-                        <span>On top of that, we understand that an excess</span>
-                        <span>of salt may impact your health. Therefore we also</span>
-                        <span>made sure to add a healthy amount of salt to optimize</span>
-                        <span>its effect. As a result Churchill offers neither to much,</span>
-                        nor to little salt to keep you perfectly hydrated.
-                    </p>
-                    <p>
-                        Hydrate.Restore.Perform.
-                    </p>
-                </div>
-            </div>
+        <div class="m-slogan">
+            <h1>Restore.</h1>
         </div>
-        <div class="m-navigation-container">
-            <div class="m-navigation">
-                <h4><a href="/index.html">Product</a></h4>
-                <h4><a href="/html/story.html">Story</a></h4>
-                <h4><a href="/html/sustainability.html">Sustainability</a></h4>
-                <h4><a href="/html/about.html">About Us</a></h4>
-                <h4><a href="/html/contact.html">Contact</a></h4>
-                <h4><a href="https://docs.google.com/forms/d/e/1FAIpQLSdyrfQoQzjghzgM5ZbQ7dm66BH3zYkYwFc0GmsnMr9PpsvSow/viewform?usp=sf_link">Questionaire</a></h4>
-            </div>
+        <div class="m-slogan">
+            <h1>Perform.</h1>
         </div>
     </main>
-    <header class="m-header">
-        <a href="/index.html" class="m-logo-header-link">
+    <header class="m-header is-not-visible">
+        <a href="/html/product.html" class="m-logo-header-link">
             <img src="../svg/churchill_logo.svg" alt="Churchill logo simple grey" >
         </a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdyrfQoQzjghzgM5ZbQ7dm66BH3zYkYwFc0GmsnMr9PpsvSow/viewform?usp=sf_link" class="m-questionaire-link"></a>
@@ -76,7 +44,7 @@
             <div class="m-toggle-bar rotate-cw"></div>
         </button>
     </header>
-    <footer class="m-footer">
+    <footer class="m-footer is-not-visible">
         <div class="m-privacy-toggle">
             <h5><a href="/html/privacy.html">Privacy</a></h5>
         </div>
@@ -88,6 +56,5 @@
             <h5><a href="/html/imprint.html">Imprint</a></h5>
         </div>
     </footer>
-
 </body>
 </html>

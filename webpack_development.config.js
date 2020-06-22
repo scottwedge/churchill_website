@@ -12,6 +12,7 @@ module.exports = {
     // link all scss, css and js files (you want linked in your index.html) here.
     // js files are linked in <body> and css files in <head>.
 
+    product: ['./src/scss/index.scss', './src/js/product.js'],
     index: ['./src/scss/index.scss', './src/js/index.js'],
     lemon: ['./src/scss/index.scss', './src/js/lemon.js'],
     mint: ['./src/scss/index.scss', './src/js/mint.js'],
@@ -43,6 +44,11 @@ module.exports = {
       chunks: ['index'],
       template: './src/html/index.html',
       filename: './index.html',
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['product'],
+      template: './src/html/product.html',
+      filename: './html/product.html',
     }),
     new HtmlWebpackPlugin({
         chunks: ['lemon'],
