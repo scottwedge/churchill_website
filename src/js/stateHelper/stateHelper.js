@@ -29,13 +29,11 @@ function removeSlideshowVisibility( slideIndex ) {
 }
 
 function addSloganVisibility( sloganIndex ) {
-    console.log(sloganIndex);
-    console.log($( '.m-slogan-word' ).eq( sloganIndex ).addClass( 'is-visible' ));
+    $( '.m-slogan-word' ).eq( sloganIndex ).addClass( 'is-visible' );
 }
 
 function removeSloganVisibility( sloganIndex ) {
-    console.log(sloganIndex);
-    console.log($( '.m-slogan-word' ).eq( sloganIndex ).removeClass( 'is-visible' ));
+    $( '.m-slogan-word' ).eq( sloganIndex ).removeClass( 'is-visible' );
 }
 
 function advanceSustainabilitySlideshow() {
@@ -45,7 +43,6 @@ function advanceSustainabilitySlideshow() {
 }
 
 function advanceSloganAnimation() {
-    console.log(activeSloganIndex);
     //removeSloganVisibility( activeSloganIndex );
     activeSloganIndex++;
     if( activeSloganIndex !== 3 ) {

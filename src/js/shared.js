@@ -16,7 +16,6 @@ export default function sharedFunctions( ) {
         transitions: [{
             name: 'opacity-transition',
             once(data) {
-                console.log('ran once');
                 runOnce( data );
                 scrollToBeginning( data );
             },
@@ -43,13 +42,12 @@ export default function sharedFunctions( ) {
         }]
     });
     $( window ).on( "resize", () => {
+        console.log('resize');
         runOnResize( false );
     });
 }
 
 function scrollToBeginning( data ) {
-    console.log(vars.scrollingContainer[data.next.namespace].slice( 1, -1 ))
-    console.log(parseFloat( vars.scrollToBeginningMeasurements[data.next.namespace] ) );
     if( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) === 'window') {
         window.scrollTo( 0, parseFloat( vars.scrollToBeginningMeasurements[data.next.namespace] ) );
     } else {
@@ -57,12 +55,13 @@ function scrollToBeginning( data ) {
     }
 }
 
-function runOnResize( pageLoad, data = { next: { container: $( 'main' ), namespace: $( 'main' ).css( 'data-barba-namespace' ) } } ) {
+function runOnResize( pageLoad, data = { next: { container: $( 'main' ), namespace: $( 'main' ).attr( 'data-barba-namespace' ) } } ) {
     // resizing elements with vh units
     resizeElement.resizeElements( pageLoad, data );
 
     // adjust text width to fit into container
     adjustTextBreaks( pageLoad );
+    console.log(data);
     if ( vars.pagesWithScrollTransition[data.next.namespace] === 'true' ) {
         detectScrollHelper.registerPageScrollRecord();
         pageTransitionHelper.resetPageTransitions( data.next.container );
