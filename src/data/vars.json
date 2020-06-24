@@ -149,8 +149,7 @@
     "sustainabilitySlideOpacityTransition": "'opacity ease-in-out 0.2s'",
     "sustainabilitySlideOpenOpacityTransition": "'opacity ease-in-out 0.2s 0.2s'",
 
-    "indexAnimationVideoOpacityTransition": "'opacity ease-in-out 0.5s'",
-    "indexAnimationBackgroundOpacityTransition": "'opacity ease-in-out 0.5s'",
+    "indexAnimationVideoTransformTransition": "'transform ease-in-out 0.5s'",
     "indexAnimationSloganOpacityTransition": "'opacity ease-in-out 0.3s'",
     "indexAnimationSloganVisibleOpacityTransition": "'opacity ease-in-out 0.3s 0.3s'",
     "indexAnimationSloganInterval": "1500",

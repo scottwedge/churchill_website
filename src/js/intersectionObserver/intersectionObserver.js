@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'intersection-observer';
 
 /**
  * Creates an intersectionObserver

@@ -9,10 +9,12 @@ export function instantiateVideoJs(data) {
     if (data.next.namespace === 'story') {
         video = videojs( $('.m-video-container')[0] ).ready( function() {
             player = this;
+            //player.play();
         });
     } else if (data.next.namespace === 'animation') {
         video = videojs( $('.m-animation-video')[0] ).ready( function() {
             player = this;
+            //player.play();
             registerVideoEndedAction( player );
         });
     }

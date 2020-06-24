@@ -7,14 +7,15 @@
 </head>
 <body data-barba="wrapper">
     <main data-barba="container" data-barba-namespace="animation" class="m-animation">
-        <div class="m-animation-background"></div>
         <video
             id="m-animation-video"
             class="m-animation-video"
             autoplay
+            playsinline
             muted
         >
             <source src="../vid/animation.webm" type="video/webm" />
+            <source src="../vid/animation_1.mp4" type="video/mp4" />
             <p class="vjs-no-js">
             To view this video please enable JavaScript, and consider upgrading to a
             web browser that
@@ -23,14 +24,12 @@
             >
             </p>
         </video>
-        <div class="m-slogan">
-            <h1>Hydrate.</h1>
-        </div>
-        <div class="m-slogan">
-            <h1>Restore.</h1>
-        </div>
-        <div class="m-slogan">
-            <h1>Perform.</h1>
+        <div class="m-slogan-container">
+            <h1 class="m-slogan">
+                <span class="m-slogan-word">Hydrate. </span>
+                <span class="m-slogan-word">Restore. </span>
+                <span class="m-slogan-word">Perform.</span>
+            </h1>
         </div>
     </main>
     <header class="m-header is-not-visible">

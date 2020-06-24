@@ -40,6 +40,7 @@
   "dependencies": {
     "@barba/core": "^2.9.7",
     "gsap": "^3.2.6",
+    "intersection-observer": "^0.11.0",
     "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
     "paper": "^0.12.4",

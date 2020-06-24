@@ -30,12 +30,12 @@ function removeSlideshowVisibility( slideIndex ) {
 
 function addSloganVisibility( sloganIndex ) {
     console.log(sloganIndex);
-    console.log($( '.m-slogan' ).eq( sloganIndex ).addClass( 'is-visible' ));
+    console.log($( '.m-slogan-word' ).eq( sloganIndex ).addClass( 'is-visible' ));
 }
 
 function removeSloganVisibility( sloganIndex ) {
     console.log(sloganIndex);
-    console.log($( '.m-slogan' ).eq( sloganIndex ).removeClass( 'is-visible' ));
+    console.log($( '.m-slogan-word' ).eq( sloganIndex ).removeClass( 'is-visible' ));
 }
 
 function advanceSustainabilitySlideshow() {
@@ -46,13 +46,13 @@ function advanceSustainabilitySlideshow() {
 
 function advanceSloganAnimation() {
     console.log(activeSloganIndex);
-    removeSloganVisibility( activeSloganIndex );
+    //removeSloganVisibility( activeSloganIndex );
     activeSloganIndex++;
     if( activeSloganIndex !== 3 ) {
         addSloganVisibility( activeSloganIndex );
     } else {
         clearInterval( sloganTimer );
-        barba.go('/html/product.html');
+        //barba.go('/html/product.html');
     }
 }
 

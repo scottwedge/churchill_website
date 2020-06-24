@@ -1,0 +1,12 @@
+@use '../../data/vars.json' as vars;
+
+.m-slogan-word {
+    display: block;
+    opacity: 0;
+    transition: #{vars.$index-animation-slogan-opacity-transition};
+
+    &.is-visible {
+        opacity: 1;
+        transition: #{vars.$index-animation-slogan-visible-opacity-transition};
+    }
+}
