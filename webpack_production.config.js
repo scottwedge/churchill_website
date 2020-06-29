@@ -249,18 +249,13 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              // specifies output path relative to output.path
-              outputPath: 'svg',
-              // specifies path to prefix url rewriting by css-loader. if the url was url(image.svg) it is now url(publicPath/image.svg).
-              //publicPath: path.basename(info.issuer) === 'index.html' ? './svg/' : '../svg/',
-              publicPath: (url, resourcePath, context) => {
-                console.log(path.basename(info.issuer));
-                  if (path.basename(info.issuer) === 'index.html') {
-                      return './svg/' + url;
-                  } else {
-                      return '../svg/' + url;
-                  }
-              }
+                // specifies output path relative to output.path
+                outputPath: 'svg',
+                // specifies path to prefix url rewriting by css-loader. if the url was url(image.svg) it is now url(publicPath/image.svg).
+                //publicPath: path.basename(info.issuer) === 'index.html' ? './svg/' : '../svg/',
+                publicPath: (url, resourcePath, context) => {
+                    return '../svg/' + url;
+                }
             }
           },
         ]),

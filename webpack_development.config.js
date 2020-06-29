@@ -261,11 +261,7 @@ module.exports = {
               // specifies path to prefix url rewriting by css-loader. if the url was url(image.svg) it is now url(publicPath/image.svg).
               publicPath: (url, resourcePath, context) => {
                 console.log(path.basename(info.issuer));
-                  if (path.basename(info.issuer) === 'index.html') {
-                      return './svg/' + url;
-                  } else {
-                      return '../svg/' + url;
-                  }
+                  return '../svg/' + url;
               }
             }
           },

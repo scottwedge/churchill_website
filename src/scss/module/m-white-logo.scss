@@ -1,0 +1,9 @@
+.m-header {
+    .m-white-logo {
+        display: none;
+    }
+
+    &.white .m-white-logo {
+        display: inline;
+    }
+}

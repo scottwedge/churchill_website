@@ -39,3 +39,9 @@
         transition: #{vars.$nav-open-toggle-bar-rotate-transform-transition};
     }
 }
+
+.m-header.white {
+    .m-toggle-bar {
+        background: vars.$background-white;
+    }
+}

@@ -53,10 +53,11 @@ function advanceSloganAnimation() {
     }
 }
 
-export function registerNavigationToggle() {
+export function registerNavigationToggle( ) {
     //$( '.m-navigation-toggle' ).off( 'click' );
     $( '.m-navigation-toggle' ).on( 'click', () => {
         $( 'body' ).toggleClass( vars.navigationOpenClass );
+        adjustHeaderColor( false, !navIsOpen() );
     } );
 }
 
@@ -129,5 +130,20 @@ export function handleFooterVisibility( data ) {
     }
     if ( data.next.namespace === 'animation' ) {
         $( '.m-footer' ).addClass( 'is-not-visible' );
+    }
+}
+
+function toggleHeaderColor() {
+    $( '.m-header' ).toggleClass( 'white' );
+}
+
+export function adjustHeaderColor( pageTransitioning = false, navClosing = false, data = { next: { namespace: $( 'main' ).attr( 'data-barba-namespace' ) } } ) {
+    console.log(navClosing)
+    console.log(vars.headerColors[ data.next.namespace ]);
+    if ( ( navClosing || pageTransitioning ) && vars.headerColors[ data.next.namespace ] === 'white' ) {
+        $( '.m-header' ).removeClass( 'white' );
+        $( '.m-header' ).addClass( 'white' );
+    } else {
+        $( '.m-header' ).removeClass( 'white' );
     }
 }

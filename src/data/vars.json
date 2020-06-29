@@ -197,5 +197,17 @@
         "mint": "true",
         "salt": "true",
         "sustainability": "true"
+    },
+    "headerColors": {
+        "story": "black",
+        "imprint": "black",
+        "privacy": "black",
+        "about": "white",
+        "contact": "white",
+        "product": "black",
+        "lemon": "black",
+        "mint": "black",
+        "salt": "white",
+        "sustainability": "white"
     }
 }

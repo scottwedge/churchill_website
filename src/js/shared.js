@@ -78,15 +78,17 @@ function runOnLoad( data, pageLoad = true ) {
         detectScrollHelper.registerPageScrollRecord();
         pageTransitionHelper.initiatePageTransitions();
     }
-    stateHelper.registerNavigationToggle();
+    stateHelper.registerNavigationToggle( data );
     stateHelper.handleFooterVisibility( data );
     stateHelper.handleHeaderVisibility( data );
+    stateHelper.adjustHeaderColor( true, false, data );
 }
 
 function afterEnterTransition( data ) {
     stateHelper.registerSustainabilitySlideManager( data );
     stateHelper.handleFooterVisibility( data );
     stateHelper.handleHeaderVisibility( data );
+    stateHelper.adjustHeaderColor( true, false, data );
 }
 
 function beforeEnterTransition( data ) {
