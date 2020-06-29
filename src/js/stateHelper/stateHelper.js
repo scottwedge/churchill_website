@@ -49,7 +49,7 @@ function advanceSloganAnimation() {
         addSloganVisibility( activeSloganIndex );
     } else {
         clearInterval( sloganTimer );
-        //barba.go('/html/product.html');
+        barba.go('/html/product.html');
     }
 }
 
