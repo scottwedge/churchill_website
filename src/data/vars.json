@@ -112,7 +112,7 @@
     "zIndexNavigation": "1",
     "zIndexNavigationToggle": "1",
     "zIndexTextMask": "-1",
-    "zIndexPartnerLogos": "-1",
+    "zIndexPartnerLogos": "0",
 
     "intersectionObserverSteps": "1",
     "textOverflowSpanSelector": "'p > span'",
