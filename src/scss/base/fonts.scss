@@ -1,7 +1,7 @@
 @use '~rfs/scss' as rfs;
 @use '../../data/vars.json' as vars;
 
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 rfs.$rfs-two-dimensional: vars.$rfs-two-dimensional;
 rfs.$rfs-factor: vars.$rfs-factor;
@@ -81,4 +81,8 @@ h5 {
 
 .f-italic {
     font-style: italic;
+}
+
+.f-bold {
+    font-weight: 500;
 }
