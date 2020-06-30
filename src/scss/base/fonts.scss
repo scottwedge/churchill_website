@@ -35,6 +35,10 @@ h1 {
     margin-top: vars.$h1-margin-top-mobile;
     padding-bottom: vars.$h1-padding-bottom-mobile;
     padding-top: vars.$h1-padding-top-mobile;
+
+    &.f-small {
+        @include rfs.font-size(vars.$h1-font-size-small-mobile-rfs);
+    }
 }
 
 h4 {
