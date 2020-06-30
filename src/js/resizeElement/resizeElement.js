@@ -9,7 +9,7 @@ import * as stateHelper from '../stateHelper/stateHelper.js';
  */
 const resizeToViewportHeightFraction = ( elements, cssProperty, fraction = 1 ) => {
     $( elements ).each(function (index, element) {
-        $(element).css(cssProperty, window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ) * fraction);
+        $(element).css(cssProperty, ( window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ) ) * fraction);
     })
 }
 
@@ -28,8 +28,9 @@ export function resizeElements( pageLoad, data ) {
     // If address bar is visible
     if ( stateHelper.addressBarVisible() || pageLoad ) {
         //alert('now');
-        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", vars.mediaCanvasHeightFractionMobile );
-        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "top", vars.mediaCanvasStickyFractionMobile - vars.mediaCanvasHeightFractionMobile );
-        resizeToViewportHeightFraction( $( ".m-heading-middle" ), "top", vars.mediaCanvasStickyFractionMobile );
+        console.log(parseFloat(vars.mediaCanvasHeightFractionMobile))
+        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", parseFloat( vars.mediaCanvasHeightFractionMobile ) );
+        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) - parseFloat( vars.mediaCanvasHeightFractionMobile ) );
+        resizeToViewportHeightFraction( $( ".m-heading-middle" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) );
     }
 }

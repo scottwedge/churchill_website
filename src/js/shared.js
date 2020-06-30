@@ -42,7 +42,6 @@ export default function sharedFunctions( ) {
         }]
     });
     $( window ).on( "resize", () => {
-        console.log('resize');
         runOnResize( false );
     });
 }
@@ -61,7 +60,6 @@ function runOnResize( pageLoad, data = { next: { container: $( 'main' ), namespa
 
     // adjust text width to fit into container
     adjustTextBreaks( pageLoad );
-    console.log(data);
     if ( vars.pagesWithScrollTransition[data.next.namespace] === 'true' ) {
         detectScrollHelper.registerPageScrollRecord();
         pageTransitionHelper.resetPageTransitions( data.next.container );

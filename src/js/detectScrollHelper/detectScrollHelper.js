@@ -14,7 +14,7 @@ function bottomObserverMargin( nextBarbaContainer ) {
         let textTableFixedBottomMargin = $( '.m-text-table-fixed' ).css("marginBottom");
         topMargin = window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ) - $( '.m-footer-transparent' ).outerHeight( true ) - parseFloat(textTableFixedBottomMargin.slice(0, -2)) + parseFloat(vars.observerMarginTolerance);
     }
-    console.log('-' + Math.ceil( topMargin ) + 'px 0px 0px 0px');
+    console.log('-' + Math.ceil( topMargin ) + 'px 0px 0px 0px')
     return '-' + Math.ceil( topMargin ) + 'px 0px 0px 0px';
 }
 
@@ -23,7 +23,6 @@ function scrolledToTopReference( nextBarbaContainer ) {
 }
 
 function scrolledToBottomReference( nextBarbaContainer ) {
-    console.log($( nextBarbaContainer ).find( '.scrolled-to-bottom-reference' ));
     return $( nextBarbaContainer ).find( '.scrolled-to-bottom-reference' );
 }
 

@@ -89,9 +89,6 @@ export function afterWindowSizeChange( nextWindowHeight = window.outerHeight ===
 
 
 export function addressBarVisible( ) {
-    console.log(window.innerHeight);
-    console.log(Math.min( window.outerHeight, window.innerHeight ));
-    console.log(document.documentElement.clientHeight);
     return document.documentElement.clientHeight === (window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ));
 }
 
@@ -138,8 +135,6 @@ function toggleHeaderColor() {
 }
 
 export function adjustHeaderColor( pageTransitioning = false, navClosing = false, data = { next: { namespace: $( 'main' ).attr( 'data-barba-namespace' ) } } ) {
-    console.log(navClosing)
-    console.log(vars.headerColors[ data.next.namespace ]);
     if ( ( navClosing || pageTransitioning ) && vars.headerColors[ data.next.namespace ] === 'white' ) {
         $( '.m-header' ).removeClass( 'white' );
         $( '.m-header' ).addClass( 'white' );
