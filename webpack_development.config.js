@@ -12,17 +12,17 @@ module.exports = {
     // link all scss, css and js files (you want linked in your index.html) here.
     // js files are linked in <body> and css files in <head>.
 
-    product: ['./src/scss/index.scss', './src/js/product.js'],
+    product: ['./src/scss/index.scss', './src/js/index.js'],
     index: ['./src/scss/index.scss', './src/js/index.js'],
-    lemon: ['./src/scss/index.scss', './src/js/lemon.js'],
-    mint: ['./src/scss/index.scss', './src/js/mint.js'],
-    salt: ['./src/scss/index.scss', './src/js/salt.js'],
-    story: ['./src/scss/index.scss', './src/js/story.js', './node_modules/video.js/dist/video-js.css'],
-    sustainability: ['./src/scss/index.scss', './src/js/sustainability.js'],
-    about: ['./src/scss/index.scss', './src/js/about.js'],
-    contact: ['./src/scss/index.scss', './src/js/contact.js'],
-    imprint: ['./src/scss/index.scss', './src/js/imprint.js'],
-    privacy: ['./src/scss/index.scss', './src/js/privacy.js']
+    lemon: ['./src/scss/index.scss', './src/js/index.js'],
+    mint: ['./src/scss/index.scss', './src/js/index.js'],
+    salt: ['./src/scss/index.scss', './src/js/index.js'],
+    story: ['./src/scss/index.scss', './src/js/index.js', './node_modules/video.js/dist/video-js.css'],
+    sustainability: ['./src/scss/index.scss', './src/js/index.js'],
+    about: ['./src/scss/index.scss', './src/js/index.js'],
+    contact: ['./src/scss/index.scss', './src/js/index.js'],
+    imprint: ['./src/scss/index.scss', './src/js/index.js'],
+    privacy: ['./src/scss/index.scss', './src/js/index.js']
   },
   mode: 'development',
   output: {
