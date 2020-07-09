@@ -1,59 +1,109 @@
 @use '../../data/vars.json' as vars;
 
-.m-sustainability .m-image-container > .m-image {
-    opacity: 0;
-    transition: #{vars.$sustainability-slide-opacity-transition};
+.m-sustainability {
+    .m-image-container > .m-image {
+        opacity: 0;
+        transition: #{vars.$sustainability-slide-opacity-transition};
+    }
 
-    &.is-visible {
+    .m-text-mask.global-goals-1 {
+        background: vars.$g-g1;
+    }
+
+    .m-text-mask.global-goals-2 {
+        background: vars.$g-g2;
+    }
+
+    .m-text-mask.global-goals-3 {
+        background: vars.$g-g3;
+    }
+
+    .m-text-mask.global-goals-4 {
+        background: vars.$g-g4;
+    }
+
+    .m-text-mask.global-goals-6 {
+        background: vars.$g-g6;
+    }
+
+    .m-text-mask.global-goals-8 {
+        background: vars.$g-g8;
+    }
+
+    .m-text-mask.global-goals-10 {
+        background: vars.$g-g10;
+    }
+
+    .m-text-mask.global-goals-11 {
+        background: vars.$g-g11;
+    }
+
+    .m-text-mask.global-goals-12 {
+        background: vars.$g-g12;
+    }
+
+    .m-text-mask.global-goals-13 {
+        background: vars.$g-g13;
+    }
+
+    .m-text-mask.global-goals-14 {
+        background: vars.$g-g14;
+    }
+
+    .m-text-mask.global-goals-17 {
+        background: vars.$g-g17;
+    }
+
+    .m-image-container > .m-image.is-visible {
         opacity: 1;
         transition: #{vars.$sustainability-slide-open-opacity-transition};
     }
 
-    &.global-goals-1 {
-        background: url('~svg/gG1.svg') no-repeat center center/contain, vars.$g-g1;
+    .m-image-container > .m-image.global-goals-1 {
+        background: url('~svg/gG1.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-2 {
-        background: url('~svg/gG2.svg') no-repeat center center/contain, vars.$g-g2;
+    .m-image-container > .m-image.global-goals-2 {
+        background: url('~svg/gG2.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-3 {
-        background: url('~svg/gG3.svg') no-repeat center center/contain, vars.$g-g3;
+    .m-image-container > .m-image.global-goals-3 {
+        background: url('~svg/gG3.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-4 {
-        background: url('~svg/gG4.svg') no-repeat center center/contain, vars.$g-g4;
+    .m-image-container > .m-image.global-goals-4 {
+        background: url('~svg/gG4.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-6 {
-        background: url('~svg/gG6.svg') no-repeat center center/contain, vars.$g-g6;
+    .m-image-container > .m-image.global-goals-6 {
+        background: url('~svg/gG6.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-8 {
-        background: url('~svg/gG8.svg') no-repeat center center/contain, vars.$g-g8;
+    .m-image-container > .m-image.global-goals-8 {
+        background: url('~svg/gG8.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-10 {
-        background: url('~svg/gG10.svg') no-repeat center center/contain, vars.$g-g10;
+    .m-image-container > .m-image.global-goals-10 {
+        background: url('~svg/gG10.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-11 {
-        background: url('~svg/gG11.svg') no-repeat center center/contain, vars.$g-g11;
+    .m-image-container > .m-image.global-goals-11 {
+        background: url('~svg/gG11.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-12 {
-        background: url('~svg/gG12.svg') no-repeat center center/contain, vars.$g-g12;
+    .m-image-container > .m-image.global-goals-12 {
+        background: url('~svg/gG12.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-13 {
-        background: url('~svg/gG13.svg') no-repeat center center/contain, vars.$g-g13;
+    .m-image-container > .m-image.global-goals-13 {
+        background: url('~svg/gG13.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-14 {
-        background: url('~svg/gG14.svg') no-repeat center center/contain, vars.$g-g14;
+    .m-image-container > .m-image.global-goals-14 {
+        background: url('~svg/gG14.svg') no-repeat center center/contain;
     }
 
-    &.global-goals-17 {
-        background: url('~svg/gG17.svg') no-repeat center center/contain, vars.$g-g17;
+    .m-image-container > .m-image.global-goals-17 {
+        background: url('~svg/gG17.svg') no-repeat center center/contain;
     }
 }

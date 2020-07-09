@@ -2,8 +2,11 @@
 
 .m-contact {
     .m-image-container > .m-image {
-        background: vars.$churchill-grey;
         object-fit: contain;
         object-position: center;
+    }
+
+    .m-text-mask {
+        background: vars.$churchill-grey;
     }
 }

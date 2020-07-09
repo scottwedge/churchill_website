@@ -22,10 +22,12 @@ export function contentOpen() {
 
 function addSlideshowVisibility( slideIndex ) {
     $( '.m-sustainability .global-goals-' + sustainabilitySlides[ slideIndex ] ).addClass( 'is-visible' );
+    $( '.m-sustainability .m-text-mask' ).addClass( 'global-goals-' + sustainabilitySlides[ slideIndex ] );
 }
 
 function removeSlideshowVisibility( slideIndex ) {
     $( '.m-sustainability .global-goals-' + sustainabilitySlides[ slideIndex ] ).removeClass( 'is-visible' );
+    $( '.m-sustainability .m-text-mask' ).removeClass( 'global-goals-' + sustainabilitySlides[ slideIndex ] );
 }
 
 function addSloganVisibility( sloganIndex ) {
@@ -54,7 +56,7 @@ function advanceSloganAnimation() {
 }
 
 export function registerNavigationToggle( ) {
-    //$( '.m-navigation-toggle' ).off( 'click' );
+    $( '.m-navigation-toggle' ).off( 'click' );
     $( '.m-navigation-toggle' ).on( 'click', () => {
         $( 'body' ).toggleClass( vars.navigationOpenClass );
         adjustHeaderColor( false, !navIsOpen() );
@@ -65,9 +67,21 @@ export function removeNavigationToggle() {
     $( 'body' ).removeClass( vars.navigationOpenClass );
 }
 
-export function toggleFooterTransparency( data ) {
-    if ( data.current.namespace === 'story' || data.next.namespace === 'story' ) {
-        $( '.m-footer, .m-footer-transparent' ).toggleClass( 'm-footer m-footer-transparent' );
+export function adjustFooterClass( data ) {
+    clearFooterClass();
+    setFooterClass( data );
+}
+
+function clearFooterClass() {
+    $( 'footer' ).removeClass( 'm-footer m-footer-transparent' );
+}
+
+function setFooterClass( data ) {
+    console.log( data.next.namespace );
+    if( data.next.namespace === 'story' ) {
+        $( 'footer' ).addClass( 'm-footer-transparent' );
+    } else {
+        $( 'footer' ).addClass( 'm-footer' );
     }
 }
 

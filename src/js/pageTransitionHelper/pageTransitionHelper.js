@@ -26,7 +26,7 @@ function goToPrevPage( entries, observer ) {
             let curPageFile = curPagePath.substring( curPagePath.lastIndexOf('/') + 1 );
             let curIndex = pageArray.indexOf( curPageFile );
             let prevPageFile
-            if( curIndex > 0 && detectScrollHelper.getIsScrolled() ) {
+            if( curIndex > 0 ) {
                 let prevPageFile = pageArray[ ( curIndex - 1 )  ];
                 barba.go( '/html/' + prevPageFile );
             }
@@ -37,7 +37,7 @@ function goToPrevPage( entries, observer ) {
 function goToNextPage( entries, observer ) {
     let pageArray = createPageArray();
     entries.forEach( element => {
-        if( !element.isIntersecting && stateHelper.contentOpen() ) {
+        if( element.intersectionRatio >= 0.9 && stateHelper.contentOpen() ) {
             let curPagePath = window.location.pathname;
             if ( curPagePath === '/' ) {
                 curPagePath = '/index.html';
@@ -45,8 +45,10 @@ function goToNextPage( entries, observer ) {
             let curPageFile = curPagePath.substring( curPagePath.lastIndexOf('/') + 1 );
             let curIndex = pageArray.indexOf( curPageFile );
             let nextPageFile
-            if( curIndex < pageArray.length - 1  && detectScrollHelper.getIsScrolled() ) {
+            if( curIndex < pageArray.length - 1 ) {
                 nextPageFile = pageArray[ ( curIndex + 1 ) ];
+                if( bottomObserver ) bottomObserver.disconnect();
+                if( topObserver ) topObserver.disconnect();
                 barba.go( '/html/' + nextPageFile );
             }
         }
@@ -54,25 +56,23 @@ function goToNextPage( entries, observer ) {
 }
 
 function initiatePageTransitionsTop() {
+    console.log('initiateObserverTop');
     topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage, $( 'main' ) );
 }
 
 function initiatePageTransitionsBottom() {
+    console.log('initiateObserverBottom');
     bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage, $( 'main' ) );
 }
 
 function resetPageTransitionsTop( nextBarbaContainer ) {
-    if ( topObserver ) {
-        topObserver.disconnect();
-    }
+    console.log('resetObserverTop');
     topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage, nextBarbaContainer );
 
 }
 
 function resetPageTransitionsBottom( nextBarbaContainer ) {
-    if ( bottomObserver ) {
-        bottomObserver.disconnect();
-    }
+    console.log('resetObserverBottom');
     bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage, nextBarbaContainer );
 }
 

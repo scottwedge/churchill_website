@@ -2,6 +2,10 @@
 
 .m-mint {
     .m-image-container > .m-image {
-        background: url('~img/mint.png') no-repeat center center/contain, vars.$mint-green;
+        background: url('~img/mint.png') no-repeat center center/contain;
+    }
+
+    .m-text-mask {
+        background: vars.$mint-green;
     }
 }

@@ -4,6 +4,14 @@
     height: 50vh;
     position: sticky;
     top: ( vars.$media-canvas-sticky-fraction-mobile - vars.$media-canvas-height-fraction-mobile ) * 100%;
+    transition: #{vars.$nav-close-media-canvas-opacity-transition};
     width: 100%;
     z-index: vars.$z-index-image-container;
+}
+
+.#{vars.$navigation-open-class} {
+    .m-media-canvas {
+        opacity: 0;
+        transition: #{vars.$nav-open-media-canvas-opacity-transition};
+    }
 }

@@ -16,10 +16,9 @@ export default function sharedFunctions( ) {
         transitions: [{
             name: 'opacity-transition',
             once(data) {
-                runOnce( data );
-                scrollToBeginning( data );
-            },
-            after() {
+                beforeEnterTransition( data );
+                enterTransition( data );
+                afterEnterTransition( data );
             },
             leave(data) {
                 return gsap.to(data.current.container, {
@@ -31,7 +30,7 @@ export default function sharedFunctions( ) {
                 beforeEnterTransition( data );
             },
             enter(data) {
-                scrollToBeginning( data );
+                enterTransition( data );
                 return gsap.from(data.next.container, {
                     autoAlpha: 0
                 });
@@ -48,9 +47,10 @@ export default function sharedFunctions( ) {
 
 function scrollToBeginning( data ) {
     if( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) === 'window') {
-        window.scrollTo( 0, parseFloat( vars.scrollToBeginningMeasurements[data.next.namespace] ) );
+        console.log("beginning");
+        window.scrollTo( 0, resizeElement.returnViewportHeightFraction( vars.arrowAbsoluteHeightFractionMobile ) );
     } else {
-        $( data.next.container ).find( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) )[0].scrollTo( 0, parseFloat( vars.scrollToBeginningMeasurements[data.next.namespace] ) );
+        $( data.next.container ).find( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) )[0].scrollTo( 0, parseInt( vars.scrollToBeginningMeasurements[data.next.namespace] ) );
     }
 }
 
@@ -60,47 +60,31 @@ function runOnResize( pageLoad, data = { next: { container: $( 'main' ), namespa
 
     // adjust text width to fit into container
     adjustTextBreaks( pageLoad );
-    if ( vars.pagesWithScrollTransition[data.next.namespace] === 'true' ) {
-        detectScrollHelper.registerPageScrollRecord();
-        pageTransitionHelper.resetPageTransitions( data.next.container );
-    }
-}
-
-function runOnLoad( data, pageLoad = true ) {
-    // resizing elements with vh units
-    resizeElement.resizeElements( pageLoad, data );
-
-    // adjust text width to fit into container
-    adjustTextBreaks( pageLoad );
-    if ( vars.pagesWithScrollTransition[data.next.namespace] === 'true' ) {
-        detectScrollHelper.registerPageScrollRecord();
-        pageTransitionHelper.initiatePageTransitions();
-    }
-    stateHelper.registerNavigationToggle( data );
-    stateHelper.handleFooterVisibility( data );
-    stateHelper.handleHeaderVisibility( data );
-    stateHelper.adjustHeaderColor( true, false, data );
 }
 
 function afterEnterTransition( data ) {
-    stateHelper.registerSustainabilitySlideManager( data );
+    // set proper classes
+    stateHelper.adjustHeaderColor( true, false, data );
     stateHelper.handleFooterVisibility( data );
     stateHelper.handleHeaderVisibility( data );
-    stateHelper.adjustHeaderColor( true, false, data );
+    // register content manipulation and handlers
+    stateHelper.registerNavigationToggle();
+    if ( vars.pagesWithScrollTransition[data.next.namespace] === 'true') {
+        pageTransitionHelper.resetPageTransitions( data.next.container);
+    }
+    stateHelper.registerSustainabilitySlideManager( data );
+}
+
+function enterTransition( data ) {
+    scrollToBeginning( data );
 }
 
 function beforeEnterTransition( data ) {
+    // cleaning up
     stateHelper.removeNavigationToggle();
-    stateHelper.toggleFooterTransparency( data );
+    stateHelper.adjustFooterClass( data );
+    //instantiating content and helpers from next page - do this in dom ready.
     videoJsHelper.instantiateVideoJs( data );
     runOnResize( true, data );
-    init();
-}
-
-function runOnce( data ) {
-    stateHelper.toggleFooterTransparency( data );
-    stateHelper.registerSustainabilitySlideManager( data );
-    videoJsHelper.instantiateVideoJs( data );
-    runOnLoad( data );
     init();
 }

@@ -2,8 +2,11 @@
 
 .m-product {
     .m-image-container > .m-image {
-        background: vars.$churchill-gold;
         object-fit: contain;
         object-position: center;
+    }
+
+    .m-text-mask {
+        background: vars.$churchill-gold;
     }
 }

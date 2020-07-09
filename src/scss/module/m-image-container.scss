@@ -4,13 +4,5 @@
     height: 100%;
     overflow: hidden;
     position: relative;
-    transition: #{vars.$nav-close-image-container-opacity-transition};
     width: 100%;
-}
-
-.#{vars.$navigation-open-class} {
-    .m-image-container {
-        opacity: 0;
-        transition: #{vars.$nav-open-image-container-opacity-transition};
-    }
 }

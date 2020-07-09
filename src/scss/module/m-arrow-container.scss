@@ -1,0 +1,29 @@
+@use '../../data/vars.json' as vars;
+
+.m-arrow-container {
+    background-size: contain;
+}
+
+.m-arrow-container.prev {
+    height: vars.$arrow-relative-height-fraction-mobile * 100%;
+    margin: 0 auto;
+    width: vars.$arrow-width;
+
+    &.black {
+        background: url('~svg/prev_arrow_black.svg') no-repeat center center;
+    }
+
+    &.white {
+        background: url('~svg/prev_arrow_white.svg') no-repeat center center;
+    }
+}
+
+.m-arrow-container.next {
+    height: 150px;
+    margin: 70px auto 0;
+    width: 30px;
+
+    &.black {
+        background: url('~svg/next_arrow_black.svg') no-repeat top center;
+    }
+}

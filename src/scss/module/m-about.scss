@@ -1,6 +1,12 @@
+@use '../../data/vars.json' as vars;
+
 .m-about {
     .m-image-container > .m-image {
         object-fit: cover;
         object-position: top center;
+    }
+
+    .m-text-mask {
+        background: vars.$about-grey;
     }
 }

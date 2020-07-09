@@ -2,6 +2,10 @@
 
 .m-salt {
     .m-image-container > .m-image {
-        background: url('~img/salt.png') no-repeat center center/contain, vars.$salt-grey;
+        background: url('~img/salt.png') no-repeat center center/contain;
+    }
+
+    .m-text-mask {
+        background: vars.$salt-grey;
     }
 }

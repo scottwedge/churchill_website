@@ -6,7 +6,8 @@ import barba from '@barba/core';
 let isScrolled;
 
 function bottomObserverMargin( nextBarbaContainer ) {
-    let topMargin;
+    let bottomMargin = parseFloat(vars.observerMarginTolerance);
+    /*
     if ( $( nextBarbaContainer ).find( '.m-text-container' ).length > 0 ) {
         let textTableBottomMargin = $( '.m-text-table' ).css("marginBottom");
         topMargin = window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ) - parseFloat(textTableBottomMargin.slice(0, -2)) + parseFloat(vars.observerMarginTolerance);
@@ -14,8 +15,8 @@ function bottomObserverMargin( nextBarbaContainer ) {
         let textTableFixedBottomMargin = $( '.m-text-table-fixed' ).css("marginBottom");
         topMargin = window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ) - $( '.m-footer-transparent' ).outerHeight( true ) - parseFloat(textTableFixedBottomMargin.slice(0, -2)) + parseFloat(vars.observerMarginTolerance);
     }
-    console.log('-' + Math.ceil( topMargin ) + 'px 0px 0px 0px')
-    return '-' + Math.ceil( topMargin ) + 'px 0px 0px 0px';
+    */
+    return '0px 0px 0px ' + Math.ceil( bottomMargin ) + 'px';
 }
 
 function scrolledToTopReference( nextBarbaContainer ) {
@@ -27,13 +28,15 @@ function scrolledToBottomReference( nextBarbaContainer ) {
 }
 
 function topObserverMargin( nextBarbaContainer ) {
-    let topMargin;
+    let topMargin = parseFloat(vars.observerMarginTolerance);
+    /*
     if ( $( '.m-text-container' ).length > 0 ) {
         topMargin = 0;
     } else {
         topMargin = $( '.m-heading-top').outerHeight( true ) + parseFloat( scrolledToTopReference( nextBarbaContainer ).css('marginTop').slice( 0, -2 ) );
     }
-    return '-' + Math.floor( topMargin ) + 'px 0px 0px 0px';
+    */
+    return Math.ceil( topMargin ) + 'px 0px 0px 0px';
 }
 
 function scrolledToTopRoot() {
@@ -62,22 +65,4 @@ export function scrolledToBottomObserver( handleIntersect, nextBarbaContainer ) 
         bottomObserverMargin( nextBarbaContainer ),
         scrolledToBottomRoot()
     );
-}
-
-// register this on load in index.js
-export function registerPageScrollRecord() {
-    isScrolled = false;
-    let scrollCounter = 0;
-    $( window ).add( '.m-text-container-absolute' ).on( 'scroll', function( event ) {
-        if (scrollCounter === 0) {
-            scrollCounter++
-        } else {
-            $( this ).off( event );
-            isScrolled = true;
-        }
-    } )
-}
-
-export function getIsScrolled() {
-    return isScrolled;
 }

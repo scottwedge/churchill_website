@@ -7,9 +7,9 @@ import * as stateHelper from '../stateHelper/stateHelper.js';
  * @param {*} elements pass a nodelist of elements, or a jquery selection.
  * @param {*} fraction element height as a viewport height fraction
  */
-const resizeToViewportHeightFraction = ( elements, cssProperty, fraction = 1 ) => {
+const resizeToViewportHeightFraction = ( elements, cssProperty, fraction = 1, addition = 0 ) => {
     $( elements ).each(function (index, element) {
-        $(element).css(cssProperty, ( window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ) ) * fraction);
+        $(element).css(cssProperty, ( window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ) ) * fraction + addition );
     })
 }
 
@@ -19,16 +19,21 @@ const resizeElementsToHeightOf = ( elements, cssProperty, referenceElement, with
     })
 }
 
+export function returnViewportHeightFraction ( fraction = 1, addition = 0 ) {
+    return ( window.outerHeight === 0 ? window.innerHeight : Math.min( window.outerHeight, window.innerHeight ) ) * fraction + addition;
+}
+
 export function resizeElements( pageLoad, data ) {
     resizeElementsToHeightOf( $( ".m-heading-top" ), "margin-top", $( ".m-header" ), true );
     resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "top", $( ".m-header" ), true );
     resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "margin-top", $(data.next.container).find( ".m-heading-top" ), false );
     resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "bottom", $( ".m-footer-transparent, .m-footer" ), true );
+    resizeToViewportHeightFraction( $( ".m-arrow-container.next" ), "margin-top", parseFloat( vars.arrowAbsoluteHeightFractionMobile ) / 2, parseFloat( vars.arrowHeight ) / -2 );
+    resizeToViewportHeightFraction( $( ".m-arrow-container.next" ), "height", parseFloat( vars.arrowAbsoluteHeightFractionMobile ) / 2, parseFloat( vars.arrowHeight ) / 2 + $( ".m-footer" ).outerHeight( true ) );
 
     // If address bar is visible
     if ( stateHelper.addressBarVisible() || pageLoad ) {
-        //alert('now');
-        console.log(parseFloat(vars.mediaCanvasHeightFractionMobile))
+        console.log('setting heights')
         resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", parseFloat( vars.mediaCanvasHeightFractionMobile ) );
         resizeToViewportHeightFraction( $( ".m-media-canvas" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) - parseFloat( vars.mediaCanvasHeightFractionMobile ) );
         resizeToViewportHeightFraction( $( ".m-heading-middle" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) );

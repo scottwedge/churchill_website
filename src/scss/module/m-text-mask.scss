@@ -6,14 +6,6 @@
     left: 0;
     position: absolute;
     top: 0;
-    transition: #{vars.$nav-close-text-mask-visibility-transition};
     width: 100%;
     z-index: vars.$z-index-text-mask;
-}
-
-.#{vars.$navigation-open-class} {
-    .m-text-mask {
-        transition: #{vars.$nav-open-text-mask-visibility-transition};
-        visibility: hidden;
-    }
 }
