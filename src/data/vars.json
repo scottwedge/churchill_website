@@ -28,6 +28,7 @@
 
     "h1FontSizeMobileRfs": "70px",
     "h1FontSizeSmallMobileRfs": "50px",
+    "h1FontSizeExtraSmallMobileRfs": "30px",
     "h1LineHeightMobile": "1em",
     "h1MarginBottomMobile": "0",
     "h1MarginLeftMobile": "2.2rem",
@@ -72,7 +73,8 @@
     "headerPaddingLeftRightMobile": "1.2em",
     "headerPaddingBottomTopMobile": "0.8em",
 
-    "mediaCanvasHeightFractionMobile": "0.8",
+    "mediaCanvasHeightTopArrowFractionMobile": "0.8",
+    "mediaCanvasHeightNoTopArrowFractionMobile": "0.5",
     "mediaCanvasHeightFallbackMobile": "400px",
     "mediaCanvasStickyFractionMobile": "0.15",
 
@@ -170,7 +172,7 @@
         "privacy": "'.m-text-container-absolute'",
         "about": "'window'",
         "contact": "'window'",
-        "product": "'window'",
+        "product": "'none'",
         "lemon": "'window'",
         "mint": "'window'",
         "salt": "'window'",

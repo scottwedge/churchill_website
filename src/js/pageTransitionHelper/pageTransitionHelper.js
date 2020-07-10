@@ -47,8 +47,6 @@ function goToNextPage( entries, observer ) {
             let nextPageFile
             if( curIndex < pageArray.length - 1 ) {
                 nextPageFile = pageArray[ ( curIndex + 1 ) ];
-                if( bottomObserver ) bottomObserver.disconnect();
-                if( topObserver ) topObserver.disconnect();
                 barba.go( '/html/' + nextPageFile );
             }
         }
@@ -80,4 +78,9 @@ export function initiatePageTransitions() {
 export function resetPageTransitions( nextBarbaContainer ) {
     resetPageTransitionsTop( nextBarbaContainer );
     resetPageTransitionsBottom( nextBarbaContainer );
+}
+
+export function disconnectObservers() {
+    if( bottomObserver ) bottomObserver.disconnect();
+    if( topObserver ) topObserver.disconnect();
 }

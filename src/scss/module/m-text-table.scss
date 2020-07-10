@@ -4,4 +4,8 @@
     display: table;
     margin: 0 auto vars.$text-table-margin-bottom auto;
     table-layout: auto;
+
+    &.space-below {
+        margin-bottom: 200px;
+    }
 }

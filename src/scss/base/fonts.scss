@@ -39,6 +39,10 @@ h1 {
     &.f-small {
         @include rfs.font-size(vars.$h1-font-size-small-mobile-rfs);
     }
+
+    &.f-extra-small {
+        @include rfs.font-size(vars.$h1-font-size-extra-small-mobile-rfs);
+    }
 }
 
 h4 {
@@ -73,7 +77,10 @@ h5 {
         margin-left: vars.$p-margin-left-mobile;
         margin-right: vars.$p-margin-right-mobile;
         margin-top: vars.$p-margin-top-mobile;
+        overflow-wrap: break-word;
         text-align-last: left;
+        word-break: break-word;
+        word-wrap: break-word;
     }
 
     > p > span {
@@ -89,4 +96,18 @@ h5 {
 
 .f-bold {
     font-weight: 500;
+}
+
+.f-link {
+    text-decoration: underline;
+
+    &:visited {
+        color: vars.$churchill-grey;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+        font-weight: 500;
+    }
 }

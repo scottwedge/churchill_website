@@ -20,6 +20,9 @@ export default function sharedFunctions( ) {
                 enterTransition( data );
                 afterEnterTransition( data );
             },
+            before() {
+                beforeTransition();
+            },
             leave(data) {
                 return gsap.to(data.current.container, {
                     autoAlpha: 0,
@@ -46,10 +49,13 @@ export default function sharedFunctions( ) {
 }
 
 function scrollToBeginning( data ) {
-    if( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) === 'window') {
+    console.log('scroll');
+    if( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) === 'window' ) {
         window.scrollTo( 0, resizeElement.returnViewportHeightFraction( vars.arrowAbsoluteHeightFractionMobile ) );
-    } else {
+    } else if( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) === '.m-text-container-absolute' ) {
         $( data.next.container ).find( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) )[0].scrollTo( 0, $( '.m-arrow-container-fixed' ).outerHeight( true ) );
+    } else {
+        window.scrollTo( 0, 0 );
     }
 }
 
@@ -86,4 +92,8 @@ function beforeEnterTransition( data ) {
     videoJsHelper.instantiateVideoJs( data );
     runOnResize( true, data );
     init();
+}
+
+function beforeTransition() {
+    pageTransitionHelper.disconnectObservers();
 }

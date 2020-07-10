@@ -25,6 +25,7 @@ export function returnViewportHeightFraction ( fraction = 1, addition = 0 ) {
 }
 
 export function resizeElements( pageLoad, data ) {
+    console.log('resize');
     resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "top", $( ".m-header" ), true );
     resizeElementsToHeightOf( $( ".m-text-container-absolute" ), "bottom", $( ".m-footer-transparent, .m-footer" ), true );
     resizeToViewportHeightFraction( $( ".m-arrow-container.next" ), "margin-top", parseFloat( vars.arrowAbsoluteHeightFractionMobile ) / 2, parseFloat( vars.arrowHeight ) / -2 );
@@ -32,8 +33,8 @@ export function resizeElements( pageLoad, data ) {
 
     // If address bar is visible
     if ( stateHelper.addressBarVisible() || pageLoad ) {
-        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "height", parseFloat( vars.mediaCanvasHeightFractionMobile ) );
-        resizeToViewportHeightFraction( $( ".m-media-canvas" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) - parseFloat( vars.mediaCanvasHeightFractionMobile ) );
+        resizeToViewportHeightFraction( $( ".m-media-canvas.top-arrow" ), "height", parseFloat( vars.mediaCanvasHeightTopArrowFractionMobile ) );
+        resizeToViewportHeightFraction( $( ".m-media-canvas.no-top-arrow" ), "height", parseFloat( vars.mediaCanvasHeightNoTopArrowFractionMobile ) );
         resizeToViewportHeightFraction( $( ".m-heading-middle" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) );
     }
 }

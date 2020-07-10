@@ -3,10 +3,17 @@
 .m-media-canvas {
     height: 50vh;
     position: sticky;
-    top: ( vars.$media-canvas-sticky-fraction-mobile - vars.$media-canvas-height-fraction-mobile ) * 100%;
     transition: #{vars.$nav-close-media-canvas-opacity-transition};
     width: 100%;
     z-index: vars.$z-index-image-container;
+
+    &.top-arrow {
+        top: ( vars.$media-canvas-sticky-fraction-mobile - vars.$media-canvas-height-top-arrow-fraction-mobile ) * 100%;
+    }
+
+    &.no-top-arrow {
+        top: ( vars.$media-canvas-sticky-fraction-mobile - vars.$media-canvas-height-no-top-arrow-fraction-mobile ) * 100%;
+    }
 }
 
 .#{vars.$navigation-open-class} {

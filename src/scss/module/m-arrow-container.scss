@@ -2,6 +2,7 @@
 
 .m-arrow-container {
     background-size: contain;
+    display: block;
     overflow: hidden;
     width: vars.$arrow-width;
 }

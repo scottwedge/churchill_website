@@ -2,6 +2,7 @@
 
 .m-arrow-container-fixed {
     background-size: contain;
+    display: block;
     height: vars.$arrow-relative-height-fraction-mobile * 100%;
     margin: 0 auto;
     width: vars.$arrow-width;
