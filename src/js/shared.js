@@ -53,6 +53,7 @@ function scrollToBeginning( data ) {
     if( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) === 'window' ) {
         window.scrollTo( 0, resizeElement.returnViewportHeightFraction( vars.arrowAbsoluteHeightFractionMobile ) );
     } else if( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) === '.m-text-container-absolute' ) {
+        window.scrollTo( 0, 0 );
         $( data.next.container ).find( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) )[0].scrollTo( 0, $( '.m-arrow-container-fixed' ).outerHeight( true ) );
     } else {
         window.scrollTo( 0, 0 );
@@ -78,6 +79,7 @@ function afterEnterTransition( data ) {
         pageTransitionHelper.resetPageTransitions( data.next.container);
     }
     stateHelper.registerSustainabilitySlideManager( data );
+    scrollToBeginning( data );
 }
 
 function enterTransition( data ) {

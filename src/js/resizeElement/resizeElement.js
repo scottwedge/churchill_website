@@ -13,6 +13,12 @@ const resizeToViewportHeightFraction = ( elements, cssProperty, fraction = 1, ad
     })
 }
 
+function resizeToViewportHeightFractionCeil( elements, cssProperty, fraction = 1, addition = 0 ) {
+    $( elements ).each(function (index, element) {
+        $(element).css(cssProperty, Math.floor( returnViewportHeightFraction( fraction, addition ) ) );
+    })
+}
+
 const resizeElementsToHeightOf = ( elements, cssProperty, referenceElement, withMargin, positive = true ) => {
     let sign = positive ? 1 : -1;
     $( elements ).each( function ( index, element ) {
@@ -34,7 +40,9 @@ export function resizeElements( pageLoad, data ) {
     // If address bar is visible
     if ( stateHelper.addressBarVisible() || pageLoad ) {
         resizeToViewportHeightFraction( $( ".m-media-canvas.top-arrow" ), "height", parseFloat( vars.mediaCanvasHeightTopArrowFractionMobile ) );
+        resizeToViewportHeightFraction( $( ".m-media-canvas.top-arrow" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) - parseFloat( vars.mediaCanvasHeightTopArrowFractionMobile ) );
         resizeToViewportHeightFraction( $( ".m-media-canvas.no-top-arrow" ), "height", parseFloat( vars.mediaCanvasHeightNoTopArrowFractionMobile ) );
-        resizeToViewportHeightFraction( $( ".m-heading-middle" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) );
+        resizeToViewportHeightFraction( $( ".m-media-canvas.no-top-arrow" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) - parseFloat( vars.mediaCanvasHeightNoTopArrowFractionMobile ) );
+        resizeToViewportHeightFractionCeil( $( ".m-heading-middle" ), "top", parseFloat( vars.mediaCanvasStickyFractionMobile ) );
     }
 }
