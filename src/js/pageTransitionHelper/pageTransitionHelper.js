@@ -56,23 +56,19 @@ function goToNextPage( entries, observer ) {
 }
 
 function initiatePageTransitionsTop() {
-    console.log('initiateObserverTop');
     topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage, $( 'main' ) );
 }
 
 function initiatePageTransitionsBottom() {
-    console.log('initiateObserverBottom');
     bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage, $( 'main' ) );
 }
 
 function resetPageTransitionsTop( nextBarbaContainer ) {
-    console.log('resetObserverTop');
     topObserver = detectScrollHelper.scrolledToTopObserver( goToPrevPage, nextBarbaContainer );
 
 }
 
 function resetPageTransitionsBottom( nextBarbaContainer ) {
-    console.log('resetObserverBottom');
     bottomObserver = detectScrollHelper.scrolledToBottomObserver( goToNextPage, nextBarbaContainer );
 }
 

@@ -12,7 +12,7 @@ import * as videoJsHelper from './videoJsHelper/videoJsHelper.js';
 
 export default function sharedFunctions( ) {
     barba.init({
-        debug: true,
+        debug: false,
         transitions: [{
             name: 'opacity-transition',
             once(data) {
@@ -47,10 +47,9 @@ export default function sharedFunctions( ) {
 
 function scrollToBeginning( data ) {
     if( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) === 'window') {
-        console.log("beginning");
         window.scrollTo( 0, resizeElement.returnViewportHeightFraction( vars.arrowAbsoluteHeightFractionMobile ) );
     } else {
-        $( data.next.container ).find( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) )[0].scrollTo( 0, parseInt( vars.scrollToBeginningMeasurements[data.next.namespace] ) );
+        $( data.next.container ).find( vars.scrollingContainer[data.next.namespace].slice( 1, -1 ) )[0].scrollTo( 0, $( '.m-arrow-container-fixed' ).outerHeight( true ) );
     }
 }
 

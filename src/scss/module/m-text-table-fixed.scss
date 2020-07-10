@@ -2,7 +2,7 @@
 
 .m-text-table-fixed {
     display: table;
-    margin: 0 auto vars.$text-table-fixed-margin-bottom auto;
+    margin: 0 auto;
     table-layout: auto;
     transition: #{vars.$nav-close-text-table-fixed-opacity-transition};
 }

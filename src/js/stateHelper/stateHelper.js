@@ -77,7 +77,6 @@ function clearFooterClass() {
 }
 
 function setFooterClass( data ) {
-    console.log( data.next.namespace );
     if( data.next.namespace === 'story' ) {
         $( 'footer' ).addClass( 'm-footer-transparent' );
     } else {

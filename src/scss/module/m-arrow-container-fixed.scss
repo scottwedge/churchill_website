@@ -1,15 +1,13 @@
 @use '../../data/vars.json' as vars;
 
-.m-arrow-container {
+.m-arrow-container-fixed {
     background-size: contain;
-    overflow: hidden;
+    height: vars.$arrow-relative-height-fraction-mobile * 100%;
+    margin: 0 auto;
     width: vars.$arrow-width;
 }
 
-.m-arrow-container.prev {
-    height: vars.$arrow-relative-height-fraction-mobile * 100%;
-    margin: 0 auto;
-
+.m-arrow-container-fixed.prev {
     &.black {
         background: url('~svg/prev_arrow_black.svg') no-repeat center center;
     }
@@ -19,11 +17,8 @@
     }
 }
 
-.m-arrow-container.next {
-    height: 150px;
-    margin: 70px auto 0;
-
+.m-arrow-container-fixed.next {
     &.black {
-        background: url('~svg/next_arrow_black.svg') no-repeat top center;
+        background: url('~svg/next_arrow_black.svg') no-repeat center center;
     }
 }

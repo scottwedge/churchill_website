@@ -55,7 +55,6 @@
     "pMarginTopMobile": "1.4em",
 
     "textTableMarginBottom": "0px",
-    "textTableFixedMarginBottom": "200px",
 
     "socialMediaToH5RelativeSizeMobileRfs": "2.7em",
     "socialMediaMarginLeftRightMobile": "1em",
@@ -164,19 +163,6 @@
 
     "sustainabilitySlideInterval": "3000",
 
-    "scrollToBeginningMeasurements": {
-        "animation": "200",
-        "story": "40",
-        "imprint": "0",
-        "privacy": "0",
-        "about": "1",
-        "contact": "200",
-        "product": "200",
-        "lemon": "200",
-        "mint": "200",
-        "salt": "200",
-        "sustainability": "200"
-    },
     "scrollingContainer": {
         "animation": "'window'",
         "story": "'.m-text-container-absolute'",
